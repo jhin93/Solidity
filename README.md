@@ -20,5 +20,5 @@ https://www.inflearn.com/course/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-blockchain/
 - 공식문서  
 https://solidity-kr.readthedocs.io/ko/latest/index.html
 
-참고자료
+[Warm-up reference]
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
