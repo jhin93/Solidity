@@ -3,7 +3,8 @@
 이곳은 Solidity를 위한 공간입니다.
 블록체인 개발자를 향하여.
 
-순서
+[ 학습 순서 ]
+완료된 과정은 번호 우측에 완료라고 작성.
 
 1. 프로그래머스
 https://programmers.co.kr/learn/courses/36#curriculum
