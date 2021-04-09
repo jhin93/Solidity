@@ -26,3 +26,4 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 하루에 하나씩 읽는 레퍼런스. 시작하기 전에 읽고 시작하자.
 
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
+web3.js란? http://wiki.hash.kr/index.php/Web3.js
