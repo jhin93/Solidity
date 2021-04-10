@@ -27,3 +27,4 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
 web3.js란? http://wiki.hash.kr/index.php/Web3.js
+node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
