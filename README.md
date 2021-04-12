@@ -21,6 +21,9 @@ https://kimsfamily.kr/326
 https://www.inflearn.com/course/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-blockchain/dashboard
 뒷부분의 라이브 코딩.
 
+4. 생활코딩
+https://opentutorials.org/course/2869
+
 
 - 공식문서  
 https://solidity-kr.readthedocs.io/ko/latest/index.html
