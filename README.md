@@ -3,6 +3,7 @@
 이곳은 Solidity를 위한 공간입니다.
 블록체인 개발자를 향하여.
 
+
 [ Solidity 학습 순서 ]
 완료된 과정은 우측에 완료된 날짜와 함께 완료라고 작성.(ex 프로그래머스 4/17 완료)
 
@@ -28,3 +29,5 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
 web3.js란? http://wiki.hash.kr/index.php/Web3.js
 node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
+
+솔리디티 문법 1 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
