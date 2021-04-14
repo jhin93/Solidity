@@ -21,3 +21,10 @@ contract Variables {
         return isHappy;
     }
 }
+
+// pragma. 
+// 컴파일러에게 직접 명령을 내리는 지시자.
+// 모든 Solidity 계약 파일은 최상단에 [pragma ^버전] 을 삽입해야 한다.
+// pragma once() : compile을 한번만 실행
+// https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
+
