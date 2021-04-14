@@ -48,8 +48,16 @@ nft란? https://v.kakao.com/v/20210401051201642
 여기는 문법개념을 분류해서 예시함수들로 설명함.
 https://potensj.tistory.com/18?category=671470
 
+
 여긴 스마트 컨트랙트 구조, 변수, 데이터 위치 등 전반적으로 다룬다.
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
 
+
+- 개념
+
 pragma란?
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+
+자료형 (강철의 블록체인 유튜브 채널 운영자의 블로그)
+https://needjarvis.tistory.com/255

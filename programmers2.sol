@@ -28,3 +28,8 @@ contract Variables {
 // pragma once() : compile을 한번만 실행
 // https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
 
+// 자료형
+// https://needjarvis.tistory.com/255
+
+// address
+// https://solidity-kr.readthedocs.io/ko/latest/types.html#address
