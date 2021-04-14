@@ -32,4 +32,13 @@ contract Variables {
 // https://needjarvis.tistory.com/255
 
 // address
+// address는 balance, transfer, send, call, callcode, delegatecall 등을 member로 가진다.
+// address는 golang의 &와 비슷한 역할을 한다.
+
+// 사용예시 
+// address x = 0x123;
+// address myAddress = this;
+// if (x.balance < 10 && myAddress.balance >= 10) x.transfer(10);
+
+
 // https://solidity-kr.readthedocs.io/ko/latest/types.html#address
