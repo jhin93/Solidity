@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 contract Variables {
     // 값을 바꾸고 [실행]을 눌러 출력을 확인해보세요!
-    string public name = "James";
+    string public name = "Jhin";
     uint128 public birthday = 20180328;
     address public addr = 0x72ba7d8e73fe8eb666ea66babc8116a41bfb10e2;
     uint[] setOfYear = [2018, 2019, 2020];
@@ -12,10 +12,12 @@ contract Variables {
     bool isHappy = true;
 
     // 이 곳에 주석을 지우고 getYear() 함수를 완성해보세요.
-    // function getYear() public view returns (/* 자료형 */) {
-    //     return /* 상태 변수명 */
-    // }
+    function getYear() public view returns (uint) {
+        return year;
+    }
 
     // 이 곳에 getHappy() 함수를 작성해보세요.
-    // function getHappy() public ....
+    function getHappy() public view returns (bool) {
+        return isHappy;
+    }
 }
