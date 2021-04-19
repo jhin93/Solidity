@@ -48,6 +48,9 @@ nft란? https://v.kakao.com/v/20210401051201642
 여기는 문법개념을 분류해서 예시함수들로 설명함.
 https://potensj.tistory.com/18?category=671470
 
+Visibility에 대해서만 다룬 글
+https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030
+
 
 여긴 스마트 컨트랙트 구조, 변수, 데이터 위치 등 전반적으로 다룬다.
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/

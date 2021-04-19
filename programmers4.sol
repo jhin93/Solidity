@@ -4,7 +4,7 @@ contract Solution {
     uint256 balance = 0;
 
     // payable 키워드를 넣어 함수를 완성하세요
-    function sending() /* */ public {
+    function sending() payable public {
         balance = msg.value;
         Sended(msg.value, balance);
     }
@@ -15,3 +15,4 @@ contract Solution {
         uint256 _balance
     );
 }
+
