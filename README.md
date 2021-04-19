@@ -11,11 +11,9 @@
 1. 프로그래머스
 https://programmers.co.kr/learn/courses/36#curriculum
 
-https://programmers.co.kr/learn/courses/36/lessons/1901 4/12 완료.
-
 
 2. 블로그
-https://kimsfamily.kr/326
+https://cryptozombies.io/ko/course
 
 3. 인프런
 https://www.inflearn.com/course/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-blockchain/dashboard
