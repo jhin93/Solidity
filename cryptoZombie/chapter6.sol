@@ -56,6 +56,5 @@ contract ZombieFactory {
 // 이렇게 배열로 만들어진 변수를 다른 컨트랙트들이 읽을 수 있게 하려면 public으로 지정을 하면 된다. 
 // 참고로 다른 컨트랙트가 읽을 수 있게 getter 메소드를 자동적으로 생성하지만 setter 메소드를 생성하는 것은 아니다. 그렇기 때문에 읽을 수만 있고 쓸 수는 없다.
 
-// getter 메소드
-
-// setter 메소드
+// getter, setter 메소드
+// https://velog.io/@mollog/getter-setter%EB%9E%80
