@@ -15,5 +15,7 @@ contract ZombieFactory {
     Zombie[] public zombies;
 
     // 여기서 시작
-
+    function createZombie(string _name, uint _dna) {
+        
+    }
 }
