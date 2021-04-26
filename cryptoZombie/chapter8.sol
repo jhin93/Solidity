@@ -76,7 +76,8 @@ contract SandwichFactory {
 // memory처럼 사라지고, 수정할 수 없다.
 // https://docs.soliditylang.org/en/v0.5.3/types.html
 
-
+// 가시성 중 external은 계약서의 해당 내용을 공개한다는 의미이며, 계약서의 외부에서 사용하는 인터페이스라는 것을 명시하는 것.
+// 그렇기 때문에 이런 external 함수에 사용되는 calldata는 수정도 안되고, 함수 내에서만 사용되고 지워지는 듯 하다.
 
 
 
