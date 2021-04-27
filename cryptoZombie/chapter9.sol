@@ -14,6 +14,10 @@ contract ZombieFactory {
     Zombie[] public zombies;
     
     function _createZombie(string _name, uint _dna) private {
+        // 왜 storage에 저장했는데 저장이 안됐다고 뜨는 걸까.
+        Zombie storage dataSave = zombies[_name];
+        dataSave.name = "it's name";
+        // 위 두 문장이 작동을 안하는 이유는 뭘까.
         zombies.push(Zombie(_name, _dna));
     }
 
