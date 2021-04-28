@@ -43,7 +43,7 @@ nft란? https://v.kakao.com/v/20210401051201642
 
 - 문법 
 
-여기는 문법개념을 분류해서 예시함수들로 설명함.
+여기는 문법개념을 분류해서 예시함수들로 설명함. visibility, 함수 제어자, 데이터 유형.
 https://potensj.tistory.com/18?category=671470
 
 Visibility에 대해서만 다룬 글
