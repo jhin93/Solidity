@@ -15,9 +15,8 @@ https://cryptozombies.io/ko/course
 2. 프로그래머스 (4/19일에 파트 2의 1까지 완료)
 https://programmers.co.kr/learn/courses/36#curriculum 
 
-3. 인프런
-https://www.inflearn.com/course/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-blockchain/dashboard
-뒷부분의 라이브 코딩.
+3. dapp university.
+https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
 
 4. 생활코딩
 https://opentutorials.org/course/2869
