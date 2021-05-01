@@ -50,7 +50,7 @@ contract ZombieFactory {
 
 
 
-// 의문점 해결. public function은 다른 컨트랙트에서 쓸 수도 있지만, public 배열은 그렇지 않다.
+// 의문점 해결. public function은 다른 컨트랙트에서 사용할 수도 있지만, public 배열은 그렇지 않다.
 // https://needjarvis.tistory.com/320
 
 // 이렇게 배열로 만들어진 변수를 다른 컨트랙트들이 읽을 수 있게 하려면 public으로 지정을 하면 된다. 
