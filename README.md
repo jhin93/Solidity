@@ -73,3 +73,9 @@ https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxy
 
 자료형 (강철의 블록체인 유튜브 채널 운영자의 블로그)
 https://needjarvis.tistory.com/255
+
+SHA-3 란?
+https://ko.wikipedia.org/wiki/SHA-3
+
+// abi-encodepacked란?
+// https://frontalnh.github.io/categories/ethereum/blockchain/
