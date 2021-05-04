@@ -28,3 +28,5 @@ contract ZombieFactory {
     }
 
 }
+
+// 함수에 인자를 넣을땐 인자의 타입을 적지 않아도 된다. ex) _createZombie(_name, randDna);
