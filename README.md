@@ -86,5 +86,5 @@ https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%E
 abi-encodepacked란?
 https://frontalnh.github.io/categories/ethereum/blockchain/
 
-솔리디티에서의 event에 대하여
+솔리디티에서의 event에 대하여 (dApp = 스마트 컨트랙트 + 프론트엔드)
 https://nujabes403.medium.com/solidity-event%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-6ed040e12808
