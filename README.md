@@ -77,5 +77,11 @@ https://needjarvis.tistory.com/255
 SHA-3 란?
 https://ko.wikipedia.org/wiki/SHA-3
 
-// abi-encodepacked란?
-// https://frontalnh.github.io/categories/ethereum/blockchain/
+abi란?
+https://hucet.tistory.com/46
+
+이더리움과 abi 관련. api와 비교.
+https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%EC%A0%95%EB%A6%AC-40e639ee1a03
+
+abi-encodepacked란?
+https://frontalnh.github.io/categories/ethereum/blockchain/
