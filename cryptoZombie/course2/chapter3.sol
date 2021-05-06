@@ -3,6 +3,12 @@ pragma solidity ^0.7.0;
 
 // 챕터 3: Msg.sender
 
+
+// 레슨 1에서 다뤘던 _createZombie 메소드를 업데이트하여 이 함수를 호출하는 누구나 좀비 소유권을 부여하도록 해 보세.
+
+// 먼저, 새로운 좀비의 id가 반환된 후에 zombieToOwner 매핑을 업데이트하여 id에 대하여 msg.sender가 저장되도록 해보자.
+// 그 다음, 저장된 msg.sender을 고려하여 ownerZombieCount를 증가시키자.
+
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
     uint dnaDigits = 16;
@@ -22,6 +28,7 @@ contract ZombieFactory {
         // 새롭게 Zombie 구조체에 추가를 한 좀비의 인덱스를 id로 사용한다.
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
+        // 
         zombieToOwner[id] = msg.sender;
         ownerZombieCount[msg.sender] ++;
         emit NewZombie(id, _name, _dna);
@@ -38,11 +45,6 @@ contract ZombieFactory {
     }
 
 }
-
-// 레슨 1에서 다뤘던 _createZombie 메소드를 업데이트하여 이 함수를 호출하는 누구나 좀비 소유권을 부여하도록 해 보세.
-
-// 먼저, 새로운 좀비의 id가 반환된 후에 zombieToOwner 매핑을 업데이트하여 id에 대하여 msg.sender가 저장되도록 해보자.
-// 그 다음, 저장된 msg.sender을 고려하여 ownerZombieCount를 증가시키자.
 
 // 자바스크립트와 마찬가지로 솔리디티에서도 uint를 ++로 증가시킬 수 있다.
 
