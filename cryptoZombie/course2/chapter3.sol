@@ -24,6 +24,8 @@ contract ZombieFactory {
 
     function _createZombie(string memory _name, uint _dna) private {
         // 새롭게 Zombie 구조체에 추가를 한 좀비의 인덱스를 id로 사용한다.
+        // 해결. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
+        // 버전 0.6부터 push가 length를 반환하지 않고 더하기 기능만 수행함. 
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
         // msg.sender 대입
