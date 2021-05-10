@@ -15,7 +15,9 @@ contract ZombieFactory {
 
     Zombie[] public zombies;
     // 여기서 매핑 선언
+    // 좀비 소유자의 주소를 추적하기 위한 것
     mapping (uint => address) public zombieToOwner;
+    // 소유한 좀비의 숫자를 추적하기 위한 것
     mapping (address => uint) ownerZombieCount;
 
     function _createZombie(string memory _name, uint _dna) private {
