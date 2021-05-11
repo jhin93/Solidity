@@ -3,6 +3,7 @@ pragma solidity ^0.7.0;
 
 // 챕터 2: 매핑과 주소
 
+// 데이터베이스에 저장된 좀비들에게 주인을 설정하여 우리 게임을 멀티 플레이어 게임으로 만들어 보세.
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
     uint dnaDigits = 16;
