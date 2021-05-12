@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
+// 챕터 4: require
+
+// 레슨 1에서 유저가 createRandomZombie를 호출하여 좀비 이름을 입력하면 새로운 좀비를 생성할 수 있도록 했네. 
+// 하지만, 만일 유저가 이 함수를 계속 호출해서 무제한으로 좀비를 생성한다면 게임이 매우 재미있지는 않을 걸세.
+// 각 플레이어가 이 함수를 한 번만 호출할 수 있도록 만들어 보세. 이로써 새로운 플레이어들이 게임을 처음 시작할 때 좀비 군대를 구성할 첫 좀비를 생성하기 위해 createRandomZombie함수를 호출하게 될 것이네.
+// 어떻게 하면 이 함수가 각 플레이어마다 한 번씩만 호출되도록 할 수 있을까?
+// 이를 위해 require를 활용할 것이네. require를 활용하면 특정 조건이 참이 아닐 때 함수가 에러 메시지를 발생하고 실행을 멈추게 되지
+
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
     uint dnaDigits = 16;
@@ -42,3 +50,15 @@ contract ZombieFactory {
     }
 
 }
+
+
+// require 예시
+
+// function sayHiToVitalik(string _name) public returns (string) {
+//   // _name이 "Vitalik"인지 비교한다. 참이 아닐 경우 에러 메시지를 발생하고 함수를 벗어난다
+//   // (참고: 솔리디티는 고유의 스트링 비교 기능을 가지고 있지 않기 때문에 
+//   // 스트링의 keccak256 해시값을 비교하여 스트링 값이 같은지 판단한다)
+//   require(keccak256(_name) == keccak256("Vitalik"));
+//   // 참이면 함수 실행을 진행한다:
+//   return "Hi!";
+// }
