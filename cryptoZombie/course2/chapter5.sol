@@ -61,10 +61,14 @@ contract ZombieFactory {
     }
 
     function createRandomZombie(string memory _name) public {
-        // 여기서 시작
         require(ownerZombieCount[msg.sender] == 0);
         uint randDna = _generateRandomDna(_name);
         _createZombie(_name, randDna);
     }
 
+}
+
+// 여기서 시작
+contract ZombieFeeding is ZombieFactory {
+    
 }
