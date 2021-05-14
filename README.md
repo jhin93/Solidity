@@ -88,3 +88,6 @@ https://frontalnh.github.io/categories/ethereum/blockchain/
 
 솔리디티에서의 event에 대하여 (dApp = 스마트 컨트랙트 + 프론트엔드)
 https://nujabes403.medium.com/solidity-event%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-6ed040e12808
+
+매핑과 구조체의 차이
+https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyReferer=https:%2F%2Fwww.google.com%2F
