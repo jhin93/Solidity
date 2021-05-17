@@ -13,6 +13,45 @@ pragma solidity ^0.7.0;
 // 상태 변수(함수 외부에 선언된 변수)는 초기 설정상 storage로 선언되어 블록체인에 영구적으로 저장되는 반면, 
 // 함수 내에 선언된 변수는 memory로 자동 선언되어서 함수 호출이 종료되면 사라지지.
 
+// 하지만 이 키워드들을 사용해야 하는 때가 있지. 바로 함수 내의 구조체와 _배열_을 처리할 때지
+
+// contract SandwichFactory {
+//   struct Sandwich {
+//     string name;
+//     string status;
+//   }
+
+//   Sandwich[] sandwiches;
+
+//   function eatSandwich(uint _index) public {
+//     // Sandwich mySandwich = sandwiches[_index];
+
+//     // ^ 꽤 간단해 보이나, 솔리디티는 여기서 
+//     // `storage`나 `memory`를 명시적으로 선언해야 한다는 경고 메시지를 발생한다. 
+//     // 그러므로 `storage` 키워드를 활용하여 다음과 같이 선언해야 한다:
+//     Sandwich storage mySandwich = sandwiches[_index];
+//     // ...이 경우, `mySandwich`는 저장된 `sandwiches[_index]`를 가리키는 포인터이다.
+//     // 그리고 
+//     mySandwich.status = "Eaten!";
+//     // ...이 코드는 블록체인 상에서 `sandwiches[_index]`을 영구적으로 변경한다. 
+
+//     // 단순히 복사를 하고자 한다면 `memory`를 이용하면 된다: 
+//     Sandwich memory anotherSandwich = sandwiches[_index + 1];
+//     // ...이 경우, `anotherSandwich`는 단순히 메모리에 데이터를 복사하는 것이 된다. 
+//     // 그리고 
+//     anotherSandwich.status = "Eaten!";
+//     // ...이 코드는 임시 변수인 `anotherSandwich`를 변경하는 것으로 
+//     // `sandwiches[_index + 1]`에는 아무런 영향을 끼치지 않는다. 그러나 다음과 같이 코드를 작성할 수 있다: 
+//     sandwiches[_index + 1] = anotherSandwich;
+//     // ...이는 임시 변경한 내용을 블록체인 저장소에 저장하고자 하는 경우이다.
+//   }
+// }
+
+// 어떤 키워드를 이용해야 하는지 정확하게 이해하지 못한다고 해도 걱정 말게. 
+// 이 튜토리얼을 진행하는 동안 언제 storage 혹은 memory를 사용해야 하는지 알려 주겠네. 
+// 솔리디티 컴파일러도 경고 메시지를 통해 어떤 키워드를 사용해야 하는지 알려 줄 것이네.
+// 지금으로선 명시적으로 storage나 memory를 선언할 필요가 있는 경우가 있다는 걸 이해하는 것만으로 충분하네!
+
 // 여기에 import 구문을 넣기
 import "./zombiefactory.sol";
 contract ZombieFeeding is ZombieFactory {
