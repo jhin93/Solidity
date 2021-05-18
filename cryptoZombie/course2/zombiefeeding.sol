@@ -52,8 +52,19 @@ pragma solidity ^0.7.0;
 // 솔리디티 컴파일러도 경고 메시지를 통해 어떤 키워드를 사용해야 하는지 알려 줄 것이네.
 // 지금으로선 명시적으로 storage나 memory를 선언할 필요가 있는 경우가 있다는 걸 이해하는 것만으로 충분하네!
 
+// storage, memory 예제
+// https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/
+
 // 여기에 import 구문을 넣기
 import "./zombiefactory.sol";
 contract ZombieFeeding is ZombieFactory {
-
+    // 여기서 시작
+    // 이 함수는 인자를 전달받아 쓰는 pure가 아닌 데이터(msg.sender나 zombieToOwner 등)를 읽고 써야 하기에 'view'를 사용해야 한다.
+    // 근데 왜 Zombie storage myZombie = zombies[_zombieId]; -> 이 행은 에러가 안나지? storage를 써서 변화시켰는데?
+    // 나름의 답 도출 - 상태변수를 변화시킨게 아니라 Zombie라는 지역변수를 선언하는 것이라 가능한 듯.
+    function feedAndMultiply(uint _zombieId, uint _targetDna) view public {
+        // 매핑 zombieToOwner에 uint _zombieId를 넣은 값은 타입이 address여야 하고 그게 msg.sender와 동일하면 주인으로 인정된다.
+        require(msg.sender == zombieToOwner[_zombieId]);
+        Zombie storage myZombie = zombies[_zombieId];
+    }
 }

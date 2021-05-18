@@ -56,8 +56,7 @@ https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
 
 
 storage와 memory
-https://steemit.com/hive-101145/@happyberrysboy/happyberrysboy-posting-2020-08-14-00-24 - 아래 링크에 대해 주석으로 설명을 달아놨다.
-https://www.crocus.co.kr/1252 - 사용예시. 설명은 부족하다.
+https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/
 
 calldata
 https://medium.com/day34/solidity-0-5-0-%EC%97%90%EC%84%9C%EC%9D%98-%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4-ab6104296164
