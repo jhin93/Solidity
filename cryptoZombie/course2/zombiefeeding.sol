@@ -38,5 +38,8 @@ contract ZombieFeeding is ZombieFactory {
         // 2. 그리고 여기에 zombies의 _zombieId번째 인덱스에 해당하는 값을 집어넣는다.
         Zombie storage myZombie = zombies[_zombieId];
         // 여기서 시작
+        _targetDna = _targetDna % dnaModulus;
+        uint newDna = (myZombie.dna + _targetDna) / 2;
+        _createZombie("NoName", newDna);
     }
 }
