@@ -1,6 +1,31 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
+
+// 지난 예시의 Person 구조체를 기억하나?
+
+// struct Person {
+//   uint age;
+//   string name;
+// }
+// Person[] public people;
+
+// 이제 새로운 Person를 생성하고 people 배열에 추가하는 방법을 살펴보도록 하지.
+
+// 새로운 사람을 생성한다:
+// Person satoshi = Person(172, "Satoshi");
+// 이 사람을 배열에 추가한다:
+// people.push(satoshi);
+
+// 이 두 코드를 조합하여 깔끔하게 한 줄로 표현할 수 있네:
+// people.push(Person(16, "Vitalik"));
+
+// uint[] numbers;
+// numbers.push(5);
+// numbers.push(10);
+// numbers.push(15);
+// numbers 배열은 [5, 10, 15]과 같다.
+
 contract ZombieFactory {
 
     uint dnaDigits = 16;
