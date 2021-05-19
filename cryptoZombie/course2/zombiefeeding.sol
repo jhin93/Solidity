@@ -35,9 +35,15 @@ contract ZombieFeeding is ZombieFactory {
         require(msg.sender == zombieToOwner[_zombieId]);
         // 스스로 해석한 아랫문장의 내용.
         // 1. myZombie라는 Zombie형의 구조체를 전역에서 쓰일 데이터로 선언한다(storage에 저장)
-        // 2. 그리고 여기에 zombies의 _zombieId번째 인덱스에 해당하는 값을 집어넣는다.
+        // 2. 그리고 여기에 zombies의 _zombieId번째 인덱스에 해당하는 값을 대입한다. 즉, Zombie형 구조체.
+        
+        // 다른 사람 해석 참고 https://brunch.co.kr/@skkrypto/74
+        // 1. 먹이를 먹는 좀비 DNA를 storage에 저장하려고 함.
+        // 2. zombies 배열의 _zombieId 인덱스가 가진 값을 Zombie형 변수 myZombie라는 포인터에 부여함.
         Zombie storage myZombie = zombies[_zombieId];
         // 여기서 시작
+        // _targetDna가 16자리보다 크지 않게 하기 위한 식이 왜 아래처럼 되는 걸까..?
+        // 16자리보다 '작아야' 하니까 %를 쓴 것. 16자리보다 작다면 그 숫자 그대로 사용됨.
         _targetDna = _targetDna % dnaModulus;
         uint newDna = (myZombie.dna + _targetDna) / 2;
         _createZombie("NoName", newDna);
