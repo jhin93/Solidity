@@ -4,7 +4,7 @@ pragma solidity ^0.7.0;
 // 접근 제어자(visibility modifier) : public, private, internal, external
 // 상태 제어자(state modifier) : view, pure
 
-// 챕터 10: 좀비가 무엇을 먹나요?
+// 챕터 11: 인터페이스 활용하기
 
 // getKitty 함수가 어떤 함수인지 알아 보았으니, 이를 이용하여 인터페이스를 만들어 볼 수 있을 걸세.
 // KittyInterface라는 인터페이스를 정의한다. 인터페이스 정의가 contract 키워드를 이용하여 새로운 컨트랙트를 생성하는 것과 같다는 점을 기억할 것.
