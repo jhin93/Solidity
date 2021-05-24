@@ -12,7 +12,10 @@ pragma solidity ^0.7.0;
 
 import "./zombiefactory.sol";
 
-// 여기에 KittyInterface를 생성한다
+// 여기에 KittyInterface를 생성한다.
+// 에러 발생
+// 1. Contract "KittyInterface" should be marked as abstract. - contract KittyInterface에서 발생.
+// 2. Functions without implementation must be marked virtual. - function getKitty(uint256 _id) external view returns 에서 발생.
 contract KittyInterface {
   function getKitty(uint256 _id) external view returns (
     bool isGestating,
@@ -29,6 +32,13 @@ contract KittyInterface {
 }
 
 contract ZombieFeeding is ZombieFactory {
+    // 코드를 보면 ckAddress라는 변수에 크립토키티 컨트랙트 주소가 입력되어 있다. 
+    // 다음 줄에 kittyContract라는 KittyInterface를 생성하고, 위의 numberContract 선언 시와 동일하게 ckAddress를 이용하여 초기화한다.
+    
+    address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
+    // `ckAddress`를 이용하여 여기에 kittyContract를 초기화한다
+    KittyInterface kittyContract = KittyInterface(ckAddress);
+
     function feedAndMultiply(uint _zombieId, uint _targetDna) public {
         require(msg.sender == zombieToOwner[_zombieId]);
         Zombie storage myZombie = zombies[_zombieId];
