@@ -12,7 +12,6 @@ pragma solidity ^0.7.0;
 
 import "./zombiefactory.sol";
 
-// 여기에 KittyInterface를 생성한다.
 // 에러 발생
 // 1. Contract "KittyInterface" should be marked as abstract. - contract KittyInterface에서 발생.
 // 2. Functions without implementation must be marked virtual. - function getKitty(uint256 _id) external view returns 에서 발생.
