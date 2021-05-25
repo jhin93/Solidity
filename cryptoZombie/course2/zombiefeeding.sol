@@ -20,6 +20,7 @@ import "./zombiefactory.sol";
 // contract KittyInterface를 interface KittyInterface로 바꾸니 해결.
 // 버전 차이로 추정. interface를 쓰는 것이 최신인 듯. 아래 참고.
 // https://docs.soliditylang.org/en/v0.5.2/style-guide.html?highlight=interface#order-of-layout
+// https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-19e2686201f6
 interface KittyInterface {
   function getKitty(uint256 _id) external view returns (
     bool isGestating,
