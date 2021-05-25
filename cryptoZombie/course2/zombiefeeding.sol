@@ -15,7 +15,12 @@ import "./zombiefactory.sol";
 // 에러 발생
 // 1. Contract "KittyInterface" should be marked as abstract. - contract KittyInterface에서 발생.
 // 2. Functions without implementation must be marked virtual. - function getKitty(uint256 _id) external view returns 에서 발생.
-contract KittyInterface {
+
+// 에러 해결.
+// contract KittyInterface를 interface KittyInterface로 바꾸니 해결.
+// 버전 차이로 추정. interface를 쓰는 것이 최신인 듯. 아래 참고.
+// https://docs.soliditylang.org/en/v0.5.2/style-guide.html?highlight=interface#order-of-layout
+interface KittyInterface {
   function getKitty(uint256 _id) external view returns (
     bool isGestating,
     bool isReady,

@@ -42,6 +42,10 @@ nft란? https://v.kakao.com/v/20210401051201642
 
 - 문법 
 
+솔리디티 코드 레이아웃(스타일가이드)
+https://docs.soliditylang.org/en/v0.5.2/style-guide.html#code-layout
+https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-19e2686201f6
+
 여기는 문법개념을 분류해서 예시함수들로 설명함. visibility, 함수 제어자, 데이터 유형.
 https://potensj.tistory.com/18?category=671470
 
@@ -94,3 +98,6 @@ https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyRe
 
 구조체 배열 사용예시
 https://hatpub.tistory.com/56
+
+생성자(constructor)
+https://caileb.tistory.com/137
