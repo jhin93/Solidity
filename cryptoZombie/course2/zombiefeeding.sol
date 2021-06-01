@@ -60,3 +60,45 @@ contract ZombieFeeding is ZombieFactory {
   }
 
 }
+
+// OpenZeppelin의 Ownable 컨트랙트
+
+// 아래에 나와있는 것은 OpenZeppelin 솔리디티 라이브러리에서 가져온 Ownable 컨트랙트이네. OpenZeppelin은 자네의 DApp에서 사용할 수 있는, 안전하고 커뮤니티에서 검증받은 스마트 컨트랙트의 라이브러리라네. 
+// 이 레슨 이후에, 자네가 레슨 4의 출시를 고대하며 기다리는 동안, 우린 자네가 저들의 사이트를 확인하고 더 학습하기를 추천하네!
+// 아래 컨트랙트를 한번 훑어보게. 우리가 아직 배우지 않은 것들이 몇몇 보이겠지만, 걱정하지 말게. 앞으로 그것들에 대해 차차 살펴볼 것이네.
+
+// /**
+//  * @title Ownable
+//  * @dev The Ownable contract has an owner address, and provides basic authorization control
+//  * functions, this simplifies the implementation of "user permissions".
+//  */
+// contract Ownable {
+//   address public owner;
+//   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+//   /**
+//    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+//    * account.
+//    */
+//   function Ownable() public {
+//     owner = msg.sender;
+//   }
+
+//   /**
+//    * @dev Throws if called by any account other than the owner.
+//    */
+//   modifier onlyOwner() {
+//     require(msg.sender == owner);
+//     _;
+//   }
+
+//   /**
+//    * @dev Allows the current owner to transfer control of the contract to a newOwner.
+//    * @param newOwner The address to transfer ownership to.
+//    */
+//   function transferOwnership(address newOwner) public onlyOwner {
+//     require(newOwner != address(0));
+//     OwnershipTransferred(owner, newOwner);
+//     owner = newOwner;
+//   }
+// }
