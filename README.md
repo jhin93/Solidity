@@ -1,66 +1,67 @@
 # Solidity
 
-?씠怨녹?? Solidity瑜? ?쐞?븳 怨듦컙?엯?땲?떎.
-釉붾줉泥댁씤 媛쒕컻?옄瑜? ?뼢?븯?뿬.
+이곳은 Solidity를 위한 공간입니다.
+블록체인 개발자를 향하여.
 
 
 
-[ Solidity ?븰?뒿 ?닚?꽌 ]
-?셿猷뚮맂 怨쇱젙??? ?슦痢≪뿉 ?셿猷뚮맂 ?궇吏쒖?? ?븿猿? ?셿猷뚮씪怨? ?옉?꽦.(ex ?봽濡쒓렇?옒癒몄뒪 4/17 ?셿猷?)
+[ Solidity 학습 순서 ]
+완료된 과정은 우측에 완료된 날짜와 함께 완료라고 작성.(ex 프로그래머스 4/17 완료)
 
-1. ?겕由쏀넗醫?鍮?
+1.  크립토좀비
 https://cryptozombies.io/ko/course
 
 
-2. ?봽濡쒓렇?옒癒몄뒪 (4/19?씪?뿉 ?뙆?듃 2?쓽 1源뚯?? ?셿猷?)
+2. 프로그래머스 (4/19일에 파트 2의 1까지 완료)
 https://programmers.co.kr/learn/courses/36#curriculum 
 
 3. dapp university.
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
 
-4. ?깮?솢肄붾뵫
+4. 생활코딩
 https://opentutorials.org/course/2869
 
 
-- 怨듭떇臾몄꽌  
+- 공식문서.
 https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 
 
 [Warm-up reference]
-?떆?옉?븯湲? ?쟾?뿉 ?씫怨? ?떆?옉?븯?옄.
+시작하기 전에 읽고 시작하자.
 
-?뒪留덊듃 而⑦듃?옓?듃???? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
-web3.js???? http://wiki.hash.kr/index.php/Web3.js
-node.js???? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
-nft???? https://v.kakao.com/v/20210401051201642
-肄붿씤怨? ?넗?겙?쓽 李⑥씠 https://www.tokenpost.kr/terms/11550
-肄붿씤 硫붿씤?꽬?씠???? https://webruden.tistory.com/530
+스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
+web3.js란? http://wiki.hash.kr/index.php/Web3.js
+node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
+nft란? https://v.kakao.com/v/20210401051201642
+코인과 토큰의 차이 https://www.tokenpost.kr/terms/11550
+코인 메인넷이란? https://webruden.tistory.com/530
 
 
-[?넄由щ뵒?떚 愿??젴 ?옄猷? 紐⑥쓬]
 
-- 臾몃쾿 
+[솔리디티 관련 자료 모음]
 
-?넄由щ뵒?떚 肄붾뱶 ?젅?씠?븘?썐(?뒪????씪媛??씠?뱶)
+- 문법
+
+솔리디티 코드 레이아웃(스타일가이드)
 https://docs.soliditylang.org/en/v0.5.2/style-guide.html#code-layout
 https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-19e2686201f6
 
-?뿬湲곕뒗 臾몃쾿媛쒕뀗?쓣 遺꾨쪟?빐?꽌 ?삁?떆?븿?닔?뱾濡? ?꽕紐낇븿. visibility, ?븿?닔 ?젣?뼱?옄, ?뜲?씠?꽣 ?쑀?삎.
+여기는 문법개념을 분류해서 예시함수들로 설명함. visibility, 함수 제어자, 데이터 유형.
 https://potensj.tistory.com/18?category=671470
 
-?젒洹? ?젣?뼱?옄(Visibility)?뿉 ????빐?꽌留? ?떎猷? 湲?
+접근 제어자(Visibility)에 대해서만 다룬 글
 https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030
 https://caileb.tistory.com/140  
 
-?긽?깭 ?젣?뼱?옄 ?꽕紐? ?옒?빐?넃??? 湲?
+상태 제어자 설명 잘해놓은 글
 https://codemath.github.io/Solidity-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B8%B0%EB%B0%98-Dapp-%EA%B0%9C%EB%B0%9C%EA%B8%B0(2)-Solidity-%EC%96%B8%EC%96%B4-%EC%A0%95%EB%A6%AC/
 
-?뿬湲? ?뒪留덊듃 而⑦듃?옓?듃 援ъ“, 蹂??닔, ?뜲?씠?꽣 ?쐞移? ?벑 ?쟾諛섏쟻?쑝濡? ?떎猷щ떎.
+여긴 스마트 컨트랙트 구조, 변수, 데이터 위치 등 전반적으로 다룬다.
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
 
 
-storage??? memory
+storage와 memory
 https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/
 
 calldata
@@ -69,39 +70,39 @@ https://medium.com/day34/solidity-0-5-0-%EC%97%90%EC%84%9C%EC%9D%98-%EB%B3%80%EA
 https://docs.soliditylang.org/en/v0.5.3/types.html
 
 
-- 媛쒕뀗
+- 개념
 
-pragma????
+pragma란?
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
 
 
-?옄猷뚰삎 (媛뺤쿋?쓽 釉붾줉泥댁씤 ?쑀?뒠釉? 梨꾨꼸 ?슫?쁺?옄?쓽 釉붾줈洹?)
+자료형 (강철의 블록체인 유튜브 채널 운영자의 블로그)
 https://needjarvis.tistory.com/255
 
-SHA-3 ????
+SHA-3 란?
 https://ko.wikipedia.org/wiki/SHA-3
 
-keccak-256 ?씠????
+keccak-256이란?
 http://wiki.hash.kr/index.php/Keccak-256
 
-abi????
+abi란?
 https://hucet.tistory.com/46
 
-?씠?뜑由ъ??怨? abi 愿??젴. api??? 鍮꾧탳.
+이더리움과 abi 관련. api와 비교.
 https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%EC%A0%95%EB%A6%AC-40e639ee1a03
 
-abi-encodepacked????
+abi-encodepacked란?
 https://frontalnh.github.io/categories/ethereum/blockchain/
 
-?넄由щ뵒?떚?뿉?꽌?쓽 event?뿉 ????븯?뿬 (dApp = ?뒪留덊듃 而⑦듃?옓?듃 + ?봽濡좏듃?뿏?뱶)
+솔리디티에서의 event에 대하여 (dApp = 스마트 컨트랙트 + 프론트엔드)
 https://nujabes403.medium.com/solidity-event%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-6ed040e12808
 
-留ㅽ븨怨? 援ъ“泥댁쓽 李⑥씠
+매핑과 구조체의 차이
 https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyReferer=https:%2F%2Fwww.google.com%2F
 
-援ъ“泥? 諛곗뿴 ?궗?슜?삁?떆
+구조체 배열 사용예시
 https://hatpub.tistory.com/56
 
-?깮?꽦?옄(constructor)
+생성자(constructor)
 https://caileb.tistory.com/137
 https://docs.soliditylang.org/en/v0.7.5/contracts.html?highlight=constructor#constructors
