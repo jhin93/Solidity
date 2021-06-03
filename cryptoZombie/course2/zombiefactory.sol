@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
-// 1. 여기서 import하게
 import "./ownable.sol";
 
-// 2. 상속을 추가하게:
 contract ZombieFactory is Ownable{
     event NewZombie(uint zombieId, string name, uint dna);
     uint dnaDigits = 16;
@@ -18,7 +16,6 @@ contract ZombieFactory is Ownable{
     mapping (uint => address) public zombieToOwner;
     mapping (address => uint) ownerZombieCount;
 
-    // edit function definition below
     function _createZombie(string memory _name, uint _dna) internal {
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
