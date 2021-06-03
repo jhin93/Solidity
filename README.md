@@ -1,24 +1,24 @@
 # Solidity
 
-ì´ê³³ì€ Solidityë¥¼ ìœ„í•œ ê³µê°„ì…ë‹ˆë‹¤.
-ë¸”ë¡ì²´ì¸ ê°œë°œìë¥¼ í–¥í•˜ì—¬.
+?´ê³³ì?? Solidityë¥? ?œ„?•œ ê³µê°„?…?‹ˆ?‹¤.
+ë¸”ë¡ì²´ì¸ ê°œë°œ?ë¥? ?–¥?•˜?—¬.
 
 
 
-[ Solidity í•™ìŠµ ìˆœì„œ ]
-ì™„ë£Œëœ ê³¼ì •ì€ ìš°ì¸¡ì— ì™„ë£Œëœ ë‚ ì§œì™€ í•¨ê»˜ ì™„ë£Œë¼ê³  ì‘ì„±.(ex í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ 4/17 ì™„ë£Œ)
+[ Solidity ?•™?Šµ ?ˆœ?„œ ]
+?™„ë£Œëœ ê³¼ì •??? ?š°ì¸¡ì— ?™„ë£Œëœ ?‚ ì§œì?? ?•¨ê»? ?™„ë£Œë¼ê³? ?‘?„±.(ex ?”„ë¡œê·¸?˜ë¨¸ìŠ¤ 4/17 ?™„ë£?)
 
-1. í¬ë¦½í† ì¢€ë¹„
+1. ?¬ë¦½í† ì¢?ë¹?
 https://cryptozombies.io/ko/course
 
 
-2. í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ (4/19ì¼ì— íŒŒíŠ¸ 2ì˜ 1ê¹Œì§€ ì™„ë£Œ)
+2. ?”„ë¡œê·¸?˜ë¨¸ìŠ¤ (4/19?¼?— ?ŒŒ?Š¸ 2?˜ 1ê¹Œì?? ?™„ë£?)
 https://programmers.co.kr/learn/courses/36#curriculum 
 
 3. dapp university.
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
 
-4. ìƒí™œì½”ë”©
+4. ?ƒ?™œì½”ë”©
 https://opentutorials.org/course/2869
 
 
@@ -28,39 +28,39 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 
 [Warm-up reference]
-ì‹œì‘í•˜ê¸° ì „ì— ì½ê³  ì‹œì‘í•˜ì.
+?‹œ?‘?•˜ê¸? ? „?— ?½ê³? ?‹œ?‘?•˜?.
 
-ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ë€? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
-web3.jsë€? http://wiki.hash.kr/index.php/Web3.js
-node.jsë€? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
-nftë€? https://v.kakao.com/v/20210401051201642
-ì½”ì¸ê³¼ í† í°ì˜ ì°¨ì´ https://www.tokenpost.kr/terms/11550
-ì½”ì¸ ë©”ì¸ë„·ì´ë€? https://webruden.tistory.com/530
+?Š¤ë§ˆíŠ¸ ì»¨íŠ¸?™?Š¸???? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
+web3.js???? http://wiki.hash.kr/index.php/Web3.js
+node.js???? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
+nft???? https://v.kakao.com/v/20210401051201642
+ì½”ì¸ê³? ?† ?°?˜ ì°¨ì´ https://www.tokenpost.kr/terms/11550
+ì½”ì¸ ë©”ì¸?„·?´???? https://webruden.tistory.com/530
 
 
-[ì†”ë¦¬ë””í‹° ê´€ë ¨ ìë£Œ ëª¨ìŒ]
+[?†”ë¦¬ë””?‹° ê´?? ¨ ?ë£? ëª¨ìŒ]
 
 - ë¬¸ë²• 
 
-ì†”ë¦¬ë””í‹° ì½”ë“œ ë ˆì´ì•„ì›ƒ(ìŠ¤íƒ€ì¼ê°€ì´ë“œ)
+?†”ë¦¬ë””?‹° ì½”ë“œ ? ˆ?´?•„?›ƒ(?Š¤????¼ê°??´?“œ)
 https://docs.soliditylang.org/en/v0.5.2/style-guide.html#code-layout
 https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-19e2686201f6
 
-ì—¬ê¸°ëŠ” ë¬¸ë²•ê°œë…ì„ ë¶„ë¥˜í•´ì„œ ì˜ˆì‹œí•¨ìˆ˜ë“¤ë¡œ ì„¤ëª…í•¨. visibility, í•¨ìˆ˜ ì œì–´ì, ë°ì´í„° ìœ í˜•.
+?—¬ê¸°ëŠ” ë¬¸ë²•ê°œë…?„ ë¶„ë¥˜?•´?„œ ?˜ˆ?‹œ?•¨?ˆ˜?“¤ë¡? ?„¤ëª…í•¨. visibility, ?•¨?ˆ˜ ? œ?–´?, ?°?´?„° ?œ ?˜•.
 https://potensj.tistory.com/18?category=671470
 
-ì ‘ê·¼ ì œì–´ì(Visibility)ì— ëŒ€í•´ì„œë§Œ ë‹¤ë£¬ ê¸€
+? ‘ê·? ? œ?–´?(Visibility)?— ????•´?„œë§? ?‹¤ë£? ê¸?
 https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030
 https://caileb.tistory.com/140  
 
-ìƒíƒœ ì œì–´ì ì„¤ëª… ì˜í•´ë†“ì€ ê¸€
+?ƒ?ƒœ ? œ?–´? ?„¤ëª? ?˜?•´?†“??? ê¸?
 https://codemath.github.io/Solidity-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B8%B0%EB%B0%98-Dapp-%EA%B0%9C%EB%B0%9C%EA%B8%B0(2)-Solidity-%EC%96%B8%EC%96%B4-%EC%A0%95%EB%A6%AC/
 
-ì—¬ê¸´ ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ êµ¬ì¡°, ë³€ìˆ˜, ë°ì´í„° ìœ„ì¹˜ ë“± ì „ë°˜ì ìœ¼ë¡œ ë‹¤ë£¬ë‹¤.
+?—¬ê¸? ?Š¤ë§ˆíŠ¸ ì»¨íŠ¸?™?Š¸ êµ¬ì¡°, ë³??ˆ˜, ?°?´?„° ?œ„ì¹? ?“± ? „ë°˜ì ?œ¼ë¡? ?‹¤ë£¬ë‹¤.
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
 
 
-storageì™€ memory
+storage??? memory
 https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/
 
 calldata
@@ -71,36 +71,37 @@ https://docs.soliditylang.org/en/v0.5.3/types.html
 
 - ê°œë…
 
-pragmaë€?
+pragma????
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
 
 
-ìë£Œí˜• (ê°•ì² ì˜ ë¸”ë¡ì²´ì¸ ìœ íŠœë¸Œ ì±„ë„ ìš´ì˜ìì˜ ë¸”ë¡œê·¸)
+?ë£Œí˜• (ê°•ì² ?˜ ë¸”ë¡ì²´ì¸ ?œ ?Šœë¸? ì±„ë„ ?š´?˜??˜ ë¸”ë¡œê·?)
 https://needjarvis.tistory.com/255
 
-SHA-3 ë€?
+SHA-3 ????
 https://ko.wikipedia.org/wiki/SHA-3
 
-keccak-256 ì´ë€?
+keccak-256 ?´????
 http://wiki.hash.kr/index.php/Keccak-256
 
-abië€?
+abi????
 https://hucet.tistory.com/46
 
-ì´ë”ë¦¬ì›€ê³¼ abi ê´€ë ¨. apiì™€ ë¹„êµ.
+?´?”ë¦¬ì??ê³? abi ê´?? ¨. api??? ë¹„êµ.
 https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%EC%A0%95%EB%A6%AC-40e639ee1a03
 
-abi-encodepackedë€?
+abi-encodepacked????
 https://frontalnh.github.io/categories/ethereum/blockchain/
 
-ì†”ë¦¬ë””í‹°ì—ì„œì˜ eventì— ëŒ€í•˜ì—¬ (dApp = ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ + í”„ë¡ íŠ¸ì—”ë“œ)
+?†”ë¦¬ë””?‹°?—?„œ?˜ event?— ????•˜?—¬ (dApp = ?Š¤ë§ˆíŠ¸ ì»¨íŠ¸?™?Š¸ + ?”„ë¡ íŠ¸?—”?“œ)
 https://nujabes403.medium.com/solidity-event%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-6ed040e12808
 
-ë§¤í•‘ê³¼ êµ¬ì¡°ì²´ì˜ ì°¨ì´
+ë§¤í•‘ê³? êµ¬ì¡°ì²´ì˜ ì°¨ì´
 https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyReferer=https:%2F%2Fwww.google.com%2F
 
-êµ¬ì¡°ì²´ ë°°ì—´ ì‚¬ìš©ì˜ˆì‹œ
+êµ¬ì¡°ì²? ë°°ì—´ ?‚¬?š©?˜ˆ?‹œ
 https://hatpub.tistory.com/56
 
-ìƒì„±ì(constructor)
+?ƒ?„±?(constructor)
 https://caileb.tistory.com/137
+https://docs.soliditylang.org/en/v0.7.5/contracts.html?highlight=constructor#constructors
