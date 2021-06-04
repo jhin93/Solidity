@@ -3,16 +3,12 @@ pragma solidity ^0.7.0;
 
 // 접근 제어자(visibility modifier) : public, private, internal, external
 // 상태 제어자(state modifier) : view, pure
+// 함수 제어자 : 'modifier' - lesson3 챕터 3 참고.
 
-// 챕터 3: onlyOwner 함수 제어자
+// 챕터 4: 가스(Gas)
 
-// 자, 이제 우리의 기본 컨트랙트인 ZombieFactory가 Ownable을 상속하고 있으니, 우리는 onlyOwner 함수 제어자를 ZombieFeeding에서도 사용할 수 있네.
-// 이건 컨트랙트가 상속되는 구조 때문이지. 아래 내용을 기억하게:
-// ZombieFeeding is ZombieFactory
-// ZombieFactory is Ownable
-
-// 그렇기 때문에 ZombieFeeding 또한 Ownable이고, Ownable 컨트랙트의 함수/이벤트/제어자에 접근할 수 있다네. 
-// 이건 향후에 ZombieFeeding을 상속하는 다른 컨트랙트들에도 마찬가지로 적용되네.
+// 훌륭해! 이제 우리는 사용자들이 우리 컨트랙트를 마구 휘젓지 못하게 하면서도 DApp의 핵심적인 부분을 업데이트할 수 있는 방법을 터득했네.
+// 지금부터는 또 다른 솔리디티와 다른 프로그래밍 언어들의 차이점을 살펴볼 것이네.
 
 import "./zombiefactory.sol";
 
@@ -35,7 +31,6 @@ contract ZombieFeeding is ZombieFactory {
 
   KittyInterface kittyContract;
 
-  // 이 함수를 수정하게:
   function setKittyContractAddress(address _address) external onlyOwner {
     kittyContract = KittyInterface(_address);
   }
@@ -58,43 +53,18 @@ contract ZombieFeeding is ZombieFactory {
 
 }
 
-// 함수 제어자
 
-// 함수 제어자는 함수처럼 보이지만, function 키워드 대신 modifier 키워드를 사용한다네. 
-// 그리고 자네가 함수를 호출하듯이 직접 호출할 수는 없지. 대신에 함수 정의부 끝에 해당 함수의 작동 방식을 바꾸도록 제어자의 이름을 붙일 수 있네.
+// 가스 - 이더리움 DApp이 사용하는 연료
 
-// onlyOwner를 살펴보면서 더 자세히 알아보도록 하지.
+// 솔리디티에서는 사용자들이 자네가 만든 DApp의 함수를 실행할 때마다 _가스_라고 불리는 화폐를 지불해야 하네. 
+// 사용자는 이더(ETH, 이더리움의 화폐)를 이용해서 가스를 사기 때문에, 자네의 DApp 함수를 실행하려면 사용자들은 ETH를 소모해야만 하네.
 
-// /**
-//  * @dev Throws if called by any account other than the owner.
-//  */
-// modifier onlyOwner() {
-//   require(msg.sender == owner);
-//   _;
-// }
+// 함수를 실행하는 데에 얼마나 많은 가스가 필요한지는 그 함수의 로직(논리 구조)이 얼마나 복잡한지에 따라 달라지네. 
+// 각각의 연산은 소모되는 가스 비용(gas cost)이 있고, 그 연산을 수행하는 데에 소모되는 컴퓨팅 자원의 양이 이 비용을 결정하네. 
+// 예를 들어, storage에 값을 쓰는 것은 두 개의 정수를 더하는 것보다 훨씬 비용이 높네. 
+// 자네 함수의 전체 가스 비용은 그 함수를 구성하는 개별 연산들의 가스 비용을 모두 합친 것과 같네.
 
-// 우리는 이 제어자를 다음과 같이 사용할 것이네:
+// 함수를 실행하는 것은 자네의 사용자들에게 실제 돈을 쓰게 하기 때문에, 이더리움에서 코드 최적화는 다른 프로그래밍 언어들에 비해 훨씬 더 중요하네. 
+// 만약 자네의 코드가 엉망이라면, 사용자들은 자네의 함수를 실행하기 위해 일종의 할증료를 더 내야 할 걸세. 
+// 그리고 수천 명의 사용자가 이런 불필요한 비용을 낸다면 할증료가 수십 억 원까지 쌓일 수 있지.
 
-// contract MyContract is Ownable {
-//   event LaughManiacally(string laughter);
-
-//   // 아래 `onlyOwner`의 사용 방법을 잘 보게:
-//   function likeABoss() external onlyOwner {
-//     LaughManiacally("Muahahahaha");
-//   }
-// }
-
-// 사용법 -------- 중요 ----------
-// likeABoss 함수의 onlyOwner 제어자 부분을 잘 보게. 
-// 자네가 likeABoss 함수를 호출하면, onlyOwner의 코드가 먼저 실행되네. 
-// 그리고 onlyOwner의 _; 부분을 likeABoss 함수로 되돌아가 해당 코드를 실행하게 되지.
-
-// 자네가 제어자를 사용할 수 있는 다양한 방법이 있지만, 가장 일반적으로 쓰는 예시 중 하나는 함수 실행 전에 require 체크를 넣는 것이네.
-// onlyOwner의 경우에는, 함수에 이 제어자를 추가하면 오직 컨트랙트의 소유자(자네가 배포했다면 자네겠지)만이 해당 함수를 호출할 수 있네.
-
-// 참고: 이렇게 소유자가 컨트랙트에 특별한 권한을 갖도록 하는 것은 자주 필요하지만, 이게 악용될 수도 있다네. 
-// 예를 들어, 소유자가 다른 사람의 좀비를 뺏어올 수 있도록 하는 백도어 함수를 추가할 수도 있지!
-
-// 그러니 잘 기억하게. 이더리움에서 돌아가는 DApp이라고 해서 그것만으로 분산화되어 있다고 할 수는 없네. 
-// 반드시 전체 소스 코드를 읽어보고, 자네가 잠재적으로 걱정할 만한, 소유자에 의한 특별한 제어가 불가능한 상태인지 확인하게. 
-// 개발자로서는 자네가 잠재적인 버그를 수정하고 DApp을 안정적으로 유지하도록 하는 것과, 사용자들이 그들의 데이터를 믿고 저장할 수 있는 소유자가 없는 플랫폼을 만드는 것 사이에서 균형을 잘 잡는 것이 중요하네.
