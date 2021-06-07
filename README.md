@@ -106,3 +106,6 @@ https://hatpub.tistory.com/56
 생성자(constructor)
 https://caileb.tistory.com/137
 https://docs.soliditylang.org/en/v0.7.5/contracts.html?highlight=constructor#constructors
+
+가스란?
+https://phemex.com/ko/academy/%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B0%80%EC%8A%A4%EB%9E%80
