@@ -7,28 +7,21 @@ pragma solidity ^0.7.0;
 
 import "./zombiefactory.sol";
 
-// 챕터 6: 좀비 재사용 대기 시간
+// 챕터 7: Public 함수 & 보안
 
-// 이제 Zombie 구조체에 readyTime 속성을 가지고 있으니, zombiefeeding.sol로 들어가서 재사용 대기 시간 타이머를 구현해보도록 하지.
-// 우린 feedAndMultiply를 다음과 같이 수정할 것이네: 1. 먹이를 먹으면 좀비가 재사용 대기에 들어가고, 2. 좀비는 재사용 대기 시간이 지날 때까지 고양이들을 먹을 수 없네.
-// 이렇게 하면 좀비들이 끊임없이 고양이들을 먹고 온종일 증식하는 것을 막을 수 있지. 나중에 우리가 전투 기능을 추가하면, 다른 좀비들을 공격하는 것도 재사용 대기 시간에 걸리도록 할 것이네.
-// 먼저, 우리가 좀비의 readyTime을 설정하고 확인할 수 있도록 해주는 헬퍼 함수를 정의할 것이네.
+// 이제 feedAndMultiply를 우리의 재사용 대기 시간 타이머를 고려하도록 수정해보게.
 
-// 구조체를 인수로 전달하기.
+// 이 함수를 다시 살펴보면, 우리가 이전 레슨에서 이 함수를 public으로 만들었던 것을 볼 수 있을 것이네. 
+// 보안을 점검하는 좋은 방법은 자네의 모든 public과 external 함수를 검사하고, 사용자들이 그 함수들을 남용할 수 있는 방법을 생각해보는 것이네. 
+// 이걸 기억하시게 - 이 함수들이 onlyOwner 같은 제어자를 갖지 않는 이상, 어떤 사용자든 이 함수들을 호출하고 자신들이 원하는 모든 데이터를 함수에 전달할 수 있네.
 
-// 자네는 private 또는 internal 함수에 인수로서 구조체의 storage 포인터를 전달할 수 있네. 이건 예를 들어 함수들 간에 우리의 Zombie 구조체를 주고받을 때 유용하네.
-// 문법은 이와 같이 생겼네:
-
-// function _doStuff(Zombie storage _zombie) internal {
-//   // _zombie로 할 수 있는 것들을 처리
-// }
-// 이런 방식으로 우리는 함수에 좀비 ID를 전달하고 좀비를 찾는 대신, 우리의 좀비에 대한 참조를 전달할 수 있네.
+// 위의 함수를 다시 살펴보면, 사용자들은 이 함수를 직접적으로 호출할 수 있고 그들이 원하는 아무 _targetDna나 _species를 전달할 수 있네. 이건 정말 게임 같지는 않군 - 우리는 그들이 우리의 규칙을 따르길 바라네!
+// 좀 더 자세히 들여보면, 이 함수는 오직 feedOnKitty()에 의해서만 호출이 될 필요가 있네. 그러니 이런 남용을 막을 가장 쉬운 방법은 이 함수를 internal로 만드는 것이지.
 
 // 직접 해보기
-// 1. _triggerCooldown을 정의하면서 시작하지. 이 함수는 1개의 인수로 Zombie storage 포인터 타입인 _zombie를 받네. 이 함수는 internal이어야 하네.
-// 2. 함수의 내용에서는 _zombie.readyTime을 uint32(now + cooldownTime)으로 설정해야 하네.
-// 3. 다음으로, _isReady라고 불리는 함수를 만들게. 이 함수 역시 _zombie라는 이름의 Zombie storage 타입 인수를 받네. internal view여야 하고, bool을 리턴해야 하네.
-// 4. 함수의 내용에서는 (_zombie.readyTime <= now)를 리턴해야 하고, 이는 true 아니면 false로 계산될 것이네. 이 함수는 우리에게 좀비가 먹이를 먹은 후 충분한 시간이 지났는지 알려줄 것이네.
+// 1. 현재 feedAndMultiply는 public 함수이네. 이걸 internal로 만들어서 컨트랙트가 더 안전해지도록 하세. 우리는 사용자들이 그들이 원하는 아무 DNA나 넣어서 이 함수를 실행하는 것을 원하지 않네.
+// 2. feedAndMultiply 함수가 cooldownTime을 고려하도록 만들어보세. 먼저, myZombie를 찾은 후에, _isReady()를 확인하는 require 문장을 추가하고 거기에 myZombie를 전달하게. 이렇게 하면 사용자들은 좀비의 재사용 대기 시간이 끝난 다음에만 이 함수를 실행할 수 있네.
+// 3. 함수의 끝에서 _triggerCooldown(myZombie) 함수를 호출하여 먹이를 먹는 것이 좀비의 재사용 대기 시간을 만들도록 하게.
 
 interface KittyInterface {
   function getKitty(uint256 _id) external view returns (
@@ -53,24 +46,30 @@ contract ZombieFeeding is ZombieFactory {
     kittyContract = KittyInterface(_address);
   }
 
-  // 1. `_triggerCooldown` 함수를 여기에 정의하게
   function _triggerCooldown(Zombie storage _zombie) internal {
     _zombie.readyTime = uint32(block.timestamp + cooldownTime);
   }
-  // 2. `_isReady` 함수를 여기에 정의하게
   function _isReady(Zombie storage _zombie) internal view returns (bool) {
     return (_zombie.readyTime <= block.timestamp);
   }
 
-  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) public {
+  // 1. 이 함수를 internal로 만들게
+  // string에 memory를 사용해야 하는 이유. 
+  // solidity 0.5.0 버전부터는 구조체, 배열 또는 매핑 등의 모든 변수를 위해 데이터 위치를 명시하는 것이 필수. bytes 와 string 타입의 변수는 특별한 형태의 배열입니다(https://solidity-kr.readthedocs.io/ko/latest/types.html#arrays).
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal {
     require(msg.sender == zombieToOwner[_zombieId]);
     Zombie storage myZombie = zombies[_zombieId];
+    // 2. 여기에 `_isReady`를 확인하는 부분을 추가하게
+    require(_isReady(myZombie)); 
     _targetDna = _targetDna % dnaModulus;
     uint newDna = (myZombie.dna + _targetDna) / 2;
-    if(keccak256(abi.encodePacked(_species)) == keccak256("kitty")){
+    // keccak256 내부에 함수 인자를 받을 경우에 abi.encodePacked(arg) 를 같이 사용할 것. 
+    if (keccak256(abi.encodePacked(_species)) == keccak256("kitty")) {
       newDna = newDna - newDna % 100 + 99;
     }
     _createZombie("NoName", newDna);
+    // 3. `_triggerCooldown`을 호출하게
+    _triggerCooldown(myZombie);
   }
 
   function feedOnKitty(uint _zombieId, uint _kittyId) public {
