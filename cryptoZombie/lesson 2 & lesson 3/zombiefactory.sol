@@ -6,9 +6,6 @@ import "./ownable.sol";
 // 상태 제어자(state modifier) : view, pure
 // 함수 제어자 : 'modifier' - lesson3 챕터 3 참고.
 
-// 챕터 6: 좀비 재사용 대기 시간
-
-
 contract ZombieFactory is Ownable{
     event NewZombie(uint zombieId, string name, uint dna);
     uint dnaDigits = 16;
