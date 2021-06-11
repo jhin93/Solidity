@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-// 챕터 8: 함수 제어자의 또 다른 특징
+// 챕터 9: 좀비 제어자
 
-// 훌륭하네! 우리 좀비가 이제 재사용 대기 시간 타이머를 가지게 되었군.
-// 다음으로, 우리는 추가적인 헬퍼 메소드를 좀 더 추가할 것이네. 
-// 자네를 위해 zombiehelper.sol이라는, zombiefeeding.sol을 import하는 새로운 파일을 추가해뒀네. 이렇게 하면 우리의 코드가 잘 정리된 상태를 유지할 수 있을 것이네.
-// 이제 좀비들이 특정 레벨에 도달하면 특별한 능력들을 얻을 수 있도록 만들 것이네. 하지만 그렇게 하기 위해선, 먼저 함수 제어자에 대해 조금 더 배울 필요가 있네.
+// 이제 몇몇 함수를 만들 때 우리의 aboveLevel 제어자를 사용해보세.
+// 우리 게임에서는 사용자들이 그들의 좀비를 레벨업할 때 인센티브를 줄 것이네.
+// - 레벨 2 이상인 좀비인 경우, 사용자들은 그 좀비의 이름을 바꿀 수 있네.
+// - 레벨 20 이상인 좀비인 경우, 사용자들은 그 좀비에게 임의의 DNA를 줄 수 있네.
 
-// 인수를 가지는 함수 제어자
-
-// 이전에는 onlyOwner라는 간단한 예시를 살펴보았네. 하지만 함수 제어자는 사실 인수 또한 받을 수 있네. 예를 들면:
+// 이 함수들을 아래에 구현할 것이네. 참고로 하기 위해 이전 레슨에서 본 예제 코드를 주겠네.
 
 // // 사용자의 나이를 저장하기 위한 매핑
 // mapping (uint => uint) public age;
@@ -22,26 +20,35 @@ pragma solidity ^0.7.0;
 // }
 
 // // 차를 운전하기 위햐서는 16살 이상이어야 하네(적어도 미국에서는).
-// // `olderThan` 제어자를 인수와 함께 호출하려면 이렇게 하면 되네:
 // function driveCar(uint _userId) public olderThan(16, _userId) {
 //   // 필요한 함수 내용들
 // }
 
-// 여기서 자네는 olderthan 제어자가 함수와 비슷하게 인수를 받는 것을 볼 수 있을 것이네. 그리고 driveCar 함수는 받은 인수를 제어자로 전달하고 있지.
-// 이제 특별한 능력에 제한을 걸 수 있도록 좀비의 level 속성을 사용하는 우리만의 modifier를 만들어보세.
-
 // 직접 해보기
-// 1. ZombieHelper에서, aboveLevel이라는 이름의 modifier를 만들게. 이 제어자는 _level(uint), _zombieId(uint) 두 개의 인수를 받을 것이네.
-// 2. 함수 내용에서는 zombies[_zombieId].level이 _level 이상인지 확실하게 확인해야 하네.
-// 3. 함수의 나머지 내용을 실행할 수 있도록 제어자의 마지막 줄에 _;를 넣는 것을 잊지 말게.
+
+// 1. changeName이라는 함수를 만들게. 이 함수는 2개의 인수를 받을 것이네: _zombieId(uint), _newName(string). 그리고 함수를 external로 만들게. 이 함수는 aboveLevel 제어자를 가져야 하고, _level에 2라는 값을 전달해야 하네. _zombieId 또한 전달하는 것을 잊지 말게나.
+// 2. 함수의 내용에서는, 먼저 우리는 msg.sender가 zombieToOwner[_zombieId]와 같은지 검증해야 하네. require 문장을 사용하게.
+// 3. 그리고 나서 이 함수에서는 zombies[_zombieId].name에 _newName을 대입해야 하네.
+// 4. changeName 아래에 changeDna라는 또다른 함수를 만들게. 그리고 함수를 external로 만들게. 이 함수의 정의와 내용은 changeName과 거의 똑같지만, 두 번째 인수가 _newDna(uint)이고, aboveLevel의 _level 매개 변수에 20을 전달해야 할 것이네. 물론, 이 함수는 좀비의 이름을 설정하는 것 대신에 좀비의 dna를 _newDna로 설정해야 하겠지.
 
 import "./zombiefeeding.sol";
 
 contract ZombieHelper is ZombieFeeding {
 
-  // 여기서 시작하게
   modifier aboveLevel(uint _level, uint _zombieId) {
     require (zombies[_zombieId].level >= _level);
     _;
   }
+
+  // 여기서 시작하게
+  function changeName(uint _zombieId, string memory _newName) external aboveLevel(2, _zombieId) {
+    require(msg.sender == zombieToOwner[_zombieId]);
+    zombies[_zombieId].name = _newName;
+  }
+
+  function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) {
+    require(msg.sender == zombieToOwner[_zombieId]);
+    zombies[_zombieId].dna = _newDna;
+  }
+
 }
