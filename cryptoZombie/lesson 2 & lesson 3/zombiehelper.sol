@@ -33,7 +33,6 @@ contract ZombieHelper is ZombieFeeding {
     _;
   }
 
-  // 여기서 시작하게
   function changeName(uint _zombieId, string memory _newName) external aboveLevel(2, _zombieId) {
     require(msg.sender == zombieToOwner[_zombieId]);
     zombies[_zombieId].name = _newName;
@@ -42,6 +41,11 @@ contract ZombieHelper is ZombieFeeding {
   function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) {
     require(msg.sender == zombieToOwner[_zombieId]);
     zombies[_zombieId].dna = _newDna;
+  }
+
+  // 자네의 함수를 여기에 만들게
+  function getZombiesByOwner(address _owner) external view returns(uint[]) {
+
   }
 
 }
