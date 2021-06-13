@@ -44,7 +44,7 @@ contract ZombieHelper is ZombieFeeding {
   }
 
   // 자네의 함수를 여기에 만들게
-  function getZombiesByOwner(address _owner) external view returns(uint[]) {
+  function getZombiesByOwner(address _owner) external view returns(uint[] memory) {
 
   }
 
