@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
-
+// 함수 제어자 종류.
 // 접근 제어자(visibility modifier) : public, private, internal, external
 // 상태 제어자(state modifier) : view, pure
-// 함수 제어자 : 'modifier' - lesson3 챕터 3 참고.
+// 사용자 정의 제어자 : 'modifier' - lesson3 챕터 3 참고.
+// payable 제어자 : 이더를 받을 수 있는 특별한 함수 유형.
 
 import "./zombiefactory.sol";
 
