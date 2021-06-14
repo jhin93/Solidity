@@ -75,6 +75,14 @@ https://docs.soliditylang.org/en/v0.5.3/types.html
 pragma란?
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
 
+msg란? 
+msg (tx 와 block 포함)는 유용한 전역 변수로 블록체인에 접근할 수 있는 다양한 속성들을 담고 있습니다. 
+msg.sender 는 외부에서 지금 함수를 호출한 주소를 나타냅니다.
+https://solidity-kr.readthedocs.io/ko/latest/introduction-to-smart-contracts.html?highlight=msg#subcurrency 에서 '유용한 전역 변수' 검색.
+
+msg 멤버 값.
+https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html#index-2
+
 
 자료형 (강철의 블록체인 유튜브 채널 운영자의 블로그)
 https://needjarvis.tistory.com/255
