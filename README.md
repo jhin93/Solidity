@@ -124,3 +124,6 @@ https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html
 
 이더리움 계정(Account), 트랜잭션(Transaction), 메시지(Message) + 스마트 컨트랙트
 https://brownbears.tistory.com/385
+
+안전한 난수생성
+https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract
