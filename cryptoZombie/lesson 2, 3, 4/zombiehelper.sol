@@ -47,9 +47,10 @@ contract ZombieHelper is ZombieFeeding {
 
   // 1. 여기에 withdraw 함수를 생성하게
   function withdraw() external onlyOwner {
-    owner.transfer(address(this).balance);
-    // https://docs.soliditylang.org/en/develop/units-and-global-variables.html#address-related
-    // Prior to version 0.5.0, Solidity allowed address members to be accessed by a contract instance, for example this.balance. This is now forbidden and an explicit conversion to address must be done: address(this).balance.
+    address(uint160(owner)).transfer(address(this).balance);
+    // 오류 2 : "send" and "transfer" are only available for objects of type "address payable", not "address".
+    // https://www.inflearn.com/questions/8249 - 2번째 대답
+    // https://www.programmersought.com/article/67734436660/ - address가 payable 하게 변환하여 작성한다.
   }
 
   // 2. 여기에 setLevelUpFee를 생성하게
