@@ -121,3 +121,6 @@ https://phemex.com/ko/academy/%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B0%80%EC%
 address 관련 (balance, transfer 등)
 https://solidity-kr.readthedocs.io/ko/latest/types.html?highlight=balance#address-members
 https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html
+
+이더리움 계정(Account), 트랜잭션(Transaction), 메시지(Message) + 스마트 컨트랙트
+https://brownbears.tistory.com/385
