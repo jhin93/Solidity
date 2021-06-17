@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
+/* 챕터 7: 구조 더 개선하기
+zombiehelper.sol에 우리의 새로운 modifier ownerOf를 적용할 필요가 있는 부분이 두 군데 더 있네.
+
+_직접 해보기
+1. changeName()를 ownerOf를 사용하도록 변경하게.
+2. changeDna()를 ownerOf를 사용하도록 변경하게.
+ */
+
 import "./zombiefeeding.sol";
 
 contract ZombieHelper is ZombieFeeding {
@@ -25,13 +33,11 @@ contract ZombieHelper is ZombieFeeding {
     zombies[_zombieId].level++;
   }
 
-  function changeName(uint _zombieId, string memory _newName) external aboveLevel(2, _zombieId) {
-    require(msg.sender == zombieToOwner[_zombieId]);
+  function changeName(uint _zombieId, string memory _newName) external aboveLevel(2, _zombieId) ownerOf(_zombieId){
     zombies[_zombieId].name = _newName;
   }
 
-  function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) {
-    require(msg.sender == zombieToOwner[_zombieId]);
+  function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) ownerOf(_zombieId){
     zombies[_zombieId].dna = _newDna;
   }
 
