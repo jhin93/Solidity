@@ -3,19 +3,24 @@ pragma solidity ^0.7.0;
 
 import "./zombiehelper.sol";
 
-/* 챕터 10: 좀비 승리 ?
-이제 우리는 winCount와 lossCount를 가지고 있으니, 어떤 좀비가 싸움에서 이기냐에 따라 이들을 업데이트할 수 있네.
-챕터 6에서 우린 0부터 100까지의 난수를 계산했네. 이제 그 숫자를 누가 싸움에서 이길지 결정하는 데에 사용하고, 그에 따라 상태를 업데이트하세.
+/* 챕터 11: 좀비 패배 ?
+이제 우리는 좀비가 이겼을 때 어떤 일이 발생할지에 대해 작성했으니, 좀비가 지면 어떤 일이 발생할지 생각해보세.
+우리 게임에서, 좀비가 진다고 좀비의 레벨이 떨어지지는 않네 - 단순히 좀비의 lossCount에 그들의 패배를 기록하고, 
+다시 공격하기 전에 하루를 기다려야만 하도록 그들의 재사용 대기시간이 활성화될 것이네.
+
+이러한 구조를 구현하기 위해서, 우리는 else 문장이 필요할 것이네. else 문장은 자바스크립트나 다른 많은 언어들에서 사용하듯이 쓸 수 있네:
+
+if (zombieCoins[msg.sender] > 100000000) {
+  // 엄청난 부자다!!!
+} else {
+  // 더 많은 좀비 코인이 필요해...
+}
 
 _직접 해보기
-1. rand가 attackVictoryProbability와 같거나 더 작은지 확인하는 if 문장을 만들게.
-2. 만약 이 조건이 참이라면, 우리 좀비가 이기게 되네! 그렇다면:
-  a. myZombie의 winCount를 증가시키게.
-  b. myZombie의 level을 증가시키게. (레벨업이다!!!!!!!)
-  c. enemyZombie의 lossCount를 증가시키게. (이 패배자!!!!!!! ? ? ?)
-  d. feedAndMultiply 함수를 실행하게. 실행을 위한 문법을 보려면 zombiefeeding.sol을 확인하게. 3번째 인수(_species)로는 "zombie"라는 문자열을 전달하게
-  (이건 지금 이 순간에는 실제로 아무 것도 하지 않지만, 이후에 우리가 원한다면 좀비 기반의 좀비를 만들어내는 부가적인 기능을 추가할 수도 있을 것이네).
-
+1. else 문장을 추가하게. 만약 우리의 좀비가 진다면:
+  a. myZombie의 lossCount를 증가시키게.
+  b. enemyZombie의 winCount를 증가시키게.
+2. else 문장의 밖에서, myZombie에 대해 _triggerCooldown 함수를 실행하게. 이러한 방법으로 해당 좀비는 하루에 한 번만 공격할 수 있네.
  */
 
 contract ZombieBattle is ZombieHelper {
@@ -30,12 +35,15 @@ contract ZombieBattle is ZombieHelper {
     Zombie storage myZombie = zombies[_zombieId];
     Zombie storage enemyZombie = zombies[_targetId];
     uint rand = randMod(100);
-    // 여기서 시작하게
     if (rand <= attackVictoryProbability) {
         myZombie.winCount++;
         myZombie.level++;
         enemyZombie.lossCount++;
         feedAndMultiply(_zombieId, enemyZombie.dna, "zombie");
+    } else {
+      myZombie.lossCount++;
+      enemyZombie.winCount++;
     }
+    _triggerCooldown(myZombie);
   }
 }
