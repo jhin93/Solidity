@@ -127,3 +127,6 @@ https://brownbears.tistory.com/385
 
 안전한 난수생성
 https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract
+
+표준 함수 집합 (transfer(address _to, uint256 _value), balanceOf(address _owner))
+사용예시 : 예시 : https://github.com/bokkypoobah/TokenTrader/blob/master/contracts/TestERC20Token.sol
