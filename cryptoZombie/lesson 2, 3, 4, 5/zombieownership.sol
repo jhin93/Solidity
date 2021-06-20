@@ -1,53 +1,36 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-/* 챕터 2: ERC721 표준, 다중 상속
-ERC721 표준을 한번 같이 살펴보도록 하지: 
-(ERC-721은 이더리움 블록체인에서 대체 할 수 없거나 고유한 토큰을 작성하는 방법을 설명하는 무료 공개 표준이다. http://wiki.hash.kr/index.php/ERC-721#.ED.81.AC.EB.A6.BD.ED.86.A0.EB.8F.84.EC.A0.80)
+/* 챕터 3: balanceOf & ownerOf
+훌륭해, 이제 ERC721 구현을 시작해보세!
+내가 먼저 이번 레슨에서 구현할 모든 함수의 기본 구조를 복사해 놓았네.
+이 챕터에서는, 우리는 첫 두 메소드를 구현할 것이네: balanceOf와 ownerOf 말이지.
 
-contract ERC721 {
-  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);
-  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);
+* balanceOf
+function balanceOf(address _owner) public view returns (uint256 _balance);
+이 함수는 단순히 address를 받아, 해당 address가 토큰을 얼마나 가지고 있는지 반환하네.
+이 경우, 우리의 "토큰"은 좀비들이 되겠지. 우리의 DApp에서 어떤 소유자가 얼마나 많은 좀비를 가지는지 저장해놓은 곳을 기억하는가?
 
-  function balanceOf(address _owner) public view returns (uint256 _balance);
-  function ownerOf(uint256 _tokenId) public view returns (address _owner);
-  function transfer(address _to, uint256 _tokenId) public;
-  function approve(address _to, uint256 _tokenId) public;
-  function takeOwnership(uint256 _tokenId) public;
-}
+* ownerOf
+function ownerOf(uint256 _tokenId) public view returns (address _owner);
+이 함수에서는 토큰 ID(우리의 경우에는 좀비 ID)를 받아, 이를 소유하고 있는 사람의 address를 반환하네.
+다시 말하지만, 이들은 구현하기가 매우 수월하네. 우리가 이 정보를 저장하는 mapping을 우리 DApp에 이미 가지고 있기 떄문이지. 
+이 함수들은 단 한 줄로 구현할 수 있네. return 문장 하나만 가지고 말이야.
 
-이게 바로 우리가 구현해야 할 메소드들의 목록이네. 앞으로 남은 챕터들에서 차근차근 만들어 나갈 것들이지.
-너무 많아 보여도, 걱정하지 말게! 내가 여기에 있으니 말이야.
-
-|참고: ERC721 표준은 현재 초안인 상태이고, 아직 공식으로 채택된 구현 버전은 없네. 
-|이 튜토리얼에서 우리는 OpenZeppelin 라이브러리에서 쓰이는 현재 버전을 사용할 것이지만, 공식 릴리즈 이전에 언젠가 바뀔 가능성도 있네. 
-|그러니 하나의 구현 가능한 버전 정도로만 생각하고, ERC721 토큰의 정식 표준으로 생각하지는 말게. 
-
-현재 ERC 721 표준 : https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
-
-_토큰 컨트랙트 구현
-토큰 컨트랙트를 구현할 때, 처음 해야 할 일은 바로 인터페이스를 솔리디티 파일로 따로 복사하여 저장하고 import "./erc721.sol";을 써서 임포트를 하는 것이네. 
-그리고 해당 컨트랙트를 상속하는 우리의 컨트랙트를 만들고, 각각의 함수를 오버라이딩하여 정의하여야 하지.
-그런데 여기서 잠깐 - ZombieOwnership은 이미 ZombieAttack을 상속하고 있네 - 그렇다면 어떻게 ERC721도 상속하게 할 수 있을까?
-운 좋게도 솔리디티에서는, 자네의 컨트랙트는 다음과 같이 다수의 컨트랙트를 상속할 수 있네:
-
-contract SatoshiNakamoto is NickSzabo, HalFinney {
-  // 오 이런, 이 세계의 비밀이 밝혀졌군!
-}
-
-자네도 볼 수 있듯이, 다중 상속을 쓸 때는 상속하고자 하는 다수의 컨트랙트를 쉼표(,)로 구분하면 되네. 위의 경우에, 컨트랙트는 NickSzabo와 HalFinney를 상속하고 있지. 한 번 직접 해보도록 하지.
+| 참고 : uint256은 uint와 동일하다는 것을 기억하게. 우리 코드에서 지금까지 uint를 사용해왔지만, 여기서는 우리가 스펙을 복사/붙여넣기 했으니 uint256을 쓸 것이네.
 
 _직접 해보기
-자네를 위해 erc721.sol 파일을 인터페이스와 함께 만들어 놓았네.
-1. erc721.sol 파일을 zombieownership.sol 파일에서 임포트하게.
-2. ZombieOwnership이 ZombieAttack과 ERC721을 상속한다고 선언하게.
+이 두 함수를 어떻게 구현할지 직접 생각하고 이해해 보게. 각각의 함수는 return을 쓰는 딱 1줄의 코드로만 구성되어야 하네. 
+이전 레슨들에서 우리의 코드를 살펴보고 우리가 이 데이터들을 어디에 저장하는지 확인해보게. 찾기 너무 힘들다면, "정답 보기" 버튼을 눌러 도움을 받게.
+
+1. _owner가 가진 좀비의 수를 반환하도록 balanceOf를 구현하게.
+2. ID가 _tokenId인 좀비를 가진 주소를 반환하도록 ownerOf를 구현하게.
+
 */
 
 import "./zombieattack.sol";
-// 여기서 import 하게.
 import "./erc721.sol";
 
-// 여기서 ERC721 상속을 선언하게.
 contract ZombieOwnership is ZombieAttack, ERC721 {
 
 }

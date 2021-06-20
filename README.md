@@ -137,5 +137,11 @@ http://wiki.hash.kr/index.php/ERC-20
 ERC-721(대체 불가능)
 http://wiki.hash.kr/index.php/ERC-721#OpenZeppelin
 
+ERC-721 표준안
+https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md#specification
+
 ERC 정리
 https://eips.ethereum.org/erc
+
+abstract contract란?
+https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56
