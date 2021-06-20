@@ -19,7 +19,6 @@ contract ZombieFactory is Ownable{
         uint dna;
         uint32 level;
         uint32 readyTime;
-        // 1. 여기에 새로운 속성을 추가하게
         uint16 winCount;
         uint16 lossCount;
     }
