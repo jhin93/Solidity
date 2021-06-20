@@ -30,6 +30,8 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 [Warm-up reference]
 시작하기 전에 읽고 시작하자.
 
+블록체인이란(원리, 활용, 전망) http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
+
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
 web3.js란? http://wiki.hash.kr/index.php/Web3.js
 node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
@@ -128,5 +130,12 @@ https://brownbears.tistory.com/385
 안전한 난수생성
 https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract
 
-표준 함수 집합 (transfer(address _to, uint256 _value), balanceOf(address _owner))
-사용예시 : 예시 : https://github.com/bokkypoobah/TokenTrader/blob/master/contracts/TestERC20Token.sol
+ERC-20(대체 가능)
+http://wiki.hash.kr/index.php/ERC-20
+- 사용규칙 : http://wiki.hash.kr/index.php/ERC-20#.EA.B7.9C.EC.B9.99
+
+ERC-721(대체 불가능)
+http://wiki.hash.kr/index.php/ERC-721#OpenZeppelin
+
+ERC 정리
+https://eips.ethereum.org/erc

@@ -1,49 +1,54 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-/* 챕터 1: 이더리움 상의 토큰
-_토큰_에 대해서 얘기해보지.
-자네가 이더리움 세상을 조금이라도 접한 적이 있다면, 사람들이 토큰에 대해 이야기하는 것을 들어봤을 수도 있을 것이네 - 구체적으로는 _ERC20 토큰에 대해서 말이네.
-이더리움에서 _토큰_은 기본적으로 그저 몇몇 공통 규약을 따르는 스마트 컨트랙트이네 ? 즉 다른 모든 토큰 컨트랙트가 사용하는 표준 함수 집합을 구현하는 것이지. 
-예를 들면 transfer(address _to, uint256 _value)나 balanceOf(address _owner) 같은 함수들이 있네. 예시 : https://github.com/bokkypoobah/TokenTrader/blob/master/contracts/TestERC20Token.sol
-내부적으로 스마트 컨트랙트는 보통 mapping(address => uint256) balances와 같은 매핑을 가지고 있네. 각각의 주소에 잔액이 얼마나 있는지 기록하는 것이지.
+/* 챕터 2: ERC721 표준, 다중 상속
+ERC721 표준을 한번 같이 살펴보도록 하지: 
+(ERC-721은 이더리움 블록체인에서 대체 할 수 없거나 고유한 토큰을 작성하는 방법을 설명하는 무료 공개 표준이다. http://wiki.hash.kr/index.php/ERC-721#.ED.81.AC.EB.A6.BD.ED.86.A0.EB.8F.84.EC.A0.80)
 
-즉 기본적으로 토큰은 그저 하나의 컨트랙트이네. 그 안에서 누가 얼마나 많은 토큰을 가지고 있는지 기록하고, 몇몇 함수를 가지고 사용자들이 그들의 토큰을 다른 주소로 전송할 수 있게 해주는 것이지.
+contract ERC721 {
+  event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);
+  event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);
 
-_왜 이렇게 해야 하나요?
-모든 ERC20 토큰들이 똑같은 이름의 동일한 함수 집합을 공유하기 때문에, 이 토큰들에 똑같은 방식으로 상호작용이 가능하네.
-즉 자네가 하나의 ERC20 토큰과 상호작용할 수 있는 애플리케이션 하나를 만들면, 이 앱이 다른 어떤 ERC20 토큰과도 상호작용이 가능한 것이지. 이런 방식으로 자네의 앱에 더 많은 토큰들을 추가할 수 있지.
-커스텀 코드를 추가하지 않고도 말이네. 자네는 그저 새로운 토큰의 컨트랙트 주소만 끼워넣으면 되네. 그러고 나면, 짠, 자네의 앱에서 사용할 수 있는 또 다른 토큰이 생기는 것이네.
-이러한 것의 한 예로는 거래소가 있네. 한 거래소에서 새로운 ERC20 토큰을 상장할 때, 실제로는 이 거래소에서 통신이 가능한 또 하나의 스마트 컨트랙트를 추가하는 것이네.  
-사용자들은 이 컨트랙트에 거래소의 지갑 주소에 토큰을 보내라고 할 수 있고, 거래소에서는 이 컨트랙트에 사용자들이 출금을 신청하면 토큰을 다시 돌려보내라고 할 수 있게 만드는 것이지.
-거래소에서는 이 전송 로직을 한 번만 구현하면 되네. 그리고서 새로운 ERC20 토큰을 추가하고 싶으면, 데이터베이스에 단순히 새 컨트랙트 주소를 추가하기만 하면 되는 일이지.
+  function balanceOf(address _owner) public view returns (uint256 _balance);
+  function ownerOf(uint256 _tokenId) public view returns (address _owner);
+  function transfer(address _to, uint256 _tokenId) public;
+  function approve(address _to, uint256 _tokenId) public;
+  function takeOwnership(uint256 _tokenId) public;
+}
 
-_다른 토큰 표준
-ERC20 토큰은 화폐처럼 사용되는 토큰으로는 정말 적절하네. 하지만 우리의 좀비 게임에서 좀비를 표현할 때에는 그다지 쓸모 있지가 않지.
-첫째로, 좀비는 화폐처럼 분할할 수가 없네 - 난 자네에게 0.237ETH를 보낼 수 있지만, 자네에게 0.237개의 좀비를 보내는 것은 말이 되지 않지.
-둘째로, 모든 좀비가 똑같지는 않네. 자네의 레벨2 좀비 "Steve"는 내 레벨732 좀비 "H4XF13LD MORRIS ?????"와는 완전히 다르지(Steve와는 비교할 수가 없지!).
+이게 바로 우리가 구현해야 할 메소드들의 목록이네. 앞으로 남은 챕터들에서 차근차근 만들어 나갈 것들이지.
+너무 많아 보여도, 걱정하지 말게! 내가 여기에 있으니 말이야.
 
-여기에 크립토좀비와 같은 크립토 수집품을 위해 더 적절한 토큰 표준이 있네 - 바로 ERC721 토큰이지.
+|참고: ERC721 표준은 현재 초안인 상태이고, 아직 공식으로 채택된 구현 버전은 없네. 
+|이 튜토리얼에서 우리는 OpenZeppelin 라이브러리에서 쓰이는 현재 버전을 사용할 것이지만, 공식 릴리즈 이전에 언젠가 바뀔 가능성도 있네. 
+|그러니 하나의 구현 가능한 버전 정도로만 생각하고, ERC721 토큰의 정식 표준으로 생각하지는 말게. 
 
-ERC721 토큰은 교체가 불가하네. 각각의 토큰이 유일하고 분할이 불가하기 때문이지. 
-자네는 이 토큰을 하나의 전체 단위로만 거래할 수 있고, 각각의 토큰은 유일한 ID를 가지고 있네. 그러니 이게 우리의 좀비를 거래할 수 있게 하기에는 아주 적절하지.
+현재 ERC 721 표준 : https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
 
-| ERC721과 같은 표준을 사용하면 우리의 컨트랙트에서 사용자들이 우리의 좀비를 거래/판매할 수 있도록 하는 경매나 중계 로직을 우리가 직접 구현하지 않아도 된다는 이점이 있네. 
-| 우리가 스펙에 맞추기만 하면, 누군가 ERC721 자산을 거래할 수 있도록 하는 거래소 플랫폼을 만들면 우리의 ERC721 좀비들을 그 플랫폼에서 쓸 수 있게 될 것이네.
-| 그러니 자네만의 거래 로직을 만드느라 고생하는 것보다 토큰 표준을 사용하는 것이 명확한 이점이 있는 것이지.
+_토큰 컨트랙트 구현
+토큰 컨트랙트를 구현할 때, 처음 해야 할 일은 바로 인터페이스를 솔리디티 파일로 따로 복사하여 저장하고 import "./erc721.sol";을 써서 임포트를 하는 것이네. 
+그리고 해당 컨트랙트를 상속하는 우리의 컨트랙트를 만들고, 각각의 함수를 오버라이딩하여 정의하여야 하지.
+그런데 여기서 잠깐 - ZombieOwnership은 이미 ZombieAttack을 상속하고 있네 - 그렇다면 어떻게 ERC721도 상속하게 할 수 있을까?
+운 좋게도 솔리디티에서는, 자네의 컨트랙트는 다음과 같이 다수의 컨트랙트를 상속할 수 있네:
+
+contract SatoshiNakamoto is NickSzabo, HalFinney {
+  // 오 이런, 이 세계의 비밀이 밝혀졌군!
+}
+
+자네도 볼 수 있듯이, 다중 상속을 쓸 때는 상속하고자 하는 다수의 컨트랙트를 쉼표(,)로 구분하면 되네. 위의 경우에, 컨트랙트는 NickSzabo와 HalFinney를 상속하고 있지. 한 번 직접 해보도록 하지.
 
 _직접 해보기
-우리는 다음 챕터에서 ERC721을 구현하기 시작할 것이네. 그전에 먼저, 이번 레슨을 위한 파일 구조를 만들어 보세.
-우리는 모든 ERC721 로직을 ZombieOwnership이라는 컨트랙트에 저장할 것이네.
-
-1. 파일의 최상단에 pragma 버전을 선언하게(문법은 이전 레슨의 파일에서 참고하게).
-2. 이 파일은 zombieattack.sol을 import 해야 하네.
-3. ZombieOwnership이라는 새로운 컨트랙트를 선언하고, ZombieAttack을 상속하게. 컨트랙트의 내용은 지금 당장은 비워두게.
+자네를 위해 erc721.sol 파일을 인터페이스와 함께 만들어 놓았네.
+1. erc721.sol 파일을 zombieownership.sol 파일에서 임포트하게.
+2. ZombieOwnership이 ZombieAttack과 ERC721을 상속한다고 선언하게.
 */
 
 import "./zombieattack.sol";
+// 여기서 import 하게.
+import "./erc721.sol";
 
-contract ZombieOwnership is ZombieAttack {
+// 여기서 ERC721 상속을 선언하게.
+contract ZombieOwnership is ZombieAttack, ERC721 {
 
 }
 
