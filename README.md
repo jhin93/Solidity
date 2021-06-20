@@ -143,5 +143,11 @@ https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md#specification
 ERC 정리
 https://eips.ethereum.org/erc
 
-abstract contract란?
+추상 컨트랙트(abstract contract), 인터페이스.
+https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
+https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56
+
+인터페이스란
+https://solidity-kr.readthedocs.io/ko/latest/contracts.html#interfaces
+https://cryptozombies.io/ko/lesson/2/chapter/10
 https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56
