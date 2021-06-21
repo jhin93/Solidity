@@ -155,6 +155,7 @@ https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 오버라이딩
 https://docs.soliditylang.org/en/v0.6.0/contracts.html#function-overriding
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9
+https://medium.com/upstate-interactive/solidity-override-vs-virtual-functions-c0a5dfb83aaf
 
 오버로딩
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9
