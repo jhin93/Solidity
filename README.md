@@ -147,7 +147,14 @@ https://eips.ethereum.org/erc
 https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56
 
-인터페이스란
+인터페이스
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#interfaces
 https://cryptozombies.io/ko/lesson/2/chapter/10
 https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
+
+오버라이딩
+https://docs.soliditylang.org/en/v0.6.0/contracts.html#function-overriding
+http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9
+
+오버로딩
+http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9

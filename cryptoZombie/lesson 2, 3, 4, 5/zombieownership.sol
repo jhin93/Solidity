@@ -33,11 +33,11 @@ import "./zombieattack.sol";
 import "./erc721.sol";
 
 contract ZombieOwnership is ZombieAttack, ERC721 {
-  function balanceOf(address _owner) public view returns (uint256 _balance) {
+  function balanceOf(address _owner) public override view returns (uint256 _balance) {
     return ownerZombieCount[_owner];
   }
 
-  function ownerOf(uint256 _tokenId) public view returns (address _owner) {
+  function ownerOf(uint256 _tokenId) public override view returns (address _owner) {
     return zombieToOwner[_tokenId];
   }
   // 여기에 _transfer()를 정의하게.
@@ -48,15 +48,15 @@ contract ZombieOwnership is ZombieAttack, ERC721 {
     emit Transfer(_from, _to, _tokenId);
   }
 
-  function transfer(address _to, uint256 _tokenId) public {
+  function transfer(address _to, uint256 _tokenId) public override {
 
   }
 
-  function approve(address _to, uint256 _tokenId) public {
+  function approve(address _to, uint256 _tokenId) public override {
 
   }
 
-  function takeOwnership(uint256 _tokenId) public {
+  function takeOwnership(uint256 _tokenId) public override {
 
   }
 
