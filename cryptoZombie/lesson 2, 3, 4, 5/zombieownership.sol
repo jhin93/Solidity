@@ -1,20 +1,18 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-/* ERC721: Approve
-이제 approve를 구현하도록 하지.
-approve / takeOwnership을 사용하는 전송은 2단계로 나뉜다는 것을 기억하게:
-1. 소유자인 자네가 새로운 소유자의 address와 그에게 보내고 싶은 _tokenId를 사용하여 approve를 호출하네.
-2. 새로운 소유자가 _tokenId를 사용하여 takeOwnership 함수를 호출하면, 컨트랙트는 그가 승인된 자인지 확인하고 그에게 토큰을 전송하네.
-이처럼 2번의 함수 호출이 발생하기 때문에, 우리는 함수 호출 사이에 누가 무엇에 대해 승인이 되었는지 저장할 데이터 구조가 필요할 것이네.
+/* 챕터 8: ERC721: takeOwnership
+좋아, 이제 마지막 함수와 함께 우리의 ERC721 구현을 끝내보세!(걱정하지 말게, 이것 다음에도 레슨 5에서 다뤄야 할 것들이 더 남아 있네 ?)
+마지막 함수인 takeOwnership에서는 msg.sender가 이 토큰/좀비를 가질 수 있도록 승인되었는지 확인하고, 승인이 되었다면 _transfer를 호출해야 하네.
 
 _직접 해보기
 
-1. 먼저, zombieApprovals 매핑을 정의해보도록 하지. 이것은 uint를 address로 연결하여야 하네.
-   이런 방식으로, 누군가 _tokenId로 takeOwnership을 호출하면, 이 매핑을 써서 누가 그 토큰을 가지도록 승인받았는지 확인할 수 있네.
-2. approve 함수에서, 우리는 오직 그 토큰의 소유자만 다른 사람에게 토큰을 줄 수 있는 승인을 할 수 있도록 하고 싶네. 그러니 approve에 onlyOwnerOf 제어자를 추가해야 할 것이네.
-3. 함수의 내용에서는 zombieApprovals의 _tokenId 요소를 _to 주소와 같도록 만들게.
-4. 마지막으로, ERC721 스펙에 Approval 이벤트가 있네. 그러니 우리는 이 함수의 마지막에서 이 이벤트를 호출해야 하네. erc721.sol에서 인수를 확인하고, msg.sender를 _owner에 쓰도록 하게.
+1. 먼저, require 문장을 써서 zombieApprovals의 _tokenId 요소가 msg.sender와 같은지 확인해야 하네.
+   이런 방식으로 만약 msg.sender가 이 토큰을 받도록 승인되지 않았다면, 에러를 만들어낼 것이네.
+2. _transfer를 호출하기 위해, 우리는 그 토큰을 소유한 사람의 주소를 알 필요가 있네(함수에서 _from을 인수로 요구하기 떄문이지). 다행히 우리의 ownerOf 함수를 써서 이를 찾아낼 수 있네.
+   그러니 address 변수를 owner라는 이름으로 선언하고, 여기에 ownerOf(_tokenId)를 대입하게.
+3. 마지막으로, _transfer를 필요한 모든 정보와 함께 호출하게(여기서는 msg.sender를 _to에 사용하면 되네. 이 함수를 호출하는 사람이 토큰을 받을 사람이기 떄문이지).
+| 참고: 2번째와 3번째 단계를 한 줄의 코드로 만들 수 있지만, 나누는 것이 조금 더 읽기 좋게 만드네. 개인적인 선호인 것이지.
 */
 
 import "./zombieattack.sol";
@@ -22,7 +20,6 @@ import "./erc721.sol";
 
 contract ZombieOwnership is ZombieAttack, ERC721 {
 
-  // 1. 여기에 mapping을 정의하게.
   mapping (uint => address) zombieApprovals;
 
   function balanceOf(address _owner) public override view returns (uint256 _balance) {
@@ -32,7 +29,7 @@ contract ZombieOwnership is ZombieAttack, ERC721 {
   function ownerOf(uint256 _tokenId) public override view returns (address _owner) {
     return zombieToOwner[_tokenId];
   }
-  
+
   function _transfer(address _from, address _to, uint256 _tokenId) private {
     ownerZombieCount[_to]++;
     ownerZombieCount[_from]--;
@@ -44,15 +41,16 @@ contract ZombieOwnership is ZombieAttack, ERC721 {
     _transfer(msg.sender, _to, _tokenId);
   }
 
-  // 2. 여기에 함수 제어자를 추가하게.
   function approve(address _to, uint256 _tokenId) public override onlyOwnerOf(_tokenId){
-    // 3. 여기서 함수를 정의하게.
     zombieApprovals[_tokenId] = _to;
     emit Approval(msg.sender, _to, _tokenId);
   }
 
-  function takeOwnership(uint256 _tokenId) public override {
-
+  function takeOwnership(uint256 _tokenId) public override{
+    // 여기서 시작하게.
+    require(zombieApprovals[_tokenId] == msg.sender);
+    address owner = ownerOf(_tokenId);
+    _transfer(owner, msg.sender, _tokenId);
   }
 
 }
