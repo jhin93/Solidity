@@ -166,3 +166,11 @@ https://kbench.com/?q=node/2635
 라이브러리
 https://cryptozombies.io/ko/lesson/5/chapter/9
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries
+
+assert : 조건이 충족되지 않으면 예외를 발생시킵니다 - 내부 에러에 사용됩니다.
+require : 조건이 충족되지 않으면 예외를 발생시킵니다 - 입력 또는 외부 요소의 에러에 사용됩니다.
+https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html?highlight=assert#index-3
+assert : 함수 실행이 실패해도 남은 가스 돌려주지 않음.
+require : 함수 실행이 실패하면 남은 가스 되돌려줌.
+https://cryptozombies.io/ko/lesson/5/chapter/10
+
