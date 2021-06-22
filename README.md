@@ -159,3 +159,10 @@ https://medium.com/upstate-interactive/solidity-override-vs-virtual-functions-c0
 
 오버로딩
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9
+
+데이터 단위(비트, 바이트..) 8bit == 2^8 - 1 == (2^7) + (2^6) + ... + (2^0)
+https://kbench.com/?q=node/2635
+
+라이브러리
+https://cryptozombies.io/ko/lesson/5/chapter/9
+https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries
