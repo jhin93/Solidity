@@ -97,6 +97,7 @@ http://wiki.hash.kr/index.php/Keccak-256
 
 abi란?
 https://hucet.tistory.com/46
+https://cryptozombies.io/ko/lesson/6/chapter/3
 
 이더리움과 abi 관련. api와 비교.
 https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%EC%A0%95%EB%A6%AC-40e639ee1a03
@@ -182,3 +183,9 @@ https://www.youtube.com/watch?v=u4voz9XBbWA
 캐시란
 https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8B%9C
 https://mangkyu.tistory.com/69
+
+-Web3.js 와 컨트랙트의 통신
+필요한 것 : 컨트랙트 주소, 컨트랙트 ABI
+컨트랙트 주소 - 이더리움에 배포하면 영구적이고 고정된 주소를 얻게 됨. 복사해서 사용.
+컨트랙트 ABI - 이더리움에 이더리움에 배포하기 위해 컨트랙트를 컴파일할 때, 솔리디티 컴파일러가 자네에게 ABI를 줌.
+(해당 내용 챕터 : https://cryptozombies.io/ko/lesson/6/chapter/3)
