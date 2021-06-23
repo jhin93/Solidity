@@ -53,6 +53,20 @@
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
       }
 
+      function getZombieDetails(id) {
+        return cryptoZombies.methods.zombies(id).call()
+      }
+
+      // 1. 여기에 `zombieToOwner`를 정의하게.
+      function zombieToOwner(id) {
+        return cryptoZombies.methods.zombieToOwner(id).call();
+      }
+
+      // 2. 여기에 `getZombiesByOwner`를 정의하게.
+      function getZombiesByOwner(owner) {
+        return cryptoZombies.methods.getZombiesByOwner(owner).call();
+      }
+
       window.addEventListener('load', function() {
 
         // Web3가 브라우저에 주입되었는지 확인(Mist/MetaMask)

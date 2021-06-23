@@ -189,3 +189,9 @@ https://mangkyu.tistory.com/69
 컨트랙트 주소 - 이더리움에 배포하면 영구적이고 고정된 주소를 얻게 됨. 복사해서 사용.
 컨트랙트 ABI - 이더리움에 이더리움에 배포하기 위해 컨트랙트를 컴파일할 때, 솔리디티 컴파일러가 자네에게 ABI를 줌.
 (해당 내용 챕터 : https://cryptozombies.io/ko/lesson/6/chapter/3)
+
+비동기 처리방식
+https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/
+
+자바스크립트 promise
+https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
