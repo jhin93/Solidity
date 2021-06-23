@@ -176,3 +176,9 @@ assert : 함수 실행이 실패해도 남은 가스 돌려주지 않음.
 require : 함수 실행이 실패하면 남은 가스 되돌려줌.
 https://cryptozombies.io/ko/lesson/5/chapter/10
 
+블록체인 네트워크, 노드
+https://www.youtube.com/watch?v=u4voz9XBbWA
+
+캐시란
+https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8B%9C
+https://mangkyu.tistory.com/69
