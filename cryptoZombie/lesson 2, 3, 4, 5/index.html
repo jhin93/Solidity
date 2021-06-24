@@ -1,37 +1,53 @@
-<!-- 챕터 5: 메타마스크 & 계정
-    대단하군! 자네는 자네의 첫 스마트 컨트랙트와 상호작용을 할 수 있는 프론트엔드 코드를 성공적으로 작성했네.
-    이제 각 요소들을 하나로 합쳐나가도록 하겠네 - 우리 앱의 홈페이지에 사용자의 전체 좀비 군대를 보여주고 싶다고 가정해보지.
-    현재 사용자가 가지고 있는 모든 좀비들의 ID를 찾기 위해 우리는 분명 첫 번째로 getZombiesByOwner(owner) 함수를 사용해야 할 것이네.
-    하지만 우리의 솔리디티 컨트랙트는 owner에 솔리디티 address를 보내도록 되어 있네. 그렇다면 우리가 어떻게 우리 앱을 사용하는 사용자의 주소를 알 수 있겠는가?
+<!-- 챕터 6: 좀비 군대 보여주기
+    자네가 컨트랙트로부터 받은 데이터를 실제로 보여줄 수 없다면 이 튜토리얼은 완전하다고 할 수 없을 것이네.
+    하지만, 현실적으로 자네는 React나 Vue.js 같은 프론트엔드 프레임워크를 사용하고 싶을 수도 있네. 그것들이 프론트엔드 개발자로서의 자네의 삶을 훨씬 편하게 만들어주기 때문이지. 
+    하지만 React 또는 Vue.js 를 다루는 것은 이 튜토리얼의 범주 밖에 있다네 - 그건 그 자체로 여러 레슨으로 이루어진 튜토리얼이 될 것이네.
+    그래서 CryptoZombies.io의 초점을 이더리움과 스마트 컨트랙트에 맞추기 위해, 우리는 jQuery를 이용한 간단한 예제를 통해 어떻게 자네가 스마트 컨트랙트에서 전달받은 데이터를 파싱하고 표현할 수 있을지 보여줄 것이네.
+    
+    _좀비 데이터 보여주기 - 간단한 예제
+    내가 먼저 우리 문서의 내용에 빈 <div id="zombies"></div>와 빈 displayZombies 함수를 추가해 놓았네.
+    지난 챕터에서 우리가 startApp() 내에서 getZombiesByOwner의 호출 결과를 써서 호출한 displayZombies를 상기해보게. 그 함수의 결과로 아래와 같이 생긴 좀비 ID 배열을 전달받을 수 있을 걸세:
+    [0, 13, 47]
+    따라서 displayZombies 함수는 다음과 같은 것을 할 것이네:
+    1. 먼저 이미 무언가가 #zombies div의 안에 들어 있다면 이 div의 내용을 비우게(이렇게 하면 사용자가 그들의 활성화된 MetaMask 계정을 변경하면 새로운 좀비 군대를 로딩하기 전에 기존의 것을 삭제할 것이네).
+    2. 반복을 통해 각 id마다 getZombieDetails(id)를 호출해서 우리의 스마트 컨트랙트에서 좀비에 대한 모든 정보를 찾게. 그리고서
+    3. 화면에 표시하기 위해 HTML 템플릿에 좀비에 대한 정보를 집어넣고, 해당 템플릿을 #zombies div에 붙여넣게.
 
-    _메타마스크에서 사용자 계정 가져오기
-    메타마스크는 확장 프로그램 안에서 사용자들이 다수의 계정을 관리할 수 있도록 해주네. 우리는 주입되어 있는 web3 변수에 현재 활성화된 계정이 무엇인지 다음처럼 확인할 수 있지:
-    var userAccount = web3.eth.accounts[0]
+    여기서도 우린 기본 템플릿 엔진이 없는 jQuery를 이용하기 때문에, 보기 싫을 수 있지만, 다음의 간단한 예제처럼 각 좀비에 대한 정보를 출력할 수 있네:
 
-    사용자가 언제든지 메타마스크에서 활성화된 계정을 바꿀 수 있기 때문에, 우리 앱은 이 변수의 값이 바뀌었는지 확인하기 위해 계속 감시를 하고 값이 바뀌면 그에 따라 UI를 업데이트해야 할 것이네. 
-    예를 들어, 사용자들의 홈페이지에서 그들의 좀비 군대를 표시하고 싶다면, 메타마스크에서 계정을 바꾸었을 때 바뀐 계정에 대한 좀비 군대를 보여주기 위해 페이지를 업데이트해야 할 것이네.
-    이를 위해 다음과 같이 setInterval을 쓸 수 있네:
+    // 우리 컨트랙트에서 좀비 상세 정보를 찾아, `zombie` 객체 반환
+    getZombieDetails(id)
+    .then(function(zombie) {
+      // HTML에 변수를 넣기 위해 ES6의 "template literal" 사용
+      // 각각을 #zombies div에 붙여넣기
+      $("#zombies").append(`<div class="zombie">
+        <ul>
+          <li>Name: ${zombie.name}</li>
+          <li>DNA: ${zombie.dna}</li>
+          <li>Level: ${zombie.level}</li>
+          <li>Wins: ${zombie.winCount}</li>
+          <li>Losses: ${zombie.lossCount}</li>
+          <li>Ready Time: ${zombie.readyTime}</li>
+        </ul>
+      </div>`);
+    });
+
+    _좀비 스프라이트는 어떻게 표현하나요?
+    위 예제에서 우리는 DNA를 문자열로 간단히 표현해 보았네. 하지만 자네의 DApp에서는 이것을 이미지로 바꿔서 자네의 좀비를 표현하고 싶을 걸세.
+    우린 DNA 문자열을 부분 문자열로 나누고, 모든 2자리 숫자를 이미지에 대응시켜 아래와 같이 이 작업을 처리했었네:
     ```
-    var accountInterval = setInterval(function() {
-      // 계정이 바뀌었는지 확인
-      if (web3.eth.accounts[0] !== userAccount) {
-        userAccount = web3.eth.accounts[0];
-        // 새 계정에 대한 UI로 업데이트하기 위한 함수 호출
-        updateInterface();
-      }
-    }, 100);
+    // 좀비의 머리를 표현하는 1-7의 정수 얻기
+    var head = parseInt(zombie.dna.substring(0, 2)) % 7 + 1
+
+    // 순차적인 파일 이름으로 7개의 머리 이미지를 가지고 있네:
+    var headSrc = "../assets/zombieparts/head-" + head + ".png"
     ```
-    여기서는 userAccount가 여전히 web3.eth.accounts[0]과 같은지 확인하기 위해 100밀리초마다 확인하고 있네(즉 사용자가 해당 계정을 활성화해놓았는지 확인하는 것이지). 
-    그렇지 않다면, userAccount에 현재 활성화된 계정을 다시 할당하고, 화면을 업데이트하기 위한 함수를 호출하네.
+    각 컴포넌트는 CSS의 절대 좌표 포지셔닝을 이용해 다른 이미지 위에 위치할 걸세. 만약 자네가 우리의 정확한 구현을 보고싶다면, 좀비를 표현하기 위해 우리가 사용한 Vue.js 컴포넌트 소스를 공개해놓았네. 그건 여기에서 볼 수 있네.
+    하지만 저 파일에는 많은 코드가 포함되어 있기 때문에, 그건 튜토리얼의 범주 밖이라네. 우린 위에서 본 매우 간단한 jQuery 구현에 집중할 것이고, 좀 더 아름다운 표현은 자네에게 숙제로 남겨두겠네 ?.
 
     _직접 해보기
-    페이지가 처음 로드될 때 사용자의 좀비 군대를 우리 앱에서 보여줄 수 있게 만들어 보도록 하지. 그리고 활성화 계정이 바뀌면 화면을 갱신할 수 있게 감시를 할 것이네.
-    
-    1. userAccount라는 이름으로 var를 선언하게. 값을 할당하지는 않도록 하게.
-    2. startApp()의 마지막 부분에서, 위의 accountInterval 예제 코드를 복사/붙여넣기 하게.
-    3. updateInterface(); 줄을 getZombiesByOwner를 호출하는 것으로 교체하고 userAccount를 전달하게.
-    4. getZombiesByOwner 이후 then절을 이어 결과값을 displayZombies라는 이름의 함수로 전달하게(구문은 다음과 같네: .then(displayZombies);).
-    5. displayZombies라는 함수를 아직 만들지 않았지만, 다음 챕터에서 이를 구현할 것이네.
+    내가 자네를 위해 빈 displayZombies 함수를 만들어두었네. 이제 이걸 채워보도록 하지.
+    1. 
 
 
 -->
@@ -46,17 +62,16 @@
     <script language="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
   </head>
   <body>
+    <div id="zombies"></div>
 
     <script>
       var cryptoZombies;
-      // 1. 여기에 `userAccount`를 선언하게.
       var userAccount;
 
       function startApp() {
         var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
 
-        // 2. 여기에 `setInterval` 코드를 만들게.
         var accountInterval = setInterval(function() {
           // 계정이 바뀌었는지 확인
           if (web3.eth.accounts[0] !== userAccount) {
@@ -66,6 +81,28 @@
             .then(displayZombies);
           }
         }, 100);
+      }
+
+      function displayZombies(ids){
+        //Start here
+        $("#zombies").empty();
+        for(id of ids){
+          getZombieDetails(id)
+          .then(function(zombie) {
+            $("#zombies").append(
+              `<div class="zombie">
+                <ul>
+                  <li>Name: ${zombie.name}</li>
+                  <li>DNA: ${zombie.dna}</li>
+                  <li>Level: ${zombie.level}</li>
+                  <li>Wins: ${zombie.winCount}</li>
+                  <li>Losses: ${zombie.lossCount}</li>
+                  <li>Ready Time: ${zombie.readyTime}</li>
+                </ul>
+              </div>`
+            );
+          });
+        }
       }
 
       function getZombieDetails(id) {

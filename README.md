@@ -198,3 +198,9 @@ https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
 
 자바스크립트 setinterval
 https://kyounghwan01.github.io/blog/JS/JSbasic/intervalFunction/#setinterval
+
+자바스크립트 es6 for of(+for in)
+https://jsdev.kr/t/for-in-vs-for-of/2938
+
+자바스크립트 template literal
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
