@@ -1,37 +1,39 @@
-<!-- 챕터 3: 컨트랙트와 대화하기
-    이제 메타마스크의 Web3 프로바이더로 Web3.js를 초기화했으니, 우리의 스마트 컨트랙트와 통신을 할 수 있도록 만들어보지.
-    Web3.js는 자네의 스마트 컨트랙트와 통신을 위해 2가지를 필요로 할 것이네: 컨트랙트의 _주소_와 ABI이지.
+<!-- 챕터 5: 메타마스크 & 계정
+    대단하군! 자네는 자네의 첫 스마트 컨트랙트와 상호작용을 할 수 있는 프론트엔드 코드를 성공적으로 작성했네.
+    이제 각 요소들을 하나로 합쳐나가도록 하겠네 - 우리 앱의 홈페이지에 사용자의 전체 좀비 군대를 보여주고 싶다고 가정해보지.
+    현재 사용자가 가지고 있는 모든 좀비들의 ID를 찾기 위해 우리는 분명 첫 번째로 getZombiesByOwner(owner) 함수를 사용해야 할 것이네.
+    하지만 우리의 솔리디티 컨트랙트는 owner에 솔리디티 address를 보내도록 되어 있네. 그렇다면 우리가 어떻게 우리 앱을 사용하는 사용자의 주소를 알 수 있겠는가?
 
-    _컨트랙트 주소
-    스마트 컨트랙트를 모두 작성한 후, 자네는 그걸 컴파일한 후 이더리움에 배포할 것이네. 배포는 다음 레슨에서 다룰 것이네. 
-    이는 코드를 작성하는 것과는 꽤나 다른 절차이기 때문에, 순서를 바꿔 Web3.js를 먼저 다루기로 한 것이지.
-    
-    컨트랙트를 배포한 후, 해당 컨트랙트는 영원히 존재하는, 이더리움 상에서 고정된 주소를 얻을 것이네. 
-    레슨2를 상기해보면, 이더리움 메인넷에서 크립토키티의 주소는 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d였지.
-    자네의 스마트 컨트랙트와 통신을 하기 위해 배포 후 이 주소를 복사해야 할 것이네.
+    _메타마스크에서 사용자 계정 가져오기
+    메타마스크는 확장 프로그램 안에서 사용자들이 다수의 계정을 관리할 수 있도록 해주네. 우리는 주입되어 있는 web3 변수에 현재 활성화된 계정이 무엇인지 다음처럼 확인할 수 있지:
+    var userAccount = web3.eth.accounts[0]
 
-    _컨트랙트 ABI
-    자네 컨트랙트와의 통신을 위해 Web3.js에서 필요로 하는 다른 하나는 바로 컨트랙트의 ABI이네.
-    ABI는 Application Binary Interface의 줄임말이네. 기본적으로 JSON 형태로 자네 컨트랙트의 메소드를 표현하는 것이지. 
-    자네 컨트랙트가 이해할 수 있도록 하려면 Web3.js가 어떤 형태로 함수 호출을 해야 하는지 알려주는 것이지.
-
-    이더리움에 배포하기 위해 컨트랙트를 컴파일할 때(레슨 7에서 다룰 내용이지), 솔리디티 컴파일러가 자네에게 ABI를 줄 것이네. 
-    그러니 컨트랙트 주소와 함께 이를 복사하여 저장해야 하겠지.
-
-    우리가 아직 배포를 다루지 않았기 때문에, 이번 레슨에서 내가 자네를 위해 ABI를 컴파일하여 cryptozombies_abi.js라는 파일의 cryptoZombiesABI 변수에 저장해 놓았네.
-    cryptozombies_abi.js를 우리 프로젝트에 포함하면, 해당 변수를 사용하여 크립토좀비 ABI에 접근할 수 있을 것이네.
-
-    _Web3.js 컨트랙트 인스턴스화하기
-    컨트랙트의 주소와 ABI를 얻고 나면, 자네는 다음과 같이 Web3에서 인스턴스화할 수 있네:
-    // myContract 인스턴스화
-    var myContract = new web3js.eth.Contract(myABI, myContractAddress);
+    사용자가 언제든지 메타마스크에서 활성화된 계정을 바꿀 수 있기 때문에, 우리 앱은 이 변수의 값이 바뀌었는지 확인하기 위해 계속 감시를 하고 값이 바뀌면 그에 따라 UI를 업데이트해야 할 것이네. 
+    예를 들어, 사용자들의 홈페이지에서 그들의 좀비 군대를 표시하고 싶다면, 메타마스크에서 계정을 바꾸었을 때 바뀐 계정에 대한 좀비 군대를 보여주기 위해 페이지를 업데이트해야 할 것이네.
+    이를 위해 다음과 같이 setInterval을 쓸 수 있네:
+    ```
+    var accountInterval = setInterval(function() {
+      // 계정이 바뀌었는지 확인
+      if (web3.eth.accounts[0] !== userAccount) {
+        userAccount = web3.eth.accounts[0];
+        // 새 계정에 대한 UI로 업데이트하기 위한 함수 호출
+        updateInterface();
+      }
+    }, 100);
+    ```
+    여기서는 userAccount가 여전히 web3.eth.accounts[0]과 같은지 확인하기 위해 100밀리초마다 확인하고 있네(즉 사용자가 해당 계정을 활성화해놓았는지 확인하는 것이지). 
+    그렇지 않다면, userAccount에 현재 활성화된 계정을 다시 할당하고, 화면을 업데이트하기 위한 함수를 호출하네.
 
     _직접 해보기
-    1. 우리 문서의 <head>에서, cryptozombies_abi.js를 포함하도록 또 다른 스크립트 태그를 써서 우리가 ABI 정의를 우리 프로젝트에 가져올 수 있도록 하게.
-    2. <body>의 <script> 태그 시작 부분에서, cryptoZombies라는 이름으로 var를 선언하고 어떤 값도 아직 핟당은 하지 말게. 추후 이 변수를 우리의 인스턴스화된 컨트랙트를 저장하는 데에 사용할 것이네.
-    3. 다음으로, startApp()이라는 이름으로 function을 만들게. 내용 부분은 다음 2단계로 나누어 채울 것이네.
-    4. startApp()이 처음으로 해야 할 것은 cryptoZombiesAddress라는 이름으로 var를 선언하고 여기에 "YOUR_CONTRACT_ADDRESS"를 할당하는 것이네(이는 메인넷에서 크립토좀비 컨트랙트의 주소이네).
-    5. 마지막으로, 우리 컨트랙트를 인스턴화하도록 하지. 우리가 위의 예제 코드에서 했던 것처럼 cryptoZombies에 새 web3js.eth.Contract를 할당하게(스크립트 태그를 통해 가져오는 cryptoZombiesABI와 위의 cryptoZombiesAddress를 사용하게).
+    페이지가 처음 로드될 때 사용자의 좀비 군대를 우리 앱에서 보여줄 수 있게 만들어 보도록 하지. 그리고 활성화 계정이 바뀌면 화면을 갱신할 수 있게 감시를 할 것이네.
+    
+    1. userAccount라는 이름으로 var를 선언하게. 값을 할당하지는 않도록 하게.
+    2. startApp()의 마지막 부분에서, 위의 accountInterval 예제 코드를 복사/붙여넣기 하게.
+    3. updateInterface(); 줄을 getZombiesByOwner를 호출하는 것으로 교체하고 userAccount를 전달하게.
+    4. getZombiesByOwner 이후 then절을 이어 결과값을 displayZombies라는 이름의 함수로 전달하게(구문은 다음과 같네: .then(displayZombies);).
+    5. displayZombies라는 함수를 아직 만들지 않았지만, 다음 챕터에서 이를 구현할 것이네.
+
+
 -->
 
 <!DOCTYPE html>
@@ -46,25 +48,36 @@
   <body>
 
     <script>
-      // 2. 여기서 코딩을 시작하게
       var cryptoZombies;
-      function startApp(){
+      // 1. 여기에 `userAccount`를 선언하게.
+      var userAccount;
+
+      function startApp() {
         var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+
+        // 2. 여기에 `setInterval` 코드를 만들게.
+        var accountInterval = setInterval(function() {
+          // 계정이 바뀌었는지 확인
+          if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0];
+            // 새 계정에 대한 UI로 업데이트하기 위한 함수 호출
+            getZombiesByOwner(userAccount)
+            .then(displayZombies);
+          }
+        }, 100);
       }
 
       function getZombieDetails(id) {
         return cryptoZombies.methods.zombies(id).call()
       }
 
-      // 1. 여기에 `zombieToOwner`를 정의하게.
       function zombieToOwner(id) {
-        return cryptoZombies.methods.zombieToOwner(id).call();
+        return cryptoZombies.methods.zombieToOwner(id).call()
       }
 
-      // 2. 여기에 `getZombiesByOwner`를 정의하게.
       function getZombiesByOwner(owner) {
-        return cryptoZombies.methods.getZombiesByOwner(owner).call();
+        return cryptoZombies.methods.getZombiesByOwner(owner).call()
       }
 
       window.addEventListener('load', function() {
@@ -85,4 +98,5 @@
     </script>
   </body>
 </html>
+
 

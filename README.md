@@ -195,3 +195,6 @@ https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-
 
 자바스크립트 promise
 https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
+
+자바스크립트 setinterval
+https://kyounghwan01.github.io/blog/JS/JSbasic/intervalFunction/#setinterval
