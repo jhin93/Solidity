@@ -204,3 +204,6 @@ https://jsdev.kr/t/for-in-vs-for-of/2938
 
 자바스크립트 template literal
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
+
+.on 이벤트 바인딩
+http://www.devkuma.com/books/pages/232
