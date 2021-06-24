@@ -1,54 +1,67 @@
-<!-- 챕터 6: 좀비 군대 보여주기
-    자네가 컨트랙트로부터 받은 데이터를 실제로 보여줄 수 없다면 이 튜토리얼은 완전하다고 할 수 없을 것이네.
-    하지만, 현실적으로 자네는 React나 Vue.js 같은 프론트엔드 프레임워크를 사용하고 싶을 수도 있네. 그것들이 프론트엔드 개발자로서의 자네의 삶을 훨씬 편하게 만들어주기 때문이지. 
-    하지만 React 또는 Vue.js 를 다루는 것은 이 튜토리얼의 범주 밖에 있다네 - 그건 그 자체로 여러 레슨으로 이루어진 튜토리얼이 될 것이네.
-    그래서 CryptoZombies.io의 초점을 이더리움과 스마트 컨트랙트에 맞추기 위해, 우리는 jQuery를 이용한 간단한 예제를 통해 어떻게 자네가 스마트 컨트랙트에서 전달받은 데이터를 파싱하고 표현할 수 있을지 보여줄 것이네.
+<!-- 챕터 7: 트랜잭션 보내기
+    훌륭하군! 이제 우리의 UI는 사용자의 메타마스크 계정을 감지하고, 자동으로 좀비 군대를 홈페이지에 표현할 것이네.
+    이제 send 함수를 이용해 스마트 컨트랙트의 데이터를 변경하는 방법을 살펴보도록 하지.
+    이 함수에는 call 함수와는 꽤 다른 부분이 있네: (call - pure, view 함수를 위한 함수. send - pure, view를 제외한 모든 함수를 위한 함수)
+
+    1. 트랜잭션을 전송(send)하려면 함수를 호출한 사람의 from 주소가 필요하네(솔리디티 코드에서는 msg.sender가 될 것이네). 
+    이는 우리 DApp의 사용자가 되어야 할 것이니, 메타마스크가 나타나 그들에게 서명을 하도록 할걸세.
+    2. 트랜잭션 전송(send)은 가스를 소모하네.
+    3. 사용자가 트랜잭션 전송을 하고 난 후 실제로 블록체인에 적용될 때까지는 상당한 지연이 발생할 것이네. 
+    트랜잭션이 블록에 포함될 때까지 기다려야 하는데, 이더리움의 평균 블록 시간이 15초이기 때문이지. 
     
-    _좀비 데이터 보여주기 - 간단한 예제
-    내가 먼저 우리 문서의 내용에 빈 <div id="zombies"></div>와 빈 displayZombies 함수를 추가해 놓았네.
-    지난 챕터에서 우리가 startApp() 내에서 getZombiesByOwner의 호출 결과를 써서 호출한 displayZombies를 상기해보게. 그 함수의 결과로 아래와 같이 생긴 좀비 ID 배열을 전달받을 수 있을 걸세:
-    [0, 13, 47]
-    따라서 displayZombies 함수는 다음과 같은 것을 할 것이네:
-    1. 먼저 이미 무언가가 #zombies div의 안에 들어 있다면 이 div의 내용을 비우게(이렇게 하면 사용자가 그들의 활성화된 MetaMask 계정을 변경하면 새로운 좀비 군대를 로딩하기 전에 기존의 것을 삭제할 것이네).
-    2. 반복을 통해 각 id마다 getZombieDetails(id)를 호출해서 우리의 스마트 컨트랙트에서 좀비에 대한 모든 정보를 찾게. 그리고서
-    3. 화면에 표시하기 위해 HTML 템플릿에 좀비에 대한 정보를 집어넣고, 해당 템플릿을 #zombies div에 붙여넣게.
+    만약 이더리움에 보류 중인 거래가 많거나 사용자가 가스 가격을 지나치게 낮게 보낼 경우, 우리 트랜잭션이 블록에 포함되길 기다려야 하고, 이는 몇 분씩 걸릴 수 있네.
+    그러니 이 코드의 비동기적 특성을 다루기 위한 로직이 필요하게 될 걸세.
 
-    여기서도 우린 기본 템플릿 엔진이 없는 jQuery를 이용하기 때문에, 보기 싫을 수 있지만, 다음의 간단한 예제처럼 각 좀비에 대한 정보를 출력할 수 있네:
-
-    // 우리 컨트랙트에서 좀비 상세 정보를 찾아, `zombie` 객체 반환
-    getZombieDetails(id)
-    .then(function(zombie) {
-      // HTML에 변수를 넣기 위해 ES6의 "template literal" 사용
-      // 각각을 #zombies div에 붙여넣기
-      $("#zombies").append(`<div class="zombie">
-        <ul>
-          <li>Name: ${zombie.name}</li>
-          <li>DNA: ${zombie.dna}</li>
-          <li>Level: ${zombie.level}</li>
-          <li>Wins: ${zombie.winCount}</li>
-          <li>Losses: ${zombie.lossCount}</li>
-          <li>Ready Time: ${zombie.readyTime}</li>
-        </ul>
-      </div>`);
-    });
-
-    _좀비 스프라이트는 어떻게 표현하나요?
-    위 예제에서 우리는 DNA를 문자열로 간단히 표현해 보았네. 하지만 자네의 DApp에서는 이것을 이미지로 바꿔서 자네의 좀비를 표현하고 싶을 걸세.
-    우린 DNA 문자열을 부분 문자열로 나누고, 모든 2자리 숫자를 이미지에 대응시켜 아래와 같이 이 작업을 처리했었네:
+    _좀비 만들기
+    이제 사용자가 호출할 우리 컨트랙트 내의 첫번째 함수를 예제로 살펴보겠네: createRandomZombie.
+    여기서 우리 컨트랙트의 솔리디티 코드를 다시 확인하겠네:
     ```
-    // 좀비의 머리를 표현하는 1-7의 정수 얻기
-    var head = parseInt(zombie.dna.substring(0, 2)) % 7 + 1
-
-    // 순차적인 파일 이름으로 7개의 머리 이미지를 가지고 있네:
-    var headSrc = "../assets/zombieparts/head-" + head + ".png"
+    function createRandomZombie(string _name) public {
+      require(ownerZombieCount[msg.sender] == 0);
+      uint randDna = _generateRandomDna(_name);
+      randDna = randDna - randDna % 100;
+      _createZombie(_name, randDna);
+    }
     ```
-    각 컴포넌트는 CSS의 절대 좌표 포지셔닝을 이용해 다른 이미지 위에 위치할 걸세. 만약 자네가 우리의 정확한 구현을 보고싶다면, 좀비를 표현하기 위해 우리가 사용한 Vue.js 컴포넌트 소스를 공개해놓았네. 그건 여기에서 볼 수 있네.
-    하지만 저 파일에는 많은 코드가 포함되어 있기 때문에, 그건 튜토리얼의 범주 밖이라네. 우린 위에서 본 매우 간단한 jQuery 구현에 집중할 것이고, 좀 더 아름다운 표현은 자네에게 숙제로 남겨두겠네 ?.
+    다음은 메타마스크를 사용해 Web3.js에서 위 함수를 호출하는 방법의 예제일세:
+    ```
+    function createRandomZombie(name) {
+      // 시간이 꽤 걸릴 수 있으니, 트랜잭션이 보내졌다는 것을
+      // 유저가 알 수 있도록 UI를 업데이트해야 함
+      $("#txStatus").text("Creating new zombie on the blockchain. This may take a while...");
+      // 우리 컨트랙트에 전송하기:
+      return CryptoZombies.methods.createRandomZombie(name)
+      .send({ from: userAccount })
+      .on("receipt", function(receipt) {
+        $("#txStatus").text("Successfully created " + name + "!");
+        // 블록체인에 트랜잭션이 반영되었으며, UI를 다시 그려야 함
+        getZombiesByOwner(userAccount).then(displayZombies);
+      })
+      .on("error", function(error) {
+        // 사용자들에게 트랜잭션이 실패했음을 알려주기 위한 처리
+        $("#txStatus").text(error);
+      });
+    }
+    ```
+    위 함수는 우리의 Web3 프로바이더에게 트랜잭션을 전송(send)하고, 몇 가지 이벤트 리스너들을 연결하네:
+    ? receipt는 트랜잭션이 이더리움의 블록에 포함될 때, 즉 좀비가 생성되고 우리의 컨트랙트에 저장되었을 때 발생하게 되네.
+    ? error는 트랜잭션이 블럭에 포함되지 못했을 때, 예를 들어 사용자가 충분한 가스를 전송하지 않았을 때 발생하게 되네. 
+      우리는 우리의 UI를 통해 사용자에게 트랜잭션이 전송되지 않았음을 알리고, 다시 시도할 수 있도록 할 것이네.
+    
+    |참고: 자네가 send를 호출할 때 gas와 gasPrice를 선택적으로 지정할 수 있네. .send({ from: userAccount, gas: 3000000 })와 같이 말이야. 
+          만약 지정하지 않는다면, 메타마스크는 사용자가 이 값들을 선택할 수 있도록 할 걸세.
 
     _직접 해보기
-    내가 자네를 위해 빈 displayZombies 함수를 만들어두었네. 이제 이걸 채워보도록 하지.
-    1. 
+    ID가 txStatus인 div를 추가해 놓았네. 우린 이 div를 사용해 우리 트랜잭션의 상태를 사용자에게 메시지로 알릴 수 있네.
 
+    1. displayZombies 아래에 위의 createRandomZombie를 복사/붙여넣기 하게.
+    2. feedOnKitty 라는 또 다른 함수를 구현해보겠네.
+    feedOnKitty를 호출하는 로직은 거의 동일하네 - 함수를 호출하는 트랜잭션을 보내고, 트랜잭션이 성공하면 새로운 좀비가 생성될 것이네. 그러니 성공 후에는 UI를 다시 그려야 할 것이네.
+    createRandomZombie를 그것 바로 아래에 복사하고, 다음과 같이 변경하게:
+      a. 2개의 인자 zombieId와 kittyId를 받는 두 번째 함수 feedOnKitty를 호출하게.
+      b. #txStatus 텍스트를 다음과 같이 업데이트하게: "Eating a kitty. This may take a while..."
+      c. 우리 컨트랙트의 feedOnKitty를 호출하게 하고, 같은 2개의 인자를 전달하게.
+      d. #txStatus에 성공 메세지로 "Ate a kitty and spawned a new Zombie!"를 쓰게.
 
 -->
 
@@ -62,6 +75,7 @@
     <script language="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
   </head>
   <body>
+    <div id="txStatus"></div>
     <div id="zombies"></div>
 
     <script>
@@ -84,7 +98,6 @@
       }
 
       function displayZombies(ids){
-        //Start here
         $("#zombies").empty();
         for(id of ids){
           getZombieDetails(id)
@@ -103,6 +116,38 @@
             );
           });
         }
+      }
+      // Start here
+      function createRandomZombie(name) {
+        // 시간이 꽤 걸릴 수 있으니, 트랜잭션이 보내졌다는 것을
+        // 유저가 알 수 있도록 UI를 업데이트해야 함
+        $("#txStatus").text("Creating new zombie on the blockchain. This may take a while...");
+        // 우리 컨트랙트에 전송하기:
+        return CryptoZombies.methods.createRandomZombie(name)
+        .send({ from: userAccount })
+        .on("receipt", function(receipt) {
+          $("#txStatus").text("Successfully created " + name + "!");
+          // 블록체인에 트랜잭션이 반영되었으며, UI를 다시 그려야 함
+          getZombiesByOwner(userAccount).then(displayZombies);
+        })
+        .on("error", function(error) {
+          // 사용자들에게 트랜잭션이 실패했음을 알려주기 위한 처리
+          $("#txStatus").text(error);
+        });
+      }
+
+      function feedOnKitty(zombieId, kittyId) {
+        $("#txStatus").text("Eating a kitty. This may take a while...");
+        return CryptoZombies.methods.feedOnKitty(zombieId, kittyId)
+        // Web3 프로바이더에게 트랜잭션을 전송(send)
+        .send({ from: userAccount })
+        .on("receipt", function(receipt) {
+          $("#txStatus").text("Ate a kitty and spawned a new Zombie!");
+          getZombiesByOwner(userAccount).then(displayZombies);
+        })
+        .on("error", function(error) {
+          $("#txStatus").text(error);
+        })
       }
 
       function getZombieDetails(id) {
