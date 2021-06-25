@@ -210,3 +210,11 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
 
 .on 이벤트 바인딩
 http://www.devkuma.com/books/pages/232
+
+indexed 키워드
+https://solidity-kr.readthedocs.io/ko/latest/miscellaneous.html#index-6
+https://docs.soliditylang.org/en/latest/contracts.html#events
+
+web3js에서 메소드, 이벤트를 다루는 법
+ex - CryptoZombies.methods.createRandomZombie(name)
+ex - cryptoZombies.events.NewZombie()...
