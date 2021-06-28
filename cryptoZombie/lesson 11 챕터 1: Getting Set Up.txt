@@ -45,8 +45,8 @@ If you followed along with our previous lessons, you should have built a zombie-
 . truffle.js
 
 
-※ 주의 ※
-실제로 디렉토리 구조가 위와 같지 않은데, 아마 코스 중간에 빠진 커리큘럼이 있어서 그런 듯 하다. 왜 빠진지는 모르겠다. 
+※ 이상한 점 ※
+실제로 lesson6까지 끝낸 후의 디렉토리 구조가 위와 같지 않다. 아마 코스 중간에 빠진 커리큘럼이 있어서 그런 듯 하다. 왜 빠진지는 모르겠다. 
 lesson 6까지가 초중급이고(ex https://cryptozombies.io/ko/lesson/6) 갑자기 두번째 단계부터 lesson11로 시작하는 걸 링크로 확인할 수 있다(https://cryptozombies.io/ko/lesson/11/).
 
 See the test folder? This is where we are going to be putting our tests.
