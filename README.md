@@ -12,14 +12,11 @@
 https://cryptozombies.io/ko/course
 
 
-2. 프로그래머스 (4/19일에 파트 2의 1까지 완료)
-https://programmers.co.kr/learn/courses/36#curriculum 
+2. 인프런
+https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-dapp#curriculum
 
 3. dapp university.
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
-
-4. 인프런
-https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-dapp#curriculum
 
 
 - 공식문서.
