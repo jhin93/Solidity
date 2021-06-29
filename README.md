@@ -41,9 +41,15 @@ https://homoefficio.github.io/2016/01/23/BlockChain-%EA%B8%B0%EC%B4%88-%EA%B0%9C
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
 web3.js란? http://wiki.hash.kr/index.php/Web3.js
 node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
+
 nft란? https://v.kakao.com/v/20210401051201642
+
 코인과 토큰의 차이 https://www.tokenpost.kr/terms/11550
+
 코인 메인넷이란? https://webruden.tistory.com/530
+
+geth 터미널 명령어
+https://geth.ethereum.org/docs/interface/command-line-options
 
 
 
