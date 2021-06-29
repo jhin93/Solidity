@@ -29,6 +29,9 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 블록체인이란(원리, 활용, 전망) http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
 
+블록체인 구조 설명
+https://brownbears.tistory.com/371?category=281929
+
 스마트 컨트랙트란? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
 web3.js란? http://wiki.hash.kr/index.php/Web3.js
 node.js란? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
