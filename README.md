@@ -1,79 +1,79 @@
 # Solidity
 
-ÀÌ°÷Àº Solidity¸¦ À§ÇÑ °ø°£ÀÔ´Ï´Ù.
-ºí·ÏÃ¼ÀÎ °³¹ßÀÚ¸¦ ÇâÇÏ¿©.
+ì´ê³³ì€ Solidityë¥¼ ìœ„í•œ ê³µê°„ì…ë‹ˆë‹¤.
+ë¸”ë¡ì²´ì¸ ê°œë°œìë¥¼ í–¥í•˜ì—¬.
 
 
 
-[ Solidity ÇĞ½À ¼ø¼­ ]
-¿Ï·áµÈ °úÁ¤Àº ¿ìÃø¿¡ ¿Ï·áµÈ ³¯Â¥¿Í ÇÔ²² ¿Ï·á¶ó°í ÀÛ¼º.(ex ÇÁ·Î±×·¡¸Ó½º 4/17 ¿Ï·á)
+[ Solidity í•™ìŠµ ìˆœì„œ ]
+ì™„ë£Œëœ ê³¼ì •ì€ ìš°ì¸¡ì— ì™„ë£Œëœ ë‚ ì§œì™€ í•¨ê»˜ ì™„ë£Œë¼ê³  ì‘ì„±.(ex í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ 4/17 ì™„ë£Œ)
 
-1.  Å©¸³ÅäÁ»ºñ
+1.  í¬ë¦½í† ì¢€ë¹„
 https://cryptozombies.io/ko/course
 
 
-2. ÀÎÇÁ·±
+2. ì¸í”„ëŸ°
 https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-dapp#curriculum
 
 3. dapp university.
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
 
 
-- °ø½Ä¹®¼­.
+- ê³µì‹ë¬¸ì„œ.
 https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 
 
 [Warm-up reference]
-½ÃÀÛÇÏ±â Àü¿¡ ÀĞ°í ½ÃÀÛÇÏÀÚ.
+ì‹œì‘í•˜ê¸° ì „ì— ì½ê³  ì‹œì‘í•˜ì.
 
-ºí·ÏÃ¼ÀÎÀÌ¶õ(¿ø¸®, È°¿ë, Àü¸Á) http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
+ë¸”ë¡ì²´ì¸ì´ë€(ì›ë¦¬, í™œìš©, ì „ë§) http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
 
-ºí·ÏÃ¼ÀÎ ±¸Á¶ ¼³¸í
+ë¸”ë¡ì²´ì¸ êµ¬ì¡° ì„¤ëª…
 https://brownbears.tistory.com/371?category=281929
 
-nonce ¼³¸í
+nonce ì„¤ëª…
 http://wiki.hash.kr/index.php/%EB%85%BC%EC%8A%A4_(%EC%9E%84%EC%8B%9C%EA%B0%92)
 
-bits ¼³¸í(+ºí·ÏÃ¼ÀÎ ÀÛµ¿ ¹æ½Ä ¼³¸í)
+bits ì„¤ëª…(+ë¸”ë¡ì²´ì¸ ì‘ë™ ë°©ì‹ ì„¤ëª…)
 https://homoefficio.github.io/2016/01/23/BlockChain-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%85%90/
 
-½º¸¶Æ® ÄÁÆ®·¢Æ®¶õ? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
-web3.js¶õ? http://wiki.hash.kr/index.php/Web3.js
-node.js¶õ? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
+ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ë€? https://medium.com/haechi-audit-kr/smart-contract-a-to-z-79ebc04d6c86
+web3.jsë€? http://wiki.hash.kr/index.php/Web3.js
+node.jsë€? http://sblog.netraweb.com/node-js-%EA%B0%95%EC%A2%8C-node-js-%EB%9E%80-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%86%8C%EA%B0%9C/
 
-nft¶õ? https://v.kakao.com/v/20210401051201642
-ÄÚÀÎ°ú ÅäÅ«ÀÇ Â÷ÀÌ https://www.tokenpost.kr/terms/11550
-ÄÚÀÎ ¸ŞÀÎ³İÀÌ¶õ? https://webruden.tistory.com/530
+nftë€? https://v.kakao.com/v/20210401051201642
+ì½”ì¸ê³¼ í† í°ì˜ ì°¨ì´ https://www.tokenpost.kr/terms/11550
+ì½”ì¸ ë©”ì¸ë„·ì´ë€? https://webruden.tistory.com/530
 
-geth ÅÍ¹Ì³Î ¸í·É¾î
+geth í„°ë¯¸ë„ ëª…ë ¹ì–´
 https://geth.ethereum.org/docs/interface/command-line-options
 
 
 
-[¼Ö¸®µğÆ¼ °ü·Ã ÀÚ·á ¸ğÀ½]
+[ì†”ë¦¬ë””í‹° ê´€ë ¨ ìë£Œ ëª¨ìŒ]
 
-- ¹®¹ı
+- ë¬¸ë²•
 
-¼Ö¸®µğÆ¼ ÄÚµå ·¹ÀÌ¾Æ¿ô(½ºÅ¸ÀÏ°¡ÀÌµå)
+ì†”ë¦¬ë””í‹° ì½”ë“œ ë ˆì´ì•„ì›ƒ(ìŠ¤íƒ€ì¼ê°€ì´ë“œ)
 https://docs.soliditylang.org/en/v0.5.2/style-guide.html#code-layout
 https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-19e2686201f6
 
-¿©±â´Â ¹®¹ı°³³äÀ» ºĞ·ùÇØ¼­ ¿¹½ÃÇÔ¼öµé·Î ¼³¸íÇÔ. visibility, ÇÔ¼ö Á¦¾îÀÚ, µ¥ÀÌÅÍ À¯Çü.
+ì—¬ê¸°ëŠ” ë¬¸ë²•ê°œë…ì„ ë¶„ë¥˜í•´ì„œ ì˜ˆì‹œí•¨ìˆ˜ë“¤ë¡œ ì„¤ëª…í•¨. visibility, í•¨ìˆ˜ ì œì–´ì, ë°ì´í„° ìœ í˜•.
 https://potensj.tistory.com/18?category=671470
 
-Á¢±Ù Á¦¾îÀÚ(Visibility)¿¡ ´ëÇØ¼­¸¸ ´Ù·é ±Û
+ì ‘ê·¼ ì œì–´ì(Visibility)ì— ëŒ€í•´ì„œë§Œ ë‹¤ë£¬ ê¸€
 https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030
 https://caileb.tistory.com/140  
 
-»óÅÂ Á¦¾îÀÚ ¼³¸í ÀßÇØ³õÀº ±Û
+ìƒíƒœ ì œì–´ì ì„¤ëª… ì˜í•´ë†“ì€ ê¸€
 https://codemath.github.io/Solidity-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B8%B0%EB%B0%98-Dapp-%EA%B0%9C%EB%B0%9C%EA%B8%B0(2)-Solidity-%EC%96%B8%EC%96%B4-%EC%A0%95%EB%A6%AC/
 
-¿©±ä ½º¸¶Æ® ÄÁÆ®·¢Æ® ±¸Á¶, º¯¼ö, µ¥ÀÌÅÍ À§Ä¡ µî Àü¹İÀûÀ¸·Î ´Ù·é´Ù.
+ì—¬ê¸´ ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ êµ¬ì¡°, ë³€ìˆ˜, ë°ì´í„° ìœ„ì¹˜ ë“± ì „ë°˜ì ìœ¼ë¡œ ë‹¤ë£¬ë‹¤.
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/
 
 
-storage¿Í memory
+storageì™€ memory
 https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/
 
 calldata
@@ -82,149 +82,149 @@ https://medium.com/day34/solidity-0-5-0-%EC%97%90%EC%84%9C%EC%9D%98-%EB%B3%80%EA
 https://docs.soliditylang.org/en/v0.5.3/types.html
 
 
-- °³³ä
+- ê°œë…
 
-pragma¶õ?
+pragmaë€?
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F
 
-msg¶õ? 
-msg (tx ¿Í block Æ÷ÇÔ)´Â À¯¿ëÇÑ Àü¿ª º¯¼ö·Î ºí·ÏÃ¼ÀÎ¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ´Ù¾çÇÑ ¼Ó¼ºµéÀ» ´ã°í ÀÖ½À´Ï´Ù. 
-msg.sender ´Â ¿ÜºÎ¿¡¼­ Áö±İ ÇÔ¼ö¸¦ È£ÃâÇÑ ÁÖ¼Ò¸¦ ³ªÅ¸³À´Ï´Ù.
-https://solidity-kr.readthedocs.io/ko/latest/introduction-to-smart-contracts.html?highlight=msg#subcurrency ¿¡¼­ 'À¯¿ëÇÑ Àü¿ª º¯¼ö' °Ë»ö.
+msgë€? 
+msg (tx ì™€ block í¬í•¨)ëŠ” ìœ ìš©í•œ ì „ì—­ ë³€ìˆ˜ë¡œ ë¸”ë¡ì²´ì¸ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” ë‹¤ì–‘í•œ ì†ì„±ë“¤ì„ ë‹´ê³  ìˆìŠµë‹ˆë‹¤. 
+msg.sender ëŠ” ì™¸ë¶€ì—ì„œ ì§€ê¸ˆ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ì£¼ì†Œë¥¼ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.
+https://solidity-kr.readthedocs.io/ko/latest/introduction-to-smart-contracts.html?highlight=msg#subcurrency ì—ì„œ 'ìœ ìš©í•œ ì „ì—­ ë³€ìˆ˜' ê²€ìƒ‰.
 
-msg ¸â¹ö °ª.
+msg ë©¤ë²„ ê°’.
 https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html#index-2
 
 
-ÀÚ·áÇü (°­Ã¶ÀÇ ºí·ÏÃ¼ÀÎ À¯Æ©ºê Ã¤³Î ¿î¿µÀÚÀÇ ºí·Î±×)
+ìë£Œí˜• (ê°•ì² ì˜ ë¸”ë¡ì²´ì¸ ìœ íŠœë¸Œ ì±„ë„ ìš´ì˜ìì˜ ë¸”ë¡œê·¸)
 https://needjarvis.tistory.com/255
 
-SHA-3 ¶õ?
+SHA-3 ë€?
 https://ko.wikipedia.org/wiki/SHA-3
 
-keccak-256ÀÌ¶õ?
+keccak-256ì´ë€?
 http://wiki.hash.kr/index.php/Keccak-256
 
-abi¶õ?
+abië€?
 https://hucet.tistory.com/46
 https://cryptozombies.io/ko/lesson/6/chapter/3
 
-ÀÌ´õ¸®¿ò°ú abi °ü·Ã. api¿Í ºñ±³.
+ì´ë”ë¦¬ì›€ê³¼ abi ê´€ë ¨. apiì™€ ë¹„êµ.
 https://medium.com/pocs/ethereum-abi%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-q-a-%EC%A0%95%EB%A6%AC-40e639ee1a03
 
-abi-encodepacked¶õ?
+abi-encodepackedë€?
 https://frontalnh.github.io/categories/ethereum/blockchain/
 
-¼Ö¸®µğÆ¼¿¡¼­ÀÇ event¿¡ ´ëÇÏ¿© (dApp = ½º¸¶Æ® ÄÁÆ®·¢Æ® + ÇÁ·ĞÆ®¿£µå)
+ì†”ë¦¬ë””í‹°ì—ì„œì˜ eventì— ëŒ€í•˜ì—¬ (dApp = ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ + í”„ë¡ íŠ¸ì—”ë“œ)
 https://nujabes403.medium.com/solidity-event%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-6ed040e12808
 
-¸ÅÇÎ°ú ±¸Á¶Ã¼ÀÇ Â÷ÀÌ
+ë§¤í•‘ê³¼ êµ¬ì¡°ì²´ì˜ ì°¨ì´
 https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyReferer=https:%2F%2Fwww.google.com%2F
 
-±¸Á¶Ã¼ ¹è¿­ »ç¿ë¿¹½Ã
+êµ¬ì¡°ì²´ ë°°ì—´ ì‚¬ìš©ì˜ˆì‹œ
 https://hatpub.tistory.com/56
 
-»ı¼ºÀÚ(constructor)
+ìƒì„±ì(constructor)
 https://caileb.tistory.com/137
 https://docs.soliditylang.org/en/v0.7.5/contracts.html?highlight=constructor#constructors
 
-°¡½º¶õ?
+ê°€ìŠ¤ë€?
 https://phemex.com/ko/academy/%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B0%80%EC%8A%A4%EB%9E%80
 
-payable Á¦¾îÀÚ
+payable ì œì–´ì
 https://www.crocus.co.kr/1254
 
-address °ü·Ã (balance, transfer µî)
+address ê´€ë ¨ (balance, transfer ë“±)
 https://solidity-kr.readthedocs.io/ko/latest/types.html?highlight=balance#address-members
 https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html
 
-ÀÌ´õ¸®¿ò °èÁ¤(Account), Æ®·£Àè¼Ç(Transaction), ¸Ş½ÃÁö(Message) + ½º¸¶Æ® ÄÁÆ®·¢Æ®
+ì´ë”ë¦¬ì›€ ê³„ì •(Account), íŠ¸ëœì­ì…˜(Transaction), ë©”ì‹œì§€(Message) + ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸
 https://brownbears.tistory.com/385
 
-¾ÈÀüÇÑ ³­¼ö»ı¼º
+ì•ˆì „í•œ ë‚œìˆ˜ìƒì„±
 https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract
 
-ERC-20(´ëÃ¼ °¡´É)
+ERC-20(ëŒ€ì²´ ê°€ëŠ¥)
 http://wiki.hash.kr/index.php/ERC-20
-- »ç¿ë±ÔÄ¢ : http://wiki.hash.kr/index.php/ERC-20#.EA.B7.9C.EC.B9.99
+- ì‚¬ìš©ê·œì¹™ : http://wiki.hash.kr/index.php/ERC-20#.EA.B7.9C.EC.B9.99
 
-ERC-721(´ëÃ¼ ºÒ°¡´É)
+ERC-721(ëŒ€ì²´ ë¶ˆê°€ëŠ¥)
 http://wiki.hash.kr/index.php/ERC-721#OpenZeppelin
 
-ERC-721 Ç¥ÁØ¾È
+ERC-721 í‘œì¤€ì•ˆ
 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md#specification
 
-ERC Á¤¸®
+ERC ì •ë¦¬
 https://eips.ethereum.org/erc
 
-Ãß»ó ÄÁÆ®·¢Æ®(abstract contract), ÀÎÅÍÆäÀÌ½º.
+ì¶”ìƒ ì»¨íŠ¸ë™íŠ¸(abstract contract), ì¸í„°í˜ì´ìŠ¤.
 https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56
 
-ÀÎÅÍÆäÀÌ½º
+ì¸í„°í˜ì´ìŠ¤
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#interfaces
 https://cryptozombies.io/ko/lesson/2/chapter/10
 https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 
-¿À¹ö¶óÀÌµù
+ì˜¤ë²„ë¼ì´ë”©
 https://docs.soliditylang.org/en/v0.6.0/contracts.html#function-overriding
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9
 https://medium.com/upstate-interactive/solidity-override-vs-virtual-functions-c0a5dfb83aaf
 
-¿À¹ö·Îµù
+ì˜¤ë²„ë¡œë”©
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9
 
-µ¥ÀÌÅÍ ´ÜÀ§(ºñÆ®, ¹ÙÀÌÆ®..) 8bit == 2^8 - 1 == (2^7) + (2^6) + ... + (2^0)
+ë°ì´í„° ë‹¨ìœ„(ë¹„íŠ¸, ë°”ì´íŠ¸..) 8bit == 2^8 - 1 == (2^7) + (2^6) + ... + (2^0)
 https://kbench.com/?q=node/2635
-¿À¹öÇÃ·Î¿ì ¹ß»ı ¿¹½Ã
+ì˜¤ë²„í”Œë¡œìš° ë°œìƒ ì˜ˆì‹œ
 https://steemit.com/kr-dev/@modolee/the-go-programming-language-3-3-1
 
-¶óÀÌºê·¯¸®(library)
+ë¼ì´ë¸ŒëŸ¬ë¦¬(library)
 https://cryptozombies.io/ko/lesson/5/chapter/9
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries
 
-assert : Á¶°ÇÀÌ ÃæÁ·µÇÁö ¾ÊÀ¸¸é ¿¹¿Ü¸¦ ¹ß»ı½ÃÅµ´Ï´Ù - ³»ºÎ ¿¡·¯¿¡ »ç¿ëµË´Ï´Ù.
-require : Á¶°ÇÀÌ ÃæÁ·µÇÁö ¾ÊÀ¸¸é ¿¹¿Ü¸¦ ¹ß»ı½ÃÅµ´Ï´Ù - ÀÔ·Â ¶Ç´Â ¿ÜºÎ ¿ä¼ÒÀÇ ¿¡·¯¿¡ »ç¿ëµË´Ï´Ù.
+assert : ì¡°ê±´ì´ ì¶©ì¡±ë˜ì§€ ì•Šìœ¼ë©´ ì˜ˆì™¸ë¥¼ ë°œìƒì‹œí‚µë‹ˆë‹¤ - ë‚´ë¶€ ì—ëŸ¬ì— ì‚¬ìš©ë©ë‹ˆë‹¤.
+require : ì¡°ê±´ì´ ì¶©ì¡±ë˜ì§€ ì•Šìœ¼ë©´ ì˜ˆì™¸ë¥¼ ë°œìƒì‹œí‚µë‹ˆë‹¤ - ì…ë ¥ ë˜ëŠ” ì™¸ë¶€ ìš”ì†Œì˜ ì—ëŸ¬ì— ì‚¬ìš©ë©ë‹ˆë‹¤.
 https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html?highlight=assert#index-3
-assert : ÇÔ¼ö ½ÇÇàÀÌ ½ÇÆĞÇØµµ ³²Àº °¡½º µ¹·ÁÁÖÁö ¾ÊÀ½.
-require : ÇÔ¼ö ½ÇÇàÀÌ ½ÇÆĞÇÏ¸é ³²Àº °¡½º µÇµ¹·ÁÁÜ.
+assert : í•¨ìˆ˜ ì‹¤í–‰ì´ ì‹¤íŒ¨í•´ë„ ë‚¨ì€ ê°€ìŠ¤ ëŒë ¤ì£¼ì§€ ì•ŠìŒ.
+require : í•¨ìˆ˜ ì‹¤í–‰ì´ ì‹¤íŒ¨í•˜ë©´ ë‚¨ì€ ê°€ìŠ¤ ë˜ëŒë ¤ì¤Œ.
 https://cryptozombies.io/ko/lesson/5/chapter/10
 
-ºí·ÏÃ¼ÀÎ ³×Æ®¿öÅ©, ³ëµå
+ë¸”ë¡ì²´ì¸ ë„¤íŠ¸ì›Œí¬, ë…¸ë“œ
 https://www.youtube.com/watch?v=u4voz9XBbWA
 
-Ä³½Ã¶õ
+ìºì‹œë€
 https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8B%9C
 https://mangkyu.tistory.com/69
 
--Web3.js ¿Í ÄÁÆ®·¢Æ®ÀÇ Åë½Å
-ÇÊ¿äÇÑ °Í : ÄÁÆ®·¢Æ® ÁÖ¼Ò, ÄÁÆ®·¢Æ® ABI
-ÄÁÆ®·¢Æ® ÁÖ¼Ò - ÀÌ´õ¸®¿ò¿¡ ¹èÆ÷ÇÏ¸é ¿µ±¸ÀûÀÌ°í °íÁ¤µÈ ÁÖ¼Ò¸¦ ¾ò°Ô µÊ. º¹»çÇØ¼­ »ç¿ë.
-ÄÁÆ®·¢Æ® ABI - ÀÌ´õ¸®¿ò¿¡ ÀÌ´õ¸®¿ò¿¡ ¹èÆ÷ÇÏ±â À§ÇØ ÄÁÆ®·¢Æ®¸¦ ÄÄÆÄÀÏÇÒ ¶§, ¼Ö¸®µğÆ¼ ÄÄÆÄÀÏ·¯°¡ ÀÚ³×¿¡°Ô ABI¸¦ ÁÜ.
-(ÇØ´ç ³»¿ë Ã©ÅÍ : https://cryptozombies.io/ko/lesson/6/chapter/3)
+-Web3.js ì™€ ì»¨íŠ¸ë™íŠ¸ì˜ í†µì‹ 
+í•„ìš”í•œ ê²ƒ : ì»¨íŠ¸ë™íŠ¸ ì£¼ì†Œ, ì»¨íŠ¸ë™íŠ¸ ABI
+ì»¨íŠ¸ë™íŠ¸ ì£¼ì†Œ - ì´ë”ë¦¬ì›€ì— ë°°í¬í•˜ë©´ ì˜êµ¬ì ì´ê³  ê³ ì •ëœ ì£¼ì†Œë¥¼ ì–»ê²Œ ë¨. ë³µì‚¬í•´ì„œ ì‚¬ìš©.
+ì»¨íŠ¸ë™íŠ¸ ABI - ì´ë”ë¦¬ì›€ì— ì´ë”ë¦¬ì›€ì— ë°°í¬í•˜ê¸° ìœ„í•´ ì»¨íŠ¸ë™íŠ¸ë¥¼ ì»´íŒŒì¼í•  ë•Œ, ì†”ë¦¬ë””í‹° ì»´íŒŒì¼ëŸ¬ê°€ ìë„¤ì—ê²Œ ABIë¥¼ ì¤Œ.
+(í•´ë‹¹ ë‚´ìš© ì±•í„° : https://cryptozombies.io/ko/lesson/6/chapter/3)
 
-ºñµ¿±â Ã³¸®¹æ½Ä
+ë¹„ë™ê¸° ì²˜ë¦¬ë°©ì‹
 https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/
 
-ÀÚ¹Ù½ºÅ©¸³Æ® promise
+ìë°”ìŠ¤í¬ë¦½íŠ¸ promise
 https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
 
-ÀÚ¹Ù½ºÅ©¸³Æ® setinterval
+ìë°”ìŠ¤í¬ë¦½íŠ¸ setinterval
 https://kyounghwan01.github.io/blog/JS/JSbasic/intervalFunction/#setinterval
 
-ÀÚ¹Ù½ºÅ©¸³Æ® es6 for of(+for in)
+ìë°”ìŠ¤í¬ë¦½íŠ¸ es6 for of(+for in)
 https://jsdev.kr/t/for-in-vs-for-of/2938
 
-ÀÚ¹Ù½ºÅ©¸³Æ® template literal
+ìë°”ìŠ¤í¬ë¦½íŠ¸ template literal
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
 
-.on ÀÌº¥Æ® ¹ÙÀÎµù
+.on ì´ë²¤íŠ¸ ë°”ì¸ë”©
 http://www.devkuma.com/books/pages/232
 
-indexed Å°¿öµå
+indexed í‚¤ì›Œë“œ
 https://solidity-kr.readthedocs.io/ko/latest/miscellaneous.html#index-6
 https://docs.soliditylang.org/en/latest/contracts.html#events
 
-web3js¿¡¼­ ¸Ş¼Òµå, ÀÌº¥Æ®¸¦ ´Ù·ç´Â ¹ı
+web3jsì—ì„œ ë©”ì†Œë“œ, ì´ë²¤íŠ¸ë¥¼ ë‹¤ë£¨ëŠ” ë²•
 ex - CryptoZombies.methods.createRandomZombie(name)
 ex - cryptoZombies.events.NewZombie()...

@@ -19,21 +19,21 @@ contract ZombieFactory {
 
 }
 
-// ÀÇ¹®Á¡ ÇØ°á.
+// ì˜ë¬¸ì  í•´ê²°.
 
 // https://ethereum.stackexchange.com/questions/63294/typeerror-data-location-must-be-storage-or-memory-for-parameter-in-function
-// solidity 0.5.0 ¹öÀüºÎÅÍ´Â ±¸Á¶Ã¼, ¹è¿­ ¶Ç´Â ¸ÅÇÎ µîÀÇ ¸ðµç º¯¼ö¸¦ À§ÇØ µ¥ÀÌÅÍ À§Ä¡¸¦ ¸í½ÃÇÏ´Â °ÍÀÌ ÇÊ¼ö.
+// solidity 0.5.0 ë²„ì „ë¶€í„°ëŠ” êµ¬ì¡°ì²´, ë°°ì—´ ë˜ëŠ” ë§¤í•‘ ë“±ì˜ ëª¨ë“  ë³€ìˆ˜ë¥¼ ìœ„í•´ ë°ì´í„° ìœ„ì¹˜ë¥¼ ëª…ì‹œí•˜ëŠ” ê²ƒì´ í•„ìˆ˜.
 
-// https://solidity-kr.readthedocs.io/ko/latest/types.html  ->  'µ¥ÀÌÅÍ À§Ä¡' °Ë»ö
-// solidity 0.4 ¹öÀü±îÁö´Â µ¥ÀÌÅÍ À§Ä¡°¡ ÀÚµ¿ÀûÀ¸·Î ÁöÁ¤µÇ¾î ±»ÀÌ ¸í½ÃÇÏÁö ¾Ê¾Æµµ µÆ¾úÀ½.
+// https://solidity-kr.readthedocs.io/ko/latest/types.html  ->  'ë°ì´í„° ìœ„ì¹˜' ê²€ìƒ‰
+// solidity 0.4 ë²„ì „ê¹Œì§€ëŠ” ë°ì´í„° ìœ„ì¹˜ê°€ ìžë™ì ìœ¼ë¡œ ì§€ì •ë˜ì–´ êµ³ì´ ëª…ì‹œí•˜ì§€ ì•Šì•„ë„ ëì—ˆìŒ.
 
-// ¸ðµç º¹ÇÕ Å¸ÀÔÀº ÀÚ½ÅÀÌ memory ³ª storage Áß ¾îµð¿¡ ÀúÀåµÇ¾ú´ÂÁö¸¦ ³ªÅ¸³»´Â "µ¥ÀÌÅÍ À§Ä¡"°¡ Ãß°¡ÀûÀ¸·Î Á¸ÀçÇÕ´Ï´Ù. 
-// ÄÁÅØ½ºÆ®¿¡ µû¶ó Ç×»ó ±âº»°ªÀÌ Á¸ÀçÇÏÁö¸¸, Å¸ÀÔ¿¡ storage ³ª memory ¸¦ Ãß°¡ÇÏ¿© ÀçÁ¤ÀÇ ÇÒ ¼ö ÀÖ½À´Ï´Ù. 
-// ÇÔ¼ö ¸Å°³ º¯¼ö(ÀÎÀÚ)¿Í ¹ÝÈ¯ º¯¼ö(¸®ÅÏ°ª)ÀÇ ±âº»°ªÀº memory ÀÌ°í, Áö¿ªº¯¼öÀÇ ±âº»°ªÀº storage ÀÌ¸ç »óÅÂº¯¼öÀÇ À§Ä¡´Â storage·Î °­Á¦µÇ¾î ÀÖ½À´Ï´Ù.
+// ëª¨ë“  ë³µí•© íƒ€ìž…ì€ ìžì‹ ì´ memory ë‚˜ storage ì¤‘ ì–´ë””ì— ì €ìž¥ë˜ì—ˆëŠ”ì§€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” "ë°ì´í„° ìœ„ì¹˜"ê°€ ì¶”ê°€ì ìœ¼ë¡œ ì¡´ìž¬í•©ë‹ˆë‹¤. 
+// ì»¨í…ìŠ¤íŠ¸ì— ë”°ë¼ í•­ìƒ ê¸°ë³¸ê°’ì´ ì¡´ìž¬í•˜ì§€ë§Œ, íƒ€ìž…ì— storage ë‚˜ memory ë¥¼ ì¶”ê°€í•˜ì—¬ ìž¬ì •ì˜ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. 
+// í•¨ìˆ˜ ë§¤ê°œ ë³€ìˆ˜(ì¸ìž)ì™€ ë°˜í™˜ ë³€ìˆ˜(ë¦¬í„´ê°’)ì˜ ê¸°ë³¸ê°’ì€ memory ì´ê³ , ì§€ì—­ë³€ìˆ˜ì˜ ê¸°ë³¸ê°’ì€ storage ì´ë©° ìƒíƒœë³€ìˆ˜ì˜ ìœ„ì¹˜ëŠ” storageë¡œ ê°•ì œë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
 
-// * »óÅÂº¯¼ö = ÄÁÆ®·¢Æ® ÀúÀå¼Ò¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåÀÌ µÇ´Â º¯¼ö
-// * Áö¿ªº¯¼ö = 1È¸¼ºÀ¸·Î ÇØ´ç ±¸¿ª¿¡¼­¸¸ ¾²´Â °ª
+// * ìƒíƒœë³€ìˆ˜ = ì»¨íŠ¸ëž™íŠ¸ ì €ìž¥ì†Œì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ì´ ë˜ëŠ” ë³€ìˆ˜
+// * ì§€ì—­ë³€ìˆ˜ = 1íšŒì„±ìœ¼ë¡œ í•´ë‹¹ êµ¬ì—­ì—ì„œë§Œ ì“°ëŠ” ê°’
 
-// private´Â ÄÁÆ®·¢Æ® ³»ÀÇ ´Ù¸¥ ÇÔ¼öµé¸¸ÀÌ ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÏ¿© numbers ¹è¿­·Î ¹«¾ð°¡¸¦ Ãß°¡ÇÒ ¼ö ÀÖ´Ù´Â °ÍÀ» ÀÇ¹ÌÇÏÁö.
-// À§ÀÇ ¿¹½Ã¿¡¼­ º¼ ¼ö ÀÖµíÀÌ private Å°¿öµå´Â ÇÔ¼ö¸í ´ÙÀ½¿¡ Àû³×. 
-// ÇÔ¼ö ÀÎÀÚ¸í°ú ¸¶Âù°¡Áö·Î privateÇÑ ÇÔ¼ö¸íµµ ¾ð´õ¹Ù(_)·Î ½ÃÀÛÇÏ´Â °ÍÀÌ °ü·Ê¶ó³×.
+// privateëŠ” ì»¨íŠ¸ëž™íŠ¸ ë‚´ì˜ ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ë§Œì´ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ numbers ë°°ì—´ë¡œ ë¬´ì–¸ê°€ë¥¼ ì¶”ê°€í•  ìˆ˜ ìžˆë‹¤ëŠ” ê²ƒì„ ì˜ë¯¸í•˜ì§€.
+// ìœ„ì˜ ì˜ˆì‹œì—ì„œ ë³¼ ìˆ˜ ìžˆë“¯ì´ private í‚¤ì›Œë“œëŠ” í•¨ìˆ˜ëª… ë‹¤ìŒì— ì ë„¤. 
+// í•¨ìˆ˜ ì¸ìžëª…ê³¼ ë§ˆì°¬ê°€ì§€ë¡œ privateí•œ í•¨ìˆ˜ëª…ë„ ì–¸ë”ë°”(_)ë¡œ ì‹œìž‘í•˜ëŠ” ê²ƒì´ ê´€ë¡€ë¼ë„¤.

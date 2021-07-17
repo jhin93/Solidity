@@ -29,4 +29,4 @@ contract ZombieFactory {
 
 }
 
-// ÇÔ¼ö¿¡ ÀÎÀÚ¸¦ ³ÖÀ»¶© ÀÎÀÚÀÇ Å¸ÀÔÀ» ÀûÁö ¾Ê¾Æµµ µÈ´Ù. ex) _createZombie(_name, randDna);
+// í•¨ìˆ˜ì— ì¸ìë¥¼ ë„£ì„ë• ì¸ìì˜ íƒ€ì…ì„ ì ì§€ ì•Šì•„ë„ ëœë‹¤. ex) _createZombie(_name, randDna);

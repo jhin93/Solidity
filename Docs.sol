@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: UNLICENSED
-// ÄÁÆ®·¢Æ®´Â ¿ÀÇÂ¼Ò½º¸¦ ±âº»À¸·Î ÇÏ±â ¶§¹®¿¡ ¶óÀÌ¼¾½º¸¦ ¸í½ÃÇØ ÁÖ´Â °ÍÀÌ ÁÁ½À´Ï´Ù. ¼Ö¸®µðÆ¼´Â ÁÖ¼®À¸·Î SPDX ¹æ¹ý¿¡ µû¶ó ¶óÀÌ¼¾½º¸¦ ÀÛ¼ºÇÕ´Ï´Ù. 
-// ¿ÀÇÂ¼Ò½º°¡ ¾Æ´Ï°Å³ª ¶óÀÌ¼¾½º¸¦ ¸í½ÃÇÏÁö ¾Ê°í ½ÍÀ» ¶§´Â UNLICENSED·Î ÀÛ¼ºÇÕ´Ï´Ù. 
+// ì»¨íŠ¸ëž™íŠ¸ëŠ” ì˜¤í”ˆì†ŒìŠ¤ë¥¼ ê¸°ë³¸ìœ¼ë¡œ í•˜ê¸° ë•Œë¬¸ì— ë¼ì´ì„¼ìŠ¤ë¥¼ ëª…ì‹œí•´ ì£¼ëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤. ì†”ë¦¬ë””í‹°ëŠ” ì£¼ì„ìœ¼ë¡œ SPDX ë°©ë²•ì— ë”°ë¼ ë¼ì´ì„¼ìŠ¤ë¥¼ ìž‘ì„±í•©ë‹ˆë‹¤. 
+// ì˜¤í”ˆì†ŒìŠ¤ê°€ ì•„ë‹ˆê±°ë‚˜ ë¼ì´ì„¼ìŠ¤ë¥¼ ëª…ì‹œí•˜ì§€ ì•Šê³  ì‹¶ì„ ë•ŒëŠ” UNLICENSEDë¡œ ìž‘ì„±í•©ë‹ˆë‹¤. 
 // http://www.umlcert.com/ethereum-dapps-11/
 
-// SPDX¶õ? 
-// ¼ÒÇÁÆ®¿þ¾î ÆÐÅ°Áö µ¥ÀÌÅÍ ±³È¯(SPDX)Àº ÁÖ¾îÁø ÄÄÇ»ÅÍ ¼ÒÇÁÆ®¿þ¾î °¡ ¹èÆ÷ µÇ´Â ¼ÒÇÁÆ®¿þ¾î ¶óÀÌ¼¾½º ¿¡ ´ëÇÑ Á¤º¸¸¦ ¹®¼­È­ÇÏ´Â µ¥ »ç¿ëµÇ´Â ÆÄÀÏ Çü½Ä ÀÔ´Ï´Ù. 
-// SPDX´Â Linux Foundation ÀÇ ÈÄ¿øÇÏ¿¡ 20 °³ ÀÌ»óÀÇ ¼­·Î ´Ù¸¥ Á¶Á÷À» ´ëÇ¥ÇÏ´Â SPDX ¿öÅ· ±×·ì¿¡ ÀÇÇØ ÀÛ¼ºµÇ¾ú½À´Ï´Ù 
+// SPDXëž€? 
+// ì†Œí”„íŠ¸ì›¨ì–´ íŒ¨í‚¤ì§€ ë°ì´í„° êµí™˜(SPDX)ì€ ì£¼ì–´ì§„ ì»´í“¨í„° ì†Œí”„íŠ¸ì›¨ì–´ ê°€ ë°°í¬ ë˜ëŠ” ì†Œí”„íŠ¸ì›¨ì–´ ë¼ì´ì„¼ìŠ¤ ì— ëŒ€í•œ ì •ë³´ë¥¼ ë¬¸ì„œí™”í•˜ëŠ” ë° ì‚¬ìš©ë˜ëŠ” íŒŒì¼ í˜•ì‹ ìž…ë‹ˆë‹¤. 
+// SPDXëŠ” Linux Foundation ì˜ í›„ì›í•˜ì— 20 ê°œ ì´ìƒì˜ ì„œë¡œ ë‹¤ë¥¸ ì¡°ì§ì„ ëŒ€í‘œí•˜ëŠ” SPDX ì›Œí‚¹ ê·¸ë£¹ì— ì˜í•´ ìž‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤ 
 // https://en.wikipedia.org/wiki/Software_Package_Data_Exchange
 // https://www.olis.or.kr/license/licenseSPDX.do?mapcode=010107&page=1
 
-// ½º¸¶Æ® ÄÁÆ®·¢Æ® ¼Ò°³.
-// °£´ÜÇÑ ½º¸¶Æ® ÄÁÆ®·¢Æ®
+// ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ëž™íŠ¸ ì†Œê°œ.
+// ê°„ë‹¨í•œ ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ëž™íŠ¸
 // https://solidity-kr.readthedocs.io/ko/latest/introduction-to-smart-contracts.html
 
 pragma solidity ^0.7.0;
@@ -27,5 +27,5 @@ contract SimpleStorage {
     }
 }
 
-// #pragma once´Â, ºñÁÖ¾ó½ºÆ©µð¿À¿¡¼­ Á¦°øÇÏ´Â °£ÆíÇÑ ÀüÃ³¸®±â·Î½á, ¾î¶°ÇÑ ÄÚµå³ª Çì´õÆÄÀÏÀÌ ´Ù¸¥ ÄÚµå³ª Çì´õ¿¡¼­ include µÉ¶§, Áßº¹µÇ¾î º¹»çµÇ´Â °ÍÀ» ¹æÁöÇÏ´Â ±â´ÉÀ» ÇÑ´Ù.
-// Ãß°¡¼³¸í - https://wiserloner.tistory.com/264
+// #pragma onceëŠ”, ë¹„ì£¼ì–¼ìŠ¤íŠœë””ì˜¤ì—ì„œ ì œê³µí•˜ëŠ” ê°„íŽ¸í•œ ì „ì²˜ë¦¬ê¸°ë¡œì¨, ì–´ë– í•œ ì½”ë“œë‚˜ í—¤ë”íŒŒì¼ì´ ë‹¤ë¥¸ ì½”ë“œë‚˜ í—¤ë”ì—ì„œ include ë ë•Œ, ì¤‘ë³µë˜ì–´ ë³µì‚¬ë˜ëŠ” ê²ƒì„ ë°©ì§€í•˜ëŠ” ê¸°ëŠ¥ì„ í•œë‹¤.
+// ì¶”ê°€ì„¤ëª… - https://wiserloner.tistory.com/264

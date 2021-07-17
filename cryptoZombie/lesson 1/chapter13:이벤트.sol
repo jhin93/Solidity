@@ -3,7 +3,7 @@ pragma solidity ^0.7.0;
 
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
-    // ¿©±â¿¡ ÀÌº¥Æ® ¼±¾ğ
+    // ì—¬ê¸°ì— ì´ë²¤íŠ¸ ì„ ì–¸
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
 
@@ -15,20 +15,20 @@ contract ZombieFactory {
     Zombie[] public zombies;
 
     function _createZombie(string memory _name, uint _dna) private {
-        // »õ·Ó°Ô Zombie ±¸Á¶Ã¼¿¡ Ãß°¡¸¦ ÇÑ Á»ºñÀÇ ÀÎµ¦½º¸¦ id·Î »ç¿ëÇÑ´Ù.
+        // ìƒˆë¡­ê²Œ Zombie êµ¬ì¡°ì²´ì— ì¶”ê°€ë¥¼ í•œ ì¢€ë¹„ì˜ ì¸ë±ìŠ¤ë¥¼ idë¡œ ì‚¬ìš©í•œë‹¤.
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
         // uint id = zombies.push(Zombie(_name, _dna)) - 1;
-        // À§Ã³·³ »ç¿ëÇÒ ½Ã ´ÙÀ½°ú °°Àº ¿À·ù ¹ß»ı. Different number of components on the left hand side (1) than on the right hand side
-        // Å©¸³ÅäÁ»ºñ¿¡¼± ¹®Á¦°¡ ¾ø¾ú´ø °É º¸´Ï ¹öÀüÂ÷ÀÌ·Î ÃßÁ¤. 
-        // ÇØ°á. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
-        // ¹öÀü 0.6ºÎÅÍ push°¡ length¸¦ ¹İÈ¯ÇÏÁö ¾Ê°í ´õÇÏ±â ±â´É¸¸ ¼öÇàÇÔ. 
+        // ìœ„ì²˜ëŸ¼ ì‚¬ìš©í•  ì‹œ ë‹¤ìŒê³¼ ê°™ì€ ì˜¤ë¥˜ ë°œìƒ. Different number of components on the left hand side (1) than on the right hand side
+        // í¬ë¦½í† ì¢€ë¹„ì—ì„  ë¬¸ì œê°€ ì—†ì—ˆë˜ ê±¸ ë³´ë‹ˆ ë²„ì „ì°¨ì´ë¡œ ì¶”ì •. 
+        // í•´ê²°. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
+        // ë²„ì „ 0.6ë¶€í„° pushê°€ lengthë¥¼ ë°˜í™˜í•˜ì§€ ì•Šê³  ë”í•˜ê¸° ê¸°ëŠ¥ë§Œ ìˆ˜í–‰í•¨. 
 
-        // ¿©±â¼­ ÀÌº¥Æ® ½ÇÇà
+        // ì—¬ê¸°ì„œ ì´ë²¤íŠ¸ ì‹¤í–‰
         emit NewZombie(id, _name, _dna);
-        // ¿À·ù¹ß»ı. Event invocations have to be prefixed by "emit".
-        // ÇØ°á. https://ethereum.stackexchange.com/questions/45482/invoking-events-without-emit-prefix-is-deprecated-in-transfermsg-sender-to/45485
-        // Æ®·£Àè¼Ç ·Î±×¿¡ ÀÌº¥Æ® µ¥ÀÌÅÍ¸¦ Áı¾î³Ö±â À§ÇØ¼± emitÅ°¿öµå¸¦ »ç¿ëÇÑ´Ù. https://has3ong.tistory.com/393
+        // ì˜¤ë¥˜ë°œìƒ. Event invocations have to be prefixed by "emit".
+        // í•´ê²°. https://ethereum.stackexchange.com/questions/45482/invoking-events-without-emit-prefix-is-deprecated-in-transfermsg-sender-to/45485
+        // íŠ¸ëœì­ì…˜ ë¡œê·¸ì— ì´ë²¤íŠ¸ ë°ì´í„°ë¥¼ ì§‘ì–´ë„£ê¸° ìœ„í•´ì„  emití‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•œë‹¤. https://has3ong.tistory.com/393
     }
 
     function _generateRandomDna(string memory _str) private view returns (uint) {

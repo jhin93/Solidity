@@ -7,11 +7,11 @@ contract ZombieFactory {
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
 
-    // ¿©±â¼­ ½ÃÀÛ
+    // ì—¬ê¸°ì„œ ì‹œì‘
     struct Zombie{
         string name;
         uint dna;
     }
 }
 
-// struct¶ó´Â ÀÚ·áÇüÀº Go¿¡¼­ ¹è¿î °Í°ú µ¿ÀÏÇÑ °Í °°´Ù.
+// structë¼ëŠ” ìë£Œí˜•ì€ Goì—ì„œ ë°°ìš´ ê²ƒê³¼ ë™ì¼í•œ ê²ƒ ê°™ë‹¤.

@@ -17,7 +17,7 @@ contract Ownable {
    * account.
    */
 
-  // ¿¡·¯¹ß»ı -> ÇØ°á. 7.5¹öÀüºÎÅÍ »ı¼ºÀÚ¿¡ public, external°°Àº °¡½Ã¼º °³³äÀ» »ç¿ëÇÏÁö ¾Ê´Â´Ù°í ÇÔ.
+  // ì—ëŸ¬ë°œìƒ -> í•´ê²°. 7.5ë²„ì „ë¶€í„° ìƒì„±ìì— public, externalê°™ì€ ê°€ì‹œì„± ê°œë…ì„ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤ê³  í•¨.
   // https://docs.soliditylang.org/en/v0.7.5/070-breaking-changes.html#functions-and-events
   constructor () {
     owner = msg.sender;
@@ -39,9 +39,9 @@ contract Ownable {
    */
   function transferOwnership(address newOwner) public onlyOwner {
     require(newOwner != address(0));
-    // ¿À·ù¹ß»ı. Event invocations have to be prefixed by "emit".
-    // ÇØ°á. https://ethereum.stackexchange.com/questions/45482/invoking-events-without-emit-prefix-is-deprecated-in-transfermsg-sender-to/45485
-    // Æ®·£Àè¼Ç ·Î±×¿¡ ÀÌº¥Æ® µ¥ÀÌÅÍ¸¦ Áı¾î³Ö±â À§ÇØ¼± emitÅ°¿öµå¸¦ »ç¿ëÇÑ´Ù. https://has3ong.tistory.com/393
+    // ì˜¤ë¥˜ë°œìƒ. Event invocations have to be prefixed by "emit".
+    // í•´ê²°. https://ethereum.stackexchange.com/questions/45482/invoking-events-without-emit-prefix-is-deprecated-in-transfermsg-sender-to/45485
+    // íŠ¸ëœì­ì…˜ ë¡œê·¸ì— ì´ë²¤íŠ¸ ë°ì´í„°ë¥¼ ì§‘ì–´ë„£ê¸° ìœ„í•´ì„  emití‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•œë‹¤. https://has3ong.tistory.com/393
     emit OwnershipTransferred(owner, newOwner);
     owner = newOwner;
   }

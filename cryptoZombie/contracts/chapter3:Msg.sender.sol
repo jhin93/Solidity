@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-// Ã©ÅÍ 3: Msg.sender
+// ì±•í„° 3: Msg.sender
 
-// ·¹½¼ 1¿¡¼­ ´Ù·ğ´ø _createZombie ¸Ş¼Òµå¸¦ ¾÷µ¥ÀÌÆ®ÇÏ¿© ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÏ´Â ´©±¸³ª Á»ºñ ¼ÒÀ¯±ÇÀ» ºÎ¿©ÇÏµµ·Ï ÇØ º¸¼¼.
-// ¸ÕÀú, »õ·Î¿î Á»ºñÀÇ id°¡ ¹İÈ¯µÈ ÈÄ¿¡ zombieToOwner ¸ÅÇÎÀ» ¾÷µ¥ÀÌÆ®ÇÏ¿© id¿¡ ´ëÇÏ¿© msg.sender°¡ ÀúÀåµÇµµ·Ï ÇØº¸ÀÚ.
-// ±× ´ÙÀ½, ÀúÀåµÈ msg.senderÀ» °í·ÁÇÏ¿© ownerZombieCount¸¦ Áõ°¡½ÃÅ°ÀÚ.
+// ë ˆìŠ¨ 1ì—ì„œ ë‹¤ë¤˜ë˜ _createZombie ë©”ì†Œë“œë¥¼ ì—…ë°ì´íŠ¸í•˜ì—¬ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ëŠ” ëˆ„êµ¬ë‚˜ ì¢€ë¹„ ì†Œìœ ê¶Œì„ ë¶€ì—¬í•˜ë„ë¡ í•´ ë³´ì„¸.
+// ë¨¼ì €, ìƒˆë¡œìš´ ì¢€ë¹„ì˜ idê°€ ë°˜í™˜ëœ í›„ì— zombieToOwner ë§¤í•‘ì„ ì—…ë°ì´íŠ¸í•˜ì—¬ idì— ëŒ€í•˜ì—¬ msg.senderê°€ ì €ì¥ë˜ë„ë¡ í•´ë³´ì.
+// ê·¸ ë‹¤ìŒ, ì €ì¥ëœ msg.senderì„ ê³ ë ¤í•˜ì—¬ ownerZombieCountë¥¼ ì¦ê°€ì‹œí‚¤ì.
 
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
@@ -18,19 +18,19 @@ contract ZombieFactory {
     }
 
     Zombie[] public zombies;
-    // ¿©±â¼­ ¸ÅÇÎ ¼±¾ğ
+    // ì—¬ê¸°ì„œ ë§¤í•‘ ì„ ì–¸
     mapping (uint => address) public zombieToOwner;
     mapping (address => uint) ownerZombieCount;
 
     function _createZombie(string memory _name, uint _dna) private {
-        // »õ·Ó°Ô Zombie ±¸Á¶Ã¼¿¡ Ãß°¡¸¦ ÇÑ Á»ºñÀÇ ÀÎµ¦½º¸¦ id·Î »ç¿ëÇÑ´Ù.
-        // ÇØ°á. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
-        // ¹öÀü 0.6ºÎÅÍ push°¡ length¸¦ ¹İÈ¯ÇÏÁö ¾Ê°í ´õÇÏ±â ±â´É¸¸ ¼öÇàÇÔ. 
+        // ìƒˆë¡­ê²Œ Zombie êµ¬ì¡°ì²´ì— ì¶”ê°€ë¥¼ í•œ ì¢€ë¹„ì˜ ì¸ë±ìŠ¤ë¥¼ idë¡œ ì‚¬ìš©í•œë‹¤.
+        // í•´ê²°. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
+        // ë²„ì „ 0.6ë¶€í„° pushê°€ lengthë¥¼ ë°˜í™˜í•˜ì§€ ì•Šê³  ë”í•˜ê¸° ê¸°ëŠ¥ë§Œ ìˆ˜í–‰í•¨. 
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
-        // msg.sender ´ëÀÔ
+        // msg.sender ëŒ€ì…
         zombieToOwner[id] = msg.sender;
-        // ÀÚ¹Ù½ºÅ©¸³Æ®¿Í ¸¶Âù°¡Áö·Î ¼Ö¸®µğÆ¼¿¡¼­µµ uint¸¦ ++·Î Áõ°¡½ÃÅ³ ¼ö ÀÖ´Ù.
+        // ìë°”ìŠ¤í¬ë¦½íŠ¸ì™€ ë§ˆì°¬ê°€ì§€ë¡œ ì†”ë¦¬ë””í‹°ì—ì„œë„ uintë¥¼ ++ë¡œ ì¦ê°€ì‹œí‚¬ ìˆ˜ ìˆë‹¤.
         ownerZombieCount[msg.sender] ++;
         emit NewZombie(id, _name, _dna);
     }
@@ -47,38 +47,38 @@ contract ZombieFactory {
 
 }
 
-// ¡Ø msg.sender
-// ¼Ö¸®µğÆ¼¿¡´Â ¸ğµç ÇÔ¼ö¿¡¼­ ÀÌ¿ë °¡´ÉÇÑ Æ¯Á¤ Àü¿ª º¯¼öµéÀÌ ÀÖÁö.
-// ±× ÁßÀÇ ÇÏ³ª°¡ ÇöÀç ÇÔ¼ö¸¦ È£ÃâÇÑ »ç¶÷ (È¤Àº ½º¸¶Æ® ÄÁÆ®·¢Æ®)ÀÇ ÁÖ¼Ò¸¦ °¡¸®Å°´Â msg.senderÀÌÁö.
+// â€» msg.sender
+// ì†”ë¦¬ë””í‹°ì—ëŠ” ëª¨ë“  í•¨ìˆ˜ì—ì„œ ì´ìš© ê°€ëŠ¥í•œ íŠ¹ì • ì „ì—­ ë³€ìˆ˜ë“¤ì´ ìˆì§€.
+// ê·¸ ì¤‘ì˜ í•˜ë‚˜ê°€ í˜„ì¬ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ì‚¬ëŒ (í˜¹ì€ ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸)ì˜ ì£¼ì†Œë¥¼ ê°€ë¦¬í‚¤ëŠ” msg.senderì´ì§€.
 
-// Âü°í: ¼Ö¸®µğÆ¼¿¡¼­ ÇÔ¼ö ½ÇÇàÀº Ç×»ó ¿ÜºÎ È£ÃâÀÚ°¡ ½ÃÀÛÇÏ³×. 
-// ÄÁÆ®·¢Æ®´Â ´©±º°¡°¡ ÄÁÆ®·¢Æ®ÀÇ ÇÔ¼ö¸¦ È£ÃâÇÒ ¶§±îÁö ºí·ÏÃ¼ÀÎ »ó¿¡¼­ ¾Æ¹« °Íµµ ¾È ÇÏ°í ÀÖÀ» °ÍÀÌ³×. 
-// ±×·¯´Ï Ç×»ó msg.sender°¡ ÀÖ¾î¾ß ÇÏ³×.
+// ì°¸ê³ : ì†”ë¦¬ë””í‹°ì—ì„œ í•¨ìˆ˜ ì‹¤í–‰ì€ í•­ìƒ ì™¸ë¶€ í˜¸ì¶œìê°€ ì‹œì‘í•˜ë„¤. 
+// ì»¨íŠ¸ë™íŠ¸ëŠ” ëˆ„êµ°ê°€ê°€ ì»¨íŠ¸ë™íŠ¸ì˜ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•  ë•Œê¹Œì§€ ë¸”ë¡ì²´ì¸ ìƒì—ì„œ ì•„ë¬´ ê²ƒë„ ì•ˆ í•˜ê³  ìˆì„ ê²ƒì´ë„¤. 
+// ê·¸ëŸ¬ë‹ˆ í•­ìƒ msg.senderê°€ ìˆì–´ì•¼ í•˜ë„¤.
 
 
 
-// ¡Ø msg.sender¸¦ ÀÌ¿ëÇÏ°í mappingÀ» ¾÷µ¥ÀÌÆ®ÇÏ´Â ¿¹½Ã.
+// â€» msg.senderë¥¼ ì´ìš©í•˜ê³  mappingì„ ì—…ë°ì´íŠ¸í•˜ëŠ” ì˜ˆì‹œ.
 
 // mapping (address => uint) favoriteNumber;
 
 // function setMyNumber(uint _myNumber) public {
-// //   `msg.sender`¿¡ ´ëÇØ `_myNumber`°¡ ÀúÀåµÇµµ·Ï `favoriteNumber` ¸ÅÇÎÀ» ¾÷µ¥ÀÌÆ®ÇÑ´Ù `
+// //   `msg.sender`ì— ëŒ€í•´ `_myNumber`ê°€ ì €ì¥ë˜ë„ë¡ `favoriteNumber` ë§¤í•‘ì„ ì—…ë°ì´íŠ¸í•œë‹¤ `
 //   favoriteNumber[msg.sender] = _myNumber;
-// //   ^ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ±¸¹®Àº ¹è¿­·Î µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¶§¿Í µ¿ÀÏÇÏ´Ù 
+// //   ^ ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” êµ¬ë¬¸ì€ ë°°ì—´ë¡œ ë°ì´í„°ë¥¼ ì €ì¥í•  ë•Œì™€ ë™ì¼í•˜ë‹¤ 
 // }
 
 // function whatIsMyNumber() public view returns (uint) {
-// //   senderÀÇ ÁÖ¼Ò¿¡ ÀúÀåµÈ °ªÀ» ºÒ·¯¿Â´Ù 
-// //   sender°¡ `setMyNumber`À» ¾ÆÁ÷ È£ÃâÇÏÁö ¾Ê¾Ò´Ù¸é ¹İÈ¯°ªÀº `0`ÀÌ µÉ °ÍÀÌ´Ù
+// //   senderì˜ ì£¼ì†Œì— ì €ì¥ëœ ê°’ì„ ë¶ˆëŸ¬ì˜¨ë‹¤ 
+// //   senderê°€ `setMyNumber`ì„ ì•„ì§ í˜¸ì¶œí•˜ì§€ ì•Šì•˜ë‹¤ë©´ ë°˜í™˜ê°’ì€ `0`ì´ ë  ê²ƒì´ë‹¤
 //   return favoriteNumber[msg.sender];
 // }
-// ÀÌ °£´ÜÇÑ ¿¹½Ã¿¡¼­ ´©±¸³ª setMyNumberÀ» È£ÃâÇÏ¿© º»ÀÎÀÇ ÁÖ¼Ò¿Í ¿¬°áµÈ ¿ì¸® ÄÁÆ®·¢Æ® ³»¿¡ uint¸¦ ÀúÀåÇÒ ¼ö ÀÖÁö.
+// ì´ ê°„ë‹¨í•œ ì˜ˆì‹œì—ì„œ ëˆ„êµ¬ë‚˜ setMyNumberì„ í˜¸ì¶œí•˜ì—¬ ë³¸ì¸ì˜ ì£¼ì†Œì™€ ì—°ê²°ëœ ìš°ë¦¬ ì»¨íŠ¸ë™íŠ¸ ë‚´ì— uintë¥¼ ì €ì¥í•  ìˆ˜ ìˆì§€.
 
 
 
 
-// ÀÚ¹Ù½ºÅ©¸³Æ®¿Í ¸¶Âù°¡Áö·Î ¼Ö¸®µğÆ¼¿¡¼­µµ uint¸¦ ++·Î Áõ°¡½ÃÅ³ ¼ö ÀÖ´Ù.
+// ìë°”ìŠ¤í¬ë¦½íŠ¸ì™€ ë§ˆì°¬ê°€ì§€ë¡œ ì†”ë¦¬ë””í‹°ì—ì„œë„ uintë¥¼ ++ë¡œ ì¦ê°€ì‹œí‚¬ ìˆ˜ ìˆë‹¤.
 
 // uint number = 0;
 // number++;
-// `number`´Â ÀÌÁ¦ `1`ÀÌ´Ù
+// `number`ëŠ” ì´ì œ `1`ì´ë‹¤

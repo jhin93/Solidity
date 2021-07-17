@@ -3,13 +3,13 @@ pragma solidity ^0.7.0;
 
 import "./zombiehelper.sol";
 
-/* Ã©ÅÍ 12: SafeMath ÆÄÆ® 4
-ÁÁ¾Æ, ÀÌÁ¦ ¿ì¸®ÀÇ DApp¿¡¼­ »ç¿ëÇÑ ¸ğµç uint Å¸ÀÔ¿¡ ´ëÇØ SafeMath¸¦ Àû¿ëÇÒ ¼ö ÀÖ³×!
-ZombieAttack¿¡¼­ ÀÌ ¸ğµç ÀáÀçÀû ¹®Á¬°Å¸®µéÀ» °íÃÄº¸µµ·Ï ÇÏÁö
-(ZombieHelper¿¡¼­µµ °íÃÄÁ®¾ß ÇÒ zombies[_zombieId].level++; ÀÌ·± ºÎºĞÀÌ ÀÖ¾úÁö¸¸, ¿ì¸®°¡ ÀÌ°É ÇÏ±â À§ÇØ Ãß°¡ÀûÀ¸·Î Ã©ÅÍ¸¦ ¾²Áö ¾Êµµ·Ï ³»°¡ ÀÚ³×¸¦ À§ÇØ Ã³¸®ÇØ ³õ¾Ò³× ?).
+/* ì±•í„° 12: SafeMath íŒŒíŠ¸ 4
+ì¢‹ì•„, ì´ì œ ìš°ë¦¬ì˜ DAppì—ì„œ ì‚¬ìš©í•œ ëª¨ë“  uint íƒ€ì…ì— ëŒ€í•´ SafeMathë¥¼ ì ìš©í•  ìˆ˜ ìˆë„¤!
+ZombieAttackì—ì„œ ì´ ëª¨ë“  ì ì¬ì  ë¬¸ì ¯ê±°ë¦¬ë“¤ì„ ê³ ì³ë³´ë„ë¡ í•˜ì§€
+(ZombieHelperì—ì„œë„ ê³ ì³ì ¸ì•¼ í•  zombies[_zombieId].level++; ì´ëŸ° ë¶€ë¶„ì´ ìˆì—ˆì§€ë§Œ, ìš°ë¦¬ê°€ ì´ê±¸ í•˜ê¸° ìœ„í•´ ì¶”ê°€ì ìœ¼ë¡œ ì±•í„°ë¥¼ ì“°ì§€ ì•Šë„ë¡ ë‚´ê°€ ìë„¤ë¥¼ ìœ„í•´ ì²˜ë¦¬í•´ ë†“ì•˜ë„¤ ?).
 
-_Á÷Á¢ ÇØº¸±â
-¾î¼­ ZombieAttack¿¡¼­ ++ Áõ°¡ ºÎºĞÀ» SafeMath ¸Ş¼Òµå·Î ±¸¼ºÇÏ°Ô. Ã£±â ½±µµ·Ï ÁÖ¼®µéÀ» ´Ş¾Æ³õ¾Ò³×.
+_ì§ì ‘ í•´ë³´ê¸°
+ì–´ì„œ ZombieAttackì—ì„œ ++ ì¦ê°€ ë¶€ë¶„ì„ SafeMath ë©”ì†Œë“œë¡œ êµ¬ì„±í•˜ê²Œ. ì°¾ê¸° ì‰½ë„ë¡ ì£¼ì„ë“¤ì„ ë‹¬ì•„ë†“ì•˜ë„¤.
  */
 
 contract ZombieAttack is ZombieHelper {
@@ -21,7 +21,7 @@ contract ZombieAttack is ZombieHelper {
   uint randNonce = 0;
   uint attackVictoryProbability = 70;
   function randMod(uint _modulus) internal returns(uint) {
-    // ¿©±â ÇÏ³ª ÀÖ³×!
+    // ì—¬ê¸° í•˜ë‚˜ ìˆë„¤!
     randNonce = randNonce.add(1);
     return uint(keccak256(abi.encodePacked(block.timestamp, msg.sender, randNonce))) % _modulus;
   }
@@ -31,13 +31,13 @@ contract ZombieAttack is ZombieHelper {
     Zombie storage enemyZombie = zombies[_targetId];
     uint rand = randMod(100);
     if (rand <= attackVictoryProbability) {
-        // ¿©±â ¼¼ °³ ´õ ÀÖ±º!
+        // ì—¬ê¸° ì„¸ ê°œ ë” ìˆêµ°!
         myZombie.winCount = myZombie.winCount.add(1);
         myZombie.level = myZombie.level.add(1);
         enemyZombie.lossCount = enemyZombie.lossCount.add(1);
         feedAndMultiply(_zombieId, enemyZombie.dna, "zombie");
     } else {
-      // ...±×¸®°í 2°³ ´õ!
+      // ...ê·¸ë¦¬ê³  2ê°œ ë”!
       myZombie.lossCount++;
       enemyZombie.winCount++;
     }

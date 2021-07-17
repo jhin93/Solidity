@@ -3,11 +3,11 @@ pragma solidity ^0.7.0;
 import "./ownable.sol";
 import "./safemath.sol";
 
-// ÇÔ¼ö Á¦¾îÀÚ Á¾·ù.
-// Á¢±Ù Á¦¾îÀÚ(visibility modifier) : public, private, internal, external
-// »óÅÂ Á¦¾îÀÚ(state modifier) : view, pure
-// »ç¿ëÀÚ Á¤ÀÇ Á¦¾îÀÚ : 'modifier' - lesson3 Ã©ÅÍ 3 Âü°í.
-// payable Á¦¾îÀÚ : ÀÌ´õ¸¦ ¹ŞÀ» ¼ö ÀÖ´Â Æ¯º°ÇÑ ÇÔ¼ö À¯Çü.
+// í•¨ìˆ˜ ì œì–´ì ì¢…ë¥˜.
+// ì ‘ê·¼ ì œì–´ì(visibility modifier) : public, private, internal, external
+// ìƒíƒœ ì œì–´ì(state modifier) : view, pure
+// ì‚¬ìš©ì ì •ì˜ ì œì–´ì : 'modifier' - lesson3 ì±•í„° 3 ì°¸ê³ .
+// payable ì œì–´ì : ì´ë”ë¥¼ ë°›ì„ ìˆ˜ ìˆëŠ” íŠ¹ë³„í•œ í•¨ìˆ˜ ìœ í˜•.
 
 contract ZombieFactory is Ownable{
 

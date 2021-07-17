@@ -2,7 +2,7 @@
 pragma solidity ^0.7.0;
 
 
-// Áö³­ ¿¹½ÃÀÇ Person ±¸Á¶Ã¼¸¦ ±â¾ïÇÏ³ª?
+// ì§€ë‚œ ì˜ˆì‹œì˜ Person êµ¬ì¡°ì²´ë¥¼ ê¸°ì–µí•˜ë‚˜?
 
 // struct Person {
 //   uint age;
@@ -10,21 +10,21 @@ pragma solidity ^0.7.0;
 // }
 // Person[] public people;
 
-// ÀÌÁ¦ »õ·Î¿î Person¸¦ »ý¼ºÇÏ°í people ¹è¿­¿¡ Ãß°¡ÇÏ´Â ¹æ¹ýÀ» »ìÆìº¸µµ·Ï ÇÏÁö.
+// ì´ì œ ìƒˆë¡œìš´ Personë¥¼ ìƒì„±í•˜ê³  people ë°°ì—´ì— ì¶”ê°€í•˜ëŠ” ë°©ë²•ì„ ì‚´íŽ´ë³´ë„ë¡ í•˜ì§€.
 
-// »õ·Î¿î »ç¶÷À» »ý¼ºÇÑ´Ù:
+// ìƒˆë¡œìš´ ì‚¬ëžŒì„ ìƒì„±í•œë‹¤:
 // Person satoshi = Person(172, "Satoshi");
-// ÀÌ »ç¶÷À» ¹è¿­¿¡ Ãß°¡ÇÑ´Ù:
+// ì´ ì‚¬ëžŒì„ ë°°ì—´ì— ì¶”ê°€í•œë‹¤:
 // people.push(satoshi);
 
-// ÀÌ µÎ ÄÚµå¸¦ Á¶ÇÕÇÏ¿© ±ò²ûÇÏ°Ô ÇÑ ÁÙ·Î Ç¥ÇöÇÒ ¼ö ÀÖ³×:
+// ì´ ë‘ ì½”ë“œë¥¼ ì¡°í•©í•˜ì—¬ ê¹”ë”í•˜ê²Œ í•œ ì¤„ë¡œ í‘œí˜„í•  ìˆ˜ ìžˆë„¤:
 // people.push(Person(16, "Vitalik"));
 
 // uint[] numbers;
 // numbers.push(5);
 // numbers.push(10);
 // numbers.push(15);
-// numbers ¹è¿­Àº [5, 10, 15]°ú °°´Ù.
+// numbers ë°°ì—´ì€ [5, 10, 15]ê³¼ ê°™ë‹¤.
 
 contract ZombieFactory {
 
@@ -39,26 +39,26 @@ contract ZombieFactory {
     Zombie[] public zombies;
 
     function createZombie(string _name, uint _dna) public {
-        // ¿©±â¼­ ½ÃÀÛ
+        // ì—¬ê¸°ì„œ ì‹œìž‘
         zombies.push(_name, _dna);
     }
 
 }
 
 
-// Storage ¿Í Memory.
+// Storage ì™€ Memory.
 // https://steemit.com/hive-101145/@happyberrysboy/happyberrysboy-posting-2020-08-14-00-24
 
-// ¼Ö¸®µðÆ¼¿¡´Â º¯¼ö¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Â °ø°£À¸·Î storage¿Í memory, µÎ °¡Áö°¡ ÀÖ½À´Ï´Ù.
-// Storage´Â ºí·ÏÃ¼ÀÎ »ó¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåµÇ´Â º¯¼ö¸¦ ÀÇ¹ÌÇÕ´Ï´Ù.
-// Memory´Â ÀÓ½ÃÀûÀ¸·Î ÀúÀåµÇ´Â º¯¼ö·Î, ÄÁÆ®·¢Æ® ÇÔ¼ö¿¡ ´ëÇÑ ¿ÜºÎ È£ÃâµéÀÌ ÀÏ¾î³ª´Â »çÀÌ¿¡ Áö¿öÁý´Ï´Ù.
+// ì†”ë¦¬ë””í‹°ì—ëŠ” ë³€ìˆ˜ë¥¼ ì €ìž¥í•  ìˆ˜ ìžˆëŠ” ê³µê°„ìœ¼ë¡œ storageì™€ memory, ë‘ ê°€ì§€ê°€ ìžˆìŠµë‹ˆë‹¤.
+// StorageëŠ” ë¸”ë¡ì²´ì¸ ìƒì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ë˜ëŠ” ë³€ìˆ˜ë¥¼ ì˜ë¯¸í•©ë‹ˆë‹¤.
+// MemoryëŠ” ìž„ì‹œì ìœ¼ë¡œ ì €ìž¥ë˜ëŠ” ë³€ìˆ˜ë¡œ, ì»¨íŠ¸ëž™íŠ¸ í•¨ìˆ˜ì— ëŒ€í•œ ì™¸ë¶€ í˜¸ì¶œë“¤ì´ ì¼ì–´ë‚˜ëŠ” ì‚¬ì´ì— ì§€ì›Œì§‘ë‹ˆë‹¤.
 
-// ¼Ö¸®µðÆ¼°¡ ¾Ë¾Æ¼­ Ã³¸®ÇØ ÁÖ±â ¶§¹®ÀÌÁö ´ëºÎºÐÀÇ °æ¿ì¿¡ ÀÌ Å°¿öµåµéÀ» ÀÌ¿ëÇÒ ÇÊ¿ä°¡ ¾ø½À´Ï´Ù.
-// »óÅÂ º¯¼ö(ÇÔ¼ö ¿ÜºÎ¿¡ ¼±¾ðµÈ º¯¼ö)´Â ÃÊ±â ¼³Á¤»ó storage·Î ¼±¾ðµÇ¾î ºí·ÏÃ¼ÀÎ¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåµÇ´Â ¹Ý¸é, ÇÔ¼ö ³»¿¡ ¼±¾ðµÈ º¯¼ö´Â memory·Î ÀÚµ¿ ¼±¾ðµÇ¾î¼­ ÇÔ¼ö È£ÃâÀÌ Á¾·áµÇ¸é »ç¶óÁö°Ô µË´Ï´Ù.
-// ÇÏÁö¸¸ ÀÌ Å°¿öµåµéÀ» »ç¿ëÇØ¾ß ÇÏ´Â °æ¿ì°¡ ÀÖ½À´Ï´Ù. ¹Ù·Î ÇÔ¼ö ³»ÀÇ ±¸Á¶Ã¼¿Í ¹è¿­À» Ã³¸®ÇÒ ¶§!!
+// ì†”ë¦¬ë””í‹°ê°€ ì•Œì•„ì„œ ì²˜ë¦¬í•´ ì£¼ê¸° ë•Œë¬¸ì´ì§€ ëŒ€ë¶€ë¶„ì˜ ê²½ìš°ì— ì´ í‚¤ì›Œë“œë“¤ì„ ì´ìš©í•  í•„ìš”ê°€ ì—†ìŠµë‹ˆë‹¤.
+// ìƒíƒœ ë³€ìˆ˜(í•¨ìˆ˜ ì™¸ë¶€ì— ì„ ì–¸ëœ ë³€ìˆ˜)ëŠ” ì´ˆê¸° ì„¤ì •ìƒ storageë¡œ ì„ ì–¸ë˜ì–´ ë¸”ë¡ì²´ì¸ì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ë˜ëŠ” ë°˜ë©´, í•¨ìˆ˜ ë‚´ì— ì„ ì–¸ëœ ë³€ìˆ˜ëŠ” memoryë¡œ ìžë™ ì„ ì–¸ë˜ì–´ì„œ í•¨ìˆ˜ í˜¸ì¶œì´ ì¢…ë£Œë˜ë©´ ì‚¬ë¼ì§€ê²Œ ë©ë‹ˆë‹¤.
+// í•˜ì§€ë§Œ ì´ í‚¤ì›Œë“œë“¤ì„ ì‚¬ìš©í•´ì•¼ í•˜ëŠ” ê²½ìš°ê°€ ìžˆìŠµë‹ˆë‹¤. ë°”ë¡œ í•¨ìˆ˜ ë‚´ì˜ êµ¬ì¡°ì²´ì™€ ë°°ì—´ì„ ì²˜ë¦¬í•  ë•Œ!!
 
 
-// storage¿Í memory¿¡ ´ëÇÑ ¿¹½Ã.
+// storageì™€ memoryì— ëŒ€í•œ ì˜ˆì‹œ.
 
 contract SandwichFactory {
   struct Sandwich {
@@ -71,38 +71,38 @@ contract SandwichFactory {
   function eatSandwich(uint _index) public {
     // Sandwich mySandwich = sandwiches[_index];
 
-    // À­ ¹®ÀåÃ³·³ ÀÛ¼ºÇÏ¸é `storage`³ª `memory`¸¦ ¸í½ÃÀûÀ¸·Î ¼±¾ðÇØ¾ß ÇÑ´Ù´Â °æ°í ¸Þ½ÃÁö¸¦ ¹ß»ýÇÑ´Ù. 
-    // ±×·¯¹Ç·Î `storage` Å°¿öµå¸¦ È°¿ëÇÏ¿© ´ÙÀ½°ú °°ÀÌ ¼±¾ðÇØ¾ß ÇÑ´Ù:
+    // ìœ— ë¬¸ìž¥ì²˜ëŸ¼ ìž‘ì„±í•˜ë©´ `storage`ë‚˜ `memory`ë¥¼ ëª…ì‹œì ìœ¼ë¡œ ì„ ì–¸í•´ì•¼ í•œë‹¤ëŠ” ê²½ê³  ë©”ì‹œì§€ë¥¼ ë°œìƒí•œë‹¤. 
+    // ê·¸ëŸ¬ë¯€ë¡œ `storage` í‚¤ì›Œë“œë¥¼ í™œìš©í•˜ì—¬ ë‹¤ìŒê³¼ ê°™ì´ ì„ ì–¸í•´ì•¼ í•œë‹¤:
     Sandwich storage mySandwich = sandwiches[_index];
-    // ÀÌ °æ¿ì, `mySandwich`´Â ÀúÀåµÈ `sandwiches[_index]`¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍÀÌ´Ù.
-    // ±×¸®°í 
+    // ì´ ê²½ìš°, `mySandwich`ëŠ” ì €ìž¥ëœ `sandwiches[_index]`ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°ì´ë‹¤.
+    // ê·¸ë¦¬ê³  
     mySandwich.status = "Eaten!";
-    // ÀÌ ÄÚµå´Â ºí·ÏÃ¼ÀÎ »ó¿¡¼­ `sandwiches[_index]`À» ¿µ±¸ÀûÀ¸·Î º¯°æÇÑ´Ù. 
+    // ì´ ì½”ë“œëŠ” ë¸”ë¡ì²´ì¸ ìƒì—ì„œ `sandwiches[_index]`ì„ ì˜êµ¬ì ìœ¼ë¡œ ë³€ê²½í•œë‹¤. 
 
-    // ´Ü¼øÈ÷ º¹»ç¸¦ ÇÏ°íÀÚ ÇÑ´Ù¸é `memory`¸¦ ÀÌ¿ëÇÏ¸é µÈ´Ù: 
+    // ë‹¨ìˆœížˆ ë³µì‚¬ë¥¼ í•˜ê³ ìž í•œë‹¤ë©´ `memory`ë¥¼ ì´ìš©í•˜ë©´ ëœë‹¤: 
     Sandwich memory anotherSandwich = sandwiches[_index + 1];
-    // ÀÌ °æ¿ì, `anotherSandwich`´Â ´Ü¼øÈ÷ ¸Þ¸ð¸®¿¡ µ¥ÀÌÅÍ¸¦ º¹»çÇÏ´Â °ÍÀÌ µÈ´Ù. 
-    // ±×¸®°í 
+    // ì´ ê²½ìš°, `anotherSandwich`ëŠ” ë‹¨ìˆœížˆ ë©”ëª¨ë¦¬ì— ë°ì´í„°ë¥¼ ë³µì‚¬í•˜ëŠ” ê²ƒì´ ëœë‹¤. 
+    // ê·¸ë¦¬ê³  
     anotherSandwich.status = "Eaten!";
-    // ÀÌ ÄÚµå´Â ÀÓ½Ã º¯¼öÀÎ `anotherSandwich`¸¦ º¯°æÇÏ´Â °ÍÀ¸·Î `sandwiches[_index + 1]`¿¡´Â ¾Æ¹«·± ¿µÇâÀ» ³¢Ä¡Áö ¾Ê´Â´Ù. 
-    // ±×·¯³ª ´ÙÀ½°ú °°ÀÌ ÄÚµå¸¦ ÀÛ¼ºÇÒ ¼ö ÀÖ´Ù: 
+    // ì´ ì½”ë“œëŠ” ìž„ì‹œ ë³€ìˆ˜ì¸ `anotherSandwich`ë¥¼ ë³€ê²½í•˜ëŠ” ê²ƒìœ¼ë¡œ `sandwiches[_index + 1]`ì—ëŠ” ì•„ë¬´ëŸ° ì˜í–¥ì„ ë¼ì¹˜ì§€ ì•ŠëŠ”ë‹¤. 
+    // ê·¸ëŸ¬ë‚˜ ë‹¤ìŒê³¼ ê°™ì´ ì½”ë“œë¥¼ ìž‘ì„±í•  ìˆ˜ ìžˆë‹¤: 
     sandwiches[_index + 1] = anotherSandwich;
-    // ÀÌ´Â ÀÓ½Ã º¯°æÇÑ ³»¿ëÀ» ºí·ÏÃ¼ÀÎ ÀúÀå¼Ò¿¡ ÀúÀåÇÏ°íÀÚ ÇÏ´Â °æ¿ìÀÌ´Ù.
+    // ì´ëŠ” ìž„ì‹œ ë³€ê²½í•œ ë‚´ìš©ì„ ë¸”ë¡ì²´ì¸ ì €ìž¥ì†Œì— ì €ìž¥í•˜ê³ ìž í•˜ëŠ” ê²½ìš°ì´ë‹¤.
   }
 }
 
 
 // calldata.
 
-// calldata´Â storage, memory¿Í °°ÀÌ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â Àå¼Ò Áß ÇÏ³ª.
-// solidity ¹öÀü 4¿Í 5ÀÇ Â÷ÀÌ°¡ Å« µí ÇÏ´Ù.
-// 5¸¦ ±âÁØÀ¸·Î calldata´Â external ÇÔ¼öÀÇ ÀÎÀÚ¸¦ À§ÇÑ ÀúÀå¼ÒÀÌ´Ù. external ÇÔ¼ö¿¡ ÀÌ¿ëÇÏ±â À§ÇØ Á» ´õ ±ä lifetime À» °¡Áö°í ÀÖ´Ù.
+// calldataëŠ” storage, memoryì™€ ê°™ì´ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ìž¥ì†Œ ì¤‘ í•˜ë‚˜.
+// solidity ë²„ì „ 4ì™€ 5ì˜ ì°¨ì´ê°€ í° ë“¯ í•˜ë‹¤.
+// 5ë¥¼ ê¸°ì¤€ìœ¼ë¡œ calldataëŠ” external í•¨ìˆ˜ì˜ ì¸ìžë¥¼ ìœ„í•œ ì €ìž¥ì†Œì´ë‹¤. external í•¨ìˆ˜ì— ì´ìš©í•˜ê¸° ìœ„í•´ ì¢€ ë” ê¸´ lifetime ì„ ê°€ì§€ê³  ìžˆë‹¤.
 // https://medium.com/day34/solidity-0-5-0-%EC%97%90%EC%84%9C%EC%9D%98-%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4-ab6104296164
-// memoryÃ³·³ »ç¶óÁö°í, ¼öÁ¤ÇÒ ¼ö ¾ø´Ù.
+// memoryì²˜ëŸ¼ ì‚¬ë¼ì§€ê³ , ìˆ˜ì •í•  ìˆ˜ ì—†ë‹¤.
 // https://docs.soliditylang.org/en/v0.5.3/types.html
 
-// °¡½Ã¼º Áß externalÀº °è¾à¼­ÀÇ ÇØ´ç ³»¿ëÀ» °ø°³ÇÑ´Ù´Â ÀÇ¹ÌÀÌ¸ç, °è¾à¼­ÀÇ ¿ÜºÎ¿¡¼­ »ç¿ëÇÏ´Â ÀÎÅÍÆäÀÌ½º¶ó´Â °ÍÀ» ¸í½ÃÇÏ´Â °Í.
-// ±×·¸±â ¶§¹®¿¡ ÀÌ·± external ÇÔ¼ö¿¡ »ç¿ëµÇ´Â calldata´Â ¼öÁ¤µµ ¾ÈµÇ°í, ÇÔ¼ö ³»¿¡¼­¸¸ »ç¿ëµÇ°í Áö¿öÁö´Â µí ÇÏ´Ù.
+// ê°€ì‹œì„± ì¤‘ externalì€ ê³„ì•½ì„œì˜ í•´ë‹¹ ë‚´ìš©ì„ ê³µê°œí•œë‹¤ëŠ” ì˜ë¯¸ì´ë©°, ê³„ì•½ì„œì˜ ì™¸ë¶€ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì¸í„°íŽ˜ì´ìŠ¤ë¼ëŠ” ê²ƒì„ ëª…ì‹œí•˜ëŠ” ê²ƒ.
+// ê·¸ë ‡ê¸° ë•Œë¬¸ì— ì´ëŸ° external í•¨ìˆ˜ì— ì‚¬ìš©ë˜ëŠ” calldataëŠ” ìˆ˜ì •ë„ ì•ˆë˜ê³ , í•¨ìˆ˜ ë‚´ì—ì„œë§Œ ì‚¬ìš©ë˜ê³  ì§€ì›Œì§€ëŠ” ë“¯ í•˜ë‹¤.
 
 
 

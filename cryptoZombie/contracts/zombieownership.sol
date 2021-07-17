@@ -5,10 +5,10 @@ import "./zombieattack.sol";
 import "./erc721.sol";
 import "./safemath.sol";
 
-/// TODO: natspec¿¡ ¸Âµµ·Ï ÀÌ ºÎºĞÀ» ¹Ù²Ù°Ô.
-///@title Á»ºñ ¼ÒÀ¯±Ç Àü¼ÛÀ» °ü¸®ÇÏ´Â ÄÁÆ®·¢Æ®.
+/// TODO: natspecì— ë§ë„ë¡ ì´ ë¶€ë¶„ì„ ë°”ê¾¸ê²Œ.
+///@title ì¢€ë¹„ ì†Œìœ ê¶Œ ì „ì†¡ì„ ê´€ë¦¬í•˜ëŠ” ì»¨íŠ¸ë™íŠ¸.
 ///@author jhin.
-///@dev OpenZeppelinÀÇ ERC721 Ç¥ÁØ ÃÊ¾È ±¸ÇöÀ» µû¸¥´Ù.
+///@dev OpenZeppelinì˜ ERC721 í‘œì¤€ ì´ˆì•ˆ êµ¬í˜„ì„ ë”°ë¥¸ë‹¤.
 
 contract ZombieOwnership is ZombieAttack, ERC721 {
 

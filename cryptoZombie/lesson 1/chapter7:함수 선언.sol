@@ -14,10 +14,10 @@ contract ZombieFactory {
 
     Zombie[] public zombies;
 
-    // ¿©±â¼­ ½ÃÀÛ
+    // ì—¬ê¸°ì„œ ì‹œìž‘
     function createZombie(string _name, uint _dna) {
         
     }
 }
 
-// Âü°í: ÇÔ¼ö ÀÎÀÚ¸íÀ» ¾ð´õ½ºÄÚ¾î(_)·Î ½ÃÀÛÇØ¼­ Àü¿ª º¯¼ö¿Í ±¸º°ÇÏ´Â °ÍÀÌ °ü·ÊÀÌ³× (ÀÇ¹«´Â ¾Æ´Ô). º» Æ©Åä¸®¾ó ÀüÃ¼¿¡¼­ ÀÌ °ü·Ê¸¦ µû¸¦ °ÍÀÌ³×.
+// ì°¸ê³ : í•¨ìˆ˜ ì¸ìžëª…ì„ ì–¸ë”ìŠ¤ì½”ì–´(_)ë¡œ ì‹œìž‘í•´ì„œ ì „ì—­ ë³€ìˆ˜ì™€ êµ¬ë³„í•˜ëŠ” ê²ƒì´ ê´€ë¡€ì´ë„¤ (ì˜ë¬´ëŠ” ì•„ë‹˜). ë³¸ íŠœí† ë¦¬ì–¼ ì „ì²´ì—ì„œ ì´ ê´€ë¡€ë¥¼ ë”°ë¥¼ ê²ƒì´ë„¤.

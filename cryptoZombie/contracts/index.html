@@ -20,22 +20,22 @@
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
 
         var accountInterval = setInterval(function() {
-          // °èÁ¤ÀÌ ¹Ù²î¾ú´ÂÁö È®ÀÎ
+          // ê³„ì •ì´ ë°”ë€Œì—ˆëŠ”ì§€ í™•ì¸
           if (web3.eth.accounts[0] !== userAccount) {
             userAccount = web3.eth.accounts[0];
-            // »õ °èÁ¤¿¡ ´ëÇÑ UI·Î ¾÷µ¥ÀÌÆ®ÇÏ±â À§ÇÑ ÇÔ¼ö È£Ãâ
+            // ìƒˆ ê³„ì •ì— ëŒ€í•œ UIë¡œ ì—…ë°ì´íŠ¸í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ í˜¸ì¶œ
             getZombiesByOwner(userAccount)
             .then(displayZombies);
           }
         }, 100);
 
-        // ¿©±â¼­ ½ÃÀÛÇÏ°Ô.
-        // `filter`¸¦ »ç¿ëÇØ `_to`°¡ `userAccount`¿Í °°À» ¶§¸¸ ÄÚµå¸¦ ½ÇÇà
+        // ì—¬ê¸°ì„œ ì‹œì‘í•˜ê²Œ.
+        // `filter`ë¥¼ ì‚¬ìš©í•´ `_to`ê°€ `userAccount`ì™€ ê°™ì„ ë•Œë§Œ ì½”ë“œë¥¼ ì‹¤í–‰
         cryptoZombies.events.Transfer({ filter: { _to: userAccount } })
         .on("data", function(event) {
           let data = event.returnValues;
-          // ÇöÀç »ç¿ëÀÚ°¡ ¹æ±İ Á»ºñ¸¦ ¹Ş¾Ò³×!
-          // ÇØ´ç Á»ºñ¸¦ º¸¿©ÁÙ ¼ö ÀÖµµ·Ï UI¸¦ ¾÷µ¥ÀÌÆ®ÇÒ ¼ö ÀÖµµ·Ï ¿©±â¿¡ Ãß°¡
+          // í˜„ì¬ ì‚¬ìš©ìê°€ ë°©ê¸ˆ ì¢€ë¹„ë¥¼ ë°›ì•˜ë„¤!
+          // í•´ë‹¹ ì¢€ë¹„ë¥¼ ë³´ì—¬ì¤„ ìˆ˜ ìˆë„ë¡ UIë¥¼ ì—…ë°ì´íŠ¸í•  ìˆ˜ ìˆë„ë¡ ì—¬ê¸°ì— ì¶”ê°€
           getZombiesByOwner(userAccount).then(displayZombies);
         }).on("error", console.error);
       }
@@ -62,18 +62,18 @@
       }
 
       function createRandomZombie(name) {
-        // ½Ã°£ÀÌ ²Ï °É¸± ¼ö ÀÖÀ¸´Ï, Æ®·£Àè¼ÇÀÌ º¸³»Á³´Ù´Â °ÍÀ» À¯Àú°¡ ¾Ë ¼ö ÀÖµµ·Ï UI¸¦ ¾÷µ¥ÀÌÆ®ÇØ¾ß ÇÔ
+        // ì‹œê°„ì´ ê½¤ ê±¸ë¦´ ìˆ˜ ìˆìœ¼ë‹ˆ, íŠ¸ëœì­ì…˜ì´ ë³´ë‚´ì¡Œë‹¤ëŠ” ê²ƒì„ ìœ ì €ê°€ ì•Œ ìˆ˜ ìˆë„ë¡ UIë¥¼ ì—…ë°ì´íŠ¸í•´ì•¼ í•¨
         $("#txStatus").text("Creating new zombie on the blockchain. This may take a while...");
-        // ¿ì¸® ÄÁÆ®·¢Æ®¿¡ Àü¼ÛÇÏ±â:
+        // ìš°ë¦¬ ì»¨íŠ¸ë™íŠ¸ì— ì „ì†¡í•˜ê¸°:
         return CryptoZombies.methods.createRandomZombie(name)
         .send({ from: userAccount })
         .on("receipt", function(receipt) {
           $("#txStatus").text("Successfully created " + name + "!");
-          // ºí·ÏÃ¼ÀÎ¿¡ Æ®·£Àè¼ÇÀÌ ¹İ¿µµÇ¾úÀ¸¸ç, UI¸¦ ´Ù½Ã ±×·Á¾ß ÇÔ
+          // ë¸”ë¡ì²´ì¸ì— íŠ¸ëœì­ì…˜ì´ ë°˜ì˜ë˜ì—ˆìœ¼ë©°, UIë¥¼ ë‹¤ì‹œ ê·¸ë ¤ì•¼ í•¨
           getZombiesByOwner(userAccount).then(displayZombies);
         })
         .on("error", function(error) {
-          // »ç¿ëÀÚµé¿¡°Ô Æ®·£Àè¼ÇÀÌ ½ÇÆĞÇßÀ½À» ¾Ë·ÁÁÖ±â À§ÇÑ Ã³¸®
+          // ì‚¬ìš©ìë“¤ì—ê²Œ íŠ¸ëœì­ì…˜ì´ ì‹¤íŒ¨í–ˆìŒì„ ì•Œë ¤ì£¼ê¸° ìœ„í•œ ì²˜ë¦¬
           $("#txStatus").text(error);
         });
       }
@@ -81,7 +81,7 @@
       function feedOnKitty(zombieId, kittyId) {
         $("#txStatus").text("Eating a kitty. This may take a while...");
         return CryptoZombies.methods.feedOnKitty(zombieId, kittyId)
-        // Web3 ÇÁ·Î¹ÙÀÌ´õ¿¡°Ô Æ®·£Àè¼ÇÀ» Àü¼Û(send)
+        // Web3 í”„ë¡œë°”ì´ë”ì—ê²Œ íŠ¸ëœì­ì…˜ì„ ì „ì†¡(send)
         .send({ from: userAccount })
         .on("receipt", function(receipt) {
           $("#txStatus").text("Ate a kitty and spawned a new Zombie!");
@@ -93,10 +93,10 @@
       }
 
       function levelUp(zombieId) {
-        $("#txStatus").text("Á»ºñ¸¦ ·¹º§¾÷ÇÏ´Â Áß...");
+        $("#txStatus").text("ì¢€ë¹„ë¥¼ ë ˆë²¨ì—…í•˜ëŠ” ì¤‘...");
         return CryptoZombies.methods.levelUp(zombieId).send({ from: userAccount, value: web3js.utils.toWei("0.001") })
         .on("receipt", function(receipt) {
-          $("#txStatus").text("¾ĞµµÀûÀÎ Èû! Á»ºñ°¡ ¼º°øÀûÀ¸·Î ·¹º§¾÷Çß½À´Ï´Ù.");
+          $("#txStatus").text("ì••ë„ì ì¸ í˜! ì¢€ë¹„ê°€ ì„±ê³µì ìœ¼ë¡œ ë ˆë²¨ì—…í–ˆìŠµë‹ˆë‹¤.");
         })
         .on("error", function(error) {
           $("#txStatus").text(error);
@@ -117,16 +117,16 @@
 
       window.addEventListener('load', function() {
 
-        // Web3°¡ ºê¶ó¿ìÀú¿¡ ÁÖÀÔµÇ¾ú´ÂÁö È®ÀÎ(Mist/MetaMask)
+        // Web3ê°€ ë¸Œë¼ìš°ì €ì— ì£¼ì…ë˜ì—ˆëŠ”ì§€ í™•ì¸(Mist/MetaMask)
         if (typeof web3 !== 'undefined') {
-          // Mist/MetaMaskÀÇ ÇÁ·Î¹ÙÀÌ´õ »ç¿ë
+          // Mist/MetaMaskì˜ í”„ë¡œë°”ì´ë” ì‚¬ìš©
           web3js = new Web3(web3.currentProvider);
         } else {
-          // »ç¿ëÀÚ°¡ Metamask¸¦ ¼³Ä¡ÇÏÁö ¾ÊÀº °æ¿ì¿¡ ´ëÇØ Ã³¸®
-          // »ç¿ëÀÚµé¿¡°Ô Metamask¸¦ ¼³Ä¡ÇÏ¶ó´Â µîÀÇ ¸Ş¼¼Áö¸¦ º¸¿©ÁÙ °Í
+          // ì‚¬ìš©ìê°€ Metamaskë¥¼ ì„¤ì¹˜í•˜ì§€ ì•Šì€ ê²½ìš°ì— ëŒ€í•´ ì²˜ë¦¬
+          // ì‚¬ìš©ìë“¤ì—ê²Œ Metamaskë¥¼ ì„¤ì¹˜í•˜ë¼ëŠ” ë“±ì˜ ë©”ì„¸ì§€ë¥¼ ë³´ì—¬ì¤„ ê²ƒ
         }
 
-        // ÀÌÁ¦ ÀÚ³× ¾ÛÀ» ½ÃÀÛÇÏ°í web3¿¡ ÀÚÀ¯·Ó°Ô Á¢±ÙÇÒ ¼ö ÀÖ³×:
+        // ì´ì œ ìë„¤ ì•±ì„ ì‹œì‘í•˜ê³  web3ì— ììœ ë¡­ê²Œ ì ‘ê·¼í•  ìˆ˜ ìˆë„¤:
         startApp()
 
       })

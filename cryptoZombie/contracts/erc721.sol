@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
-// ¿À·ù ¹ß»ı : 
+// ì˜¤ë¥˜ ë°œìƒ : 
 // 1. Contract "ERC721" should be marked as abstract 
 // 2. Functions in interfaces must be declared external.
 
-// 1¹ø ¿À·ùÇØ°á : lesson 2 chapter 11 Ä¿¹Ô ´ç½Ã¿¡µµ °°Àº ¿À·ù ¹ß»ıÇß¾úÀ½. contract¸¦ interface·Î ¹Ù²ã¼­ ÇØ°á.
+// 1ë²ˆ ì˜¤ë¥˜í•´ê²° : lesson 2 chapter 11 ì»¤ë°‹ ë‹¹ì‹œì—ë„ ê°™ì€ ì˜¤ë¥˜ ë°œìƒí–ˆì—ˆìŒ. contractë¥¼ interfaceë¡œ ë°”ê¿”ì„œ í•´ê²°.
 // https://github.com/jhin93/Solidity/commit/da7407e7d2bc192f3ac6522345c9a6f6b1fe46f0
 
-// 2¹ø ¿À·ùÇØ°á : publicÀ» external·Î ¹Ù²ã¼­ ÇØ°á.
+// 2ë²ˆ ì˜¤ë¥˜í•´ê²° : publicì„ externalë¡œ ë°”ê¿”ì„œ í•´ê²°.
 
 interface ERC721 {
   event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);

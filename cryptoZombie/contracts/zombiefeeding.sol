@@ -1,32 +1,32 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
-// ÇÔ¼ö Á¦¾îÀÚ Á¾·ù.
-// Á¢±Ù Á¦¾îÀÚ(visibility modifier) : public, private, internal, external
-// »óÅÂ Á¦¾îÀÚ(state modifier) : view, pure
-// »ç¿ëÀÚ Á¤ÀÇ Á¦¾îÀÚ : 'modifier' - lesson3 Ã©ÅÍ 3 Âü°í.
-// payable Á¦¾îÀÚ : ÀÌ´õ¸¦ ¹ÞÀ» ¼ö ÀÖ´Â Æ¯º°ÇÑ ÇÔ¼ö À¯Çü.
+// í•¨ìˆ˜ ì œì–´ìž ì¢…ë¥˜.
+// ì ‘ê·¼ ì œì–´ìž(visibility modifier) : public, private, internal, external
+// ìƒíƒœ ì œì–´ìž(state modifier) : view, pure
+// ì‚¬ìš©ìž ì •ì˜ ì œì–´ìž : 'modifier' - lesson3 ì±•í„° 3 ì°¸ê³ .
+// payable ì œì–´ìž : ì´ë”ë¥¼ ë°›ì„ ìˆ˜ ìžˆëŠ” íŠ¹ë³„í•œ í•¨ìˆ˜ ìœ í˜•.
 
 import "./zombiefactory.sol";
 
-/* Ã©ÅÍ 4: ¸®ÆÑÅä¸µ
-¿À ÀÌ·±! ¿ì¸° ¹æ±Ý ¿ì¸®ÀÇ ÄÚµå¿¡ ÄÄÆÄÀÏÀÌ ¾È µÇµµ·Ï ÇÏ´Â ¿¡·¯¸¦ ¸¸µé¾ú³×. ÀÚ³× ´«Ä¡ Ã«¾ú³ª?
-ÀÌÀü Ã©ÅÍ¿¡¼­ ¿ì¸®´Â ownerOf¶ó´Â ÇÔ¼ö¸¦ Á¤ÀÇÇß³×. ÇÏÁö¸¸ ·¹½¼ 4¿¡¼­, ¿ì¸®´Â zombiefeeding.sol¿¡¼­ ownerOf¿Í ¶È°°Àº ÀÌ¸§ÀÇ modifier¸¦ ¸¸µé¾ú³×.
-ÀÚ³×°¡ ÀÌ ÄÚµå¸¦ ÄÄÆÄÀÏÇÏ·Á ÇÑ´Ù¸é, ÄÄÆÄÀÏ·¯°¡ ¶È°°Àº ÀÌ¸§ÀÇ Á¦¾îÀÚ¿Í ÇÔ¼ö¸¦ °¡Áú ¼ö ¾ø´Ù¸ç ¿¡·¯¸¦ ¸¸µé¾î³¾ °ÍÀÌ³×.
+/* ì±•í„° 4: ë¦¬íŒ©í† ë§
+ì˜¤ ì´ëŸ°! ìš°ë¦° ë°©ê¸ˆ ìš°ë¦¬ì˜ ì½”ë“œì— ì»´íŒŒì¼ì´ ì•ˆ ë˜ë„ë¡ í•˜ëŠ” ì—ëŸ¬ë¥¼ ë§Œë“¤ì—ˆë„¤. ìžë„¤ ëˆˆì¹˜ ì±˜ì—ˆë‚˜?
+ì´ì „ ì±•í„°ì—ì„œ ìš°ë¦¬ëŠ” ownerOfë¼ëŠ” í•¨ìˆ˜ë¥¼ ì •ì˜í–ˆë„¤. í•˜ì§€ë§Œ ë ˆìŠ¨ 4ì—ì„œ, ìš°ë¦¬ëŠ” zombiefeeding.solì—ì„œ ownerOfì™€ ë˜‘ê°™ì€ ì´ë¦„ì˜ modifierë¥¼ ë§Œë“¤ì—ˆë„¤.
+ìžë„¤ê°€ ì´ ì½”ë“œë¥¼ ì»´íŒŒì¼í•˜ë ¤ í•œë‹¤ë©´, ì»´íŒŒì¼ëŸ¬ê°€ ë˜‘ê°™ì€ ì´ë¦„ì˜ ì œì–´ìžì™€ í•¨ìˆ˜ë¥¼ ê°€ì§ˆ ìˆ˜ ì—†ë‹¤ë©° ì—ëŸ¬ë¥¼ ë§Œë“¤ì–´ë‚¼ ê²ƒì´ë„¤.
 
-±×·¸´Ù¸é ¿ì¸®°¡ ZombieOwnershipÀÇ ÇÔ¼ö ÀÌ¸§À» ´Ù¸¥ °É·Î ¹Ù²ã¾ß ÇÒ±î?
+ê·¸ë ‡ë‹¤ë©´ ìš°ë¦¬ê°€ ZombieOwnershipì˜ í•¨ìˆ˜ ì´ë¦„ì„ ë‹¤ë¥¸ ê±¸ë¡œ ë°”ê¿”ì•¼ í• ê¹Œ?
 
-¾Æ´Ï, ±×·¸°Ô ÇÒ ¼ö´Â ¾ø³×!!! ¿ì¸®´Â ERC721 ÅäÅ« Ç¥ÁØÀ» »ç¿ëÇÏ°í ÀÖÀ½À» ±â¾ïÇÏ°Ô. ÀÌ ¸»ÀÎÁï ´Ù¸¥ ÄÁÆ®·¢Æ®µéÀÌ ¿ì¸®ÀÇ ÄÁÆ®·¢Æ®°¡ Á¤È®ÇÑ ÀÌ¸§À¸·Î Á¤ÀÇµÈ ÇÔ¼öµéÀ» °¡Áö°í ÀÖÀ» °ÍÀÌ¶ó ¿¹»óÇÑ´Ù´Â °ÍÀÌ³×. 
-±×°Ô ¹Ù·Î ÀÌ·± Ç¥ÁØÀÌ À¯¿ëÇÏ°Ô²û ÇÏ´Â °ÍÀÌ´Ï ¸»ÀÌ¾ß - ¸¸¾à ¿ì¸® ÄÁÆ®·¢Æ®´Â ERC721À» µû¸¥´Ù´Â °ÍÀ» ´Ù¸¥ ÄÁÆ®·¢Æ®°¡ ¾È´Ù¸é, ÀÌ ´Ù¸¥ ÄÁÆ®·¢Æ®´Â ¿ì¸®ÀÇ ³»ºÎ ±¸Çö ·ÎÁ÷À» ¸ð¸£´õ¶óµµ ¿ì¸®¿Í Åë½ÅÇÒ ¼ö ÀÖ³×.
-±×·¯´Ï ¿ì¸®´Â ·¹½¼ 4¿¡¼­ ¸¸µç ¿ì¸®ÀÇ ÄÚµå¿¡¼­ modifierÀÇ ÀÌ¸§À» ´Ù¸¥ °ÍÀ¸·Î ¹Ù²Ùµµ·Ï ¸®ÆÑÅä¸µÀ» ÇØ¾ß ÇÏ³×.
+ì•„ë‹ˆ, ê·¸ë ‡ê²Œ í•  ìˆ˜ëŠ” ì—†ë„¤!!! ìš°ë¦¬ëŠ” ERC721 í† í° í‘œì¤€ì„ ì‚¬ìš©í•˜ê³  ìžˆìŒì„ ê¸°ì–µí•˜ê²Œ. ì´ ë§ì¸ì¦‰ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ë“¤ì´ ìš°ë¦¬ì˜ ì»¨íŠ¸ëž™íŠ¸ê°€ ì •í™•í•œ ì´ë¦„ìœ¼ë¡œ ì •ì˜ëœ í•¨ìˆ˜ë“¤ì„ ê°€ì§€ê³  ìžˆì„ ê²ƒì´ë¼ ì˜ˆìƒí•œë‹¤ëŠ” ê²ƒì´ë„¤. 
+ê·¸ê²Œ ë°”ë¡œ ì´ëŸ° í‘œì¤€ì´ ìœ ìš©í•˜ê²Œë” í•˜ëŠ” ê²ƒì´ë‹ˆ ë§ì´ì•¼ - ë§Œì•½ ìš°ë¦¬ ì»¨íŠ¸ëž™íŠ¸ëŠ” ERC721ì„ ë”°ë¥¸ë‹¤ëŠ” ê²ƒì„ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ê°€ ì•ˆë‹¤ë©´, ì´ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ëŠ” ìš°ë¦¬ì˜ ë‚´ë¶€ êµ¬í˜„ ë¡œì§ì„ ëª¨ë¥´ë”ë¼ë„ ìš°ë¦¬ì™€ í†µì‹ í•  ìˆ˜ ìžˆë„¤.
+ê·¸ëŸ¬ë‹ˆ ìš°ë¦¬ëŠ” ë ˆìŠ¨ 4ì—ì„œ ë§Œë“  ìš°ë¦¬ì˜ ì½”ë“œì—ì„œ modifierì˜ ì´ë¦„ì„ ë‹¤ë¥¸ ê²ƒìœ¼ë¡œ ë°”ê¾¸ë„ë¡ ë¦¬íŒ©í† ë§ì„ í•´ì•¼ í•˜ë„¤.
 
-_Á÷Á¢ ÇØº¸±â
-zombiefeeding.sol·Î µ¹¾Æ¿Í¼­, ¿ì¸®ÀÇ modifierÀÇ ÀÌ¸§À» ownerOf¿¡¼­ onlyOwnerOf·Î ¹Ù²Ü °ÍÀÌ³×.
+_ì§ì ‘ í•´ë³´ê¸°
+zombiefeeding.solë¡œ ëŒì•„ì™€ì„œ, ìš°ë¦¬ì˜ modifierì˜ ì´ë¦„ì„ ownerOfì—ì„œ onlyOwnerOfë¡œ ë°”ê¿€ ê²ƒì´ë„¤.
 
-1. Á¦¾îÀÚ¸¦ Á¤ÀÇÇÏ´Â ÀÌ¸§À» onlyOwnerOf·Î ¹Ù²Ù°Ô.
-2. ÀÌ Á¦¾îÀÚ¸¦ »ç¿ëÇÏ´Â feedAndMultiply ÇÔ¼ö·Î ½ºÅ©·ÑÀ» ³»¸®°Ô. ¿©±â¼­µµ ±× ÀÌ¸§À» ¹Ù²ã¾ß ÇÒ °ÍÀÌ³×.
+1. ì œì–´ìžë¥¼ ì •ì˜í•˜ëŠ” ì´ë¦„ì„ onlyOwnerOfë¡œ ë°”ê¾¸ê²Œ.
+2. ì´ ì œì–´ìžë¥¼ ì‚¬ìš©í•˜ëŠ” feedAndMultiply í•¨ìˆ˜ë¡œ ìŠ¤í¬ë¡¤ì„ ë‚´ë¦¬ê²Œ. ì—¬ê¸°ì„œë„ ê·¸ ì´ë¦„ì„ ë°”ê¿”ì•¼ í•  ê²ƒì´ë„¤.
 
-| Âü°í: ¿ì¸®´Â ÀÌ Á¦¾îÀÚ¸¦ zombiehelper.sol°ú zombieattack.sol¿¡¼­µµ »ç¿ëÇÏ³×. 
-ÇÏÁö¸¸ ¿ì¸®´Â ÀÌ ·¹½¼¿¡¼­ ¸®ÆÑÅä¸µ¿¡ ½Ã°£À» ³Ê¹« ¸¹ÀÌ ¾²Áö´Â ¾Êµµ·Ï ÇÒ °ÍÀÌ¾ß. ±×·¡¼­ ³»°¡ ÀÚ³×¸¦ À§ÇØ ÀÌ ÆÄÀÏµé¿¡¼­ Á¦¾îÀÚÀÇ ÀÌ¸§À» ¸ÕÀú º¯°æÇØ ³õ¾Ò³×.
+| ì°¸ê³ : ìš°ë¦¬ëŠ” ì´ ì œì–´ìžë¥¼ zombiehelper.solê³¼ zombieattack.solì—ì„œë„ ì‚¬ìš©í•˜ë„¤. 
+í•˜ì§€ë§Œ ìš°ë¦¬ëŠ” ì´ ë ˆìŠ¨ì—ì„œ ë¦¬íŒ©í† ë§ì— ì‹œê°„ì„ ë„ˆë¬´ ë§Žì´ ì“°ì§€ëŠ” ì•Šë„ë¡ í•  ê²ƒì´ì•¼. ê·¸ëž˜ì„œ ë‚´ê°€ ìžë„¤ë¥¼ ìœ„í•´ ì´ íŒŒì¼ë“¤ì—ì„œ ì œì–´ìžì˜ ì´ë¦„ì„ ë¨¼ì € ë³€ê²½í•´ ë†“ì•˜ë„¤.
 */
 
 interface KittyInterface {
@@ -48,7 +48,7 @@ contract ZombieFeeding is ZombieFactory {
 
   KittyInterface kittyContract;
 
-  // 1. Á¦¾îÀÚÀÇ ÀÌ¸§À» `onlyOwnerOf`·Î ¹Ù²Ù°Ô.
+  // 1. ì œì–´ìžì˜ ì´ë¦„ì„ `onlyOwnerOf`ë¡œ ë°”ê¾¸ê²Œ.
   modifier onlyOwnerOf(uint _zombieId) {
     require(msg.sender == zombieToOwner[_zombieId]);
     _;
@@ -65,8 +65,8 @@ contract ZombieFeeding is ZombieFactory {
     return (_zombie.readyTime <= block.timestamp);
   }
 
-  // string¿¡ memory¸¦ »ç¿ëÇØ¾ß ÇÏ´Â ÀÌÀ¯. 
-  // solidity 0.5.0 ¹öÀüºÎÅÍ´Â ±¸Á¶Ã¼, ¹è¿­ ¶Ç´Â ¸ÅÇÎ µîÀÇ ¸ðµç º¯¼ö¸¦ À§ÇØ µ¥ÀÌÅÍ À§Ä¡¸¦ ¸í½ÃÇÏ´Â °ÍÀÌ ÇÊ¼ö. bytes ¿Í string Å¸ÀÔÀÇ º¯¼ö´Â Æ¯º°ÇÑ ÇüÅÂÀÇ ¹è¿­ÀÔ´Ï´Ù(https://solidity-kr.readthedocs.io/ko/latest/types.html#arrays).
+  // stringì— memoryë¥¼ ì‚¬ìš©í•´ì•¼ í•˜ëŠ” ì´ìœ . 
+  // solidity 0.5.0 ë²„ì „ë¶€í„°ëŠ” êµ¬ì¡°ì²´, ë°°ì—´ ë˜ëŠ” ë§¤í•‘ ë“±ì˜ ëª¨ë“  ë³€ìˆ˜ë¥¼ ìœ„í•´ ë°ì´í„° ìœ„ì¹˜ë¥¼ ëª…ì‹œí•˜ëŠ” ê²ƒì´ í•„ìˆ˜. bytes ì™€ string íƒ€ìž…ì˜ ë³€ìˆ˜ëŠ” íŠ¹ë³„í•œ í˜•íƒœì˜ ë°°ì—´ìž…ë‹ˆë‹¤(https://solidity-kr.readthedocs.io/ko/latest/types.html#arrays).
   function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal onlyOwnerOf(_zombieId) {
     Zombie storage myZombie = zombies[_zombieId];
     require(_isReady(myZombie)); 

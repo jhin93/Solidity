@@ -11,50 +11,50 @@ contract ZombieFactory {
         string name;
         uint dna;
     }
-    // Zombie ±¸Á¶Ã¼ÀÇ public ¹è¿­. ÀÌ¸§Àº zombies
+    // Zombie êµ¬ì¡°ì²´ì˜ public ë°°ì—´. ì´ë¦„ì€ zombies
     Zombie[] public zombies;
 
 }
 
-// ¹è¿­. Á¤Àû¹è¿­°ú µ¿Àû¹è¿­.
+// ë°°ì—´. ì •ì ë°°ì—´ê³¼ ë™ì ë°°ì—´.
 
-// 2°³ÀÇ ¿ø¼Ò¸¦ ´ãÀ» ¼ö ÀÖ´Â °íÁ¤ ±æÀÌÀÇ ¹è¿­:
+// 2ê°œì˜ ì›ì†Œë¥¼ ë‹´ì„ ìˆ˜ ìžˆëŠ” ê³ ì • ê¸¸ì´ì˜ ë°°ì—´:
 // uint[2] fixedArray;
 
-// ¶Ç´Ù¸¥ °íÁ¤ ¹è¿­À¸·Î 5°³ÀÇ ½ºÆ®¸µÀ» ´ãÀ» ¼ö ÀÖ´Ù:
+// ë˜ë‹¤ë¥¸ ê³ ì • ë°°ì—´ìœ¼ë¡œ 5ê°œì˜ ìŠ¤íŠ¸ë§ì„ ë‹´ì„ ìˆ˜ ìžˆë‹¤:
 // string[5] stringArray;
 
-// µ¿Àû ¹è¿­Àº °íÁ¤µÈ Å©±â°¡ ¾øÀ¸¸ç °è¼Ó Å©±â°¡ Ä¿Áú ¼ö ÀÖ´Ù:
+// ë™ì  ë°°ì—´ì€ ê³ ì •ëœ í¬ê¸°ê°€ ì—†ìœ¼ë©° ê³„ì† í¬ê¸°ê°€ ì»¤ì§ˆ ìˆ˜ ìžˆë‹¤:
 // uint[] dynamicArray;
 
 
-// »óÅÂ º¯¼ö
+// ìƒíƒœ ë³€ìˆ˜
 
-// »óÅÂ º¯¼ö´Â ÄÁÆ®·¢Æ® ÀúÀå¼Ò¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåµÇ³×. Áï, ÀÌ´õ¸®¿ò ºí·ÏÃ¼ÀÎ¿¡ ±â·ÏµÈ´Ù´Â °ÅÁö. µ¥ÀÌÅÍº£ÀÌ½º¿¡ µ¥ÀÌÅÍ¸¦ ¾²´Â °Í°ú µ¿ÀÏÇÏ³×.
+// ìƒíƒœ ë³€ìˆ˜ëŠ” ì»¨íŠ¸ëž™íŠ¸ ì €ìž¥ì†Œì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ë˜ë„¤. ì¦‰, ì´ë”ë¦¬ì›€ ë¸”ë¡ì²´ì¸ì— ê¸°ë¡ëœë‹¤ëŠ” ê±°ì§€. ë°ì´í„°ë² ì´ìŠ¤ì— ë°ì´í„°ë¥¼ ì“°ëŠ” ê²ƒê³¼ ë™ì¼í•˜ë„¤.
 
 // contract Example {
-//   ÀÌ º¯¼ö´Â ºí·ÏÃ¼ÀÎ¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåµÈ´Ù.
+//   ì´ ë³€ìˆ˜ëŠ” ë¸”ë¡ì²´ì¸ì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ëœë‹¤.
 //   uint myUnsignedInteger = 100;
 // }
 
-// ÀÌ ¿¹½Ã ÄÁÆ®·¢Æ®¿¡¼­´Â myUnsignedInteger¶ó´Â uint¸¦ »ý¼ºÇÏ¿© 100ÀÌ¶ó´Â °ªÀ» ¹èÁ¤Çß³×.
+// ì´ ì˜ˆì‹œ ì»¨íŠ¸ëž™íŠ¸ì—ì„œëŠ” myUnsignedIntegerë¼ëŠ” uintë¥¼ ìƒì„±í•˜ì—¬ 100ì´ë¼ëŠ” ê°’ì„ ë°°ì •í–ˆë„¤.
 
-// »óÅÂ º¯¼ö°¡ ºí·ÏÃ¼ÀÎ¿¡ ¿µ±¸ÀûÀ¸·Î ÀúÀåµÉ ¼ö ÀÖ´Ù´Â °É ±â¾ïÇÏ³ª? ±×·¯´Ï ÀÌÃ³·³ ±¸Á¶Ã¼ÀÇ µ¿Àû ¹è¿­À» »ý¼ºÇÏ¸é ¸¶Ä¡ µ¥ÀÌÅÍº£ÀÌ½ºÃ³·³ ÄÁÆ®·¢Æ®¿¡ ±¸Á¶È­µÈ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â µ¥ À¯¿ëÇÏ³×.
-
-
-
-
-// ÀÇ¹®Á¡.
-// publicÀ¸·Î ¹è¿­À» ¼±¾ðÇÒ ¼ö ÀÖÁö. ¼Ö¸®µðÆ¼´Â ÀÌ·± ¹è¿­À» À§ÇØ getter ¸Þ¼Òµå¸¦ ÀÚµ¿ÀûÀ¸·Î »ý¼ºÇÏÁö.
-// ±×·¯¸é ´Ù¸¥ ÄÁÆ®·¢Æ®µéÀÌ ÀÌ ¹è¿­À» ÀÐÀ» ¼ö ÀÖ°Ô µÇÁö (¾µ ¼ö´Â ¾ø³×). ÀÌ´Â ÄÁÆ®·¢Æ®¿¡ °ø°³ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¶§ À¯¿ëÇÑ ÆÐÅÏÀÌÁö.
+// ìƒíƒœ ë³€ìˆ˜ê°€ ë¸”ë¡ì²´ì¸ì— ì˜êµ¬ì ìœ¼ë¡œ ì €ìž¥ë  ìˆ˜ ìžˆë‹¤ëŠ” ê±¸ ê¸°ì–µí•˜ë‚˜? ê·¸ëŸ¬ë‹ˆ ì´ì²˜ëŸ¼ êµ¬ì¡°ì²´ì˜ ë™ì  ë°°ì—´ì„ ìƒì„±í•˜ë©´ ë§ˆì¹˜ ë°ì´í„°ë² ì´ìŠ¤ì²˜ëŸ¼ ì»¨íŠ¸ëž™íŠ¸ì— êµ¬ì¡°í™”ëœ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ë° ìœ ìš©í•˜ë„¤.
 
 
 
-// ÀÇ¹®Á¡ ÇØ°á. public functionÀº ´Ù¸¥ ÄÁÆ®·¢Æ®¿¡¼­ »ç¿ëÇÒ ¼öµµ ÀÖÁö¸¸, public ¹è¿­Àº ±×·¸Áö ¾Ê´Ù.
+
+// ì˜ë¬¸ì .
+// publicìœ¼ë¡œ ë°°ì—´ì„ ì„ ì–¸í•  ìˆ˜ ìžˆì§€. ì†”ë¦¬ë””í‹°ëŠ” ì´ëŸ° ë°°ì—´ì„ ìœ„í•´ getter ë©”ì†Œë“œë¥¼ ìžë™ì ìœ¼ë¡œ ìƒì„±í•˜ì§€.
+// ê·¸ëŸ¬ë©´ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ë“¤ì´ ì´ ë°°ì—´ì„ ì½ì„ ìˆ˜ ìžˆê²Œ ë˜ì§€ (ì“¸ ìˆ˜ëŠ” ì—†ë„¤). ì´ëŠ” ì»¨íŠ¸ëž™íŠ¸ì— ê³µê°œ ë°ì´í„°ë¥¼ ì €ìž¥í•  ë•Œ ìœ ìš©í•œ íŒ¨í„´ì´ì§€.
+
+
+
+// ì˜ë¬¸ì  í•´ê²°. public functionì€ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ì—ì„œ ì‚¬ìš©í•  ìˆ˜ë„ ìžˆì§€ë§Œ, public ë°°ì—´ì€ ê·¸ë ‡ì§€ ì•Šë‹¤.
 // https://needjarvis.tistory.com/320
 
-// ÀÌ·¸°Ô ¹è¿­·Î ¸¸µé¾îÁø º¯¼ö¸¦ ´Ù¸¥ ÄÁÆ®·¢Æ®µéÀÌ ÀÐÀ» ¼ö ÀÖ°Ô ÇÏ·Á¸é publicÀ¸·Î ÁöÁ¤À» ÇÏ¸é µÈ´Ù. 
-// Âü°í·Î ´Ù¸¥ ÄÁÆ®·¢Æ®°¡ ÀÐÀ» ¼ö ÀÖ°Ô getter ¸Þ¼Òµå¸¦ ÀÚµ¿ÀûÀ¸·Î »ý¼ºÇÏÁö¸¸ setter ¸Þ¼Òµå¸¦ »ý¼ºÇÏ´Â °ÍÀº ¾Æ´Ï´Ù. ±×·¸±â ¶§¹®¿¡ ÀÐÀ» ¼ö¸¸ ÀÖ°í ¾µ ¼ö´Â ¾ø´Ù.
+// ì´ë ‡ê²Œ ë°°ì—´ë¡œ ë§Œë“¤ì–´ì§„ ë³€ìˆ˜ë¥¼ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ë“¤ì´ ì½ì„ ìˆ˜ ìžˆê²Œ í•˜ë ¤ë©´ publicìœ¼ë¡œ ì§€ì •ì„ í•˜ë©´ ëœë‹¤. 
+// ì°¸ê³ ë¡œ ë‹¤ë¥¸ ì»¨íŠ¸ëž™íŠ¸ê°€ ì½ì„ ìˆ˜ ìžˆê²Œ getter ë©”ì†Œë“œë¥¼ ìžë™ì ìœ¼ë¡œ ìƒì„±í•˜ì§€ë§Œ setter ë©”ì†Œë“œë¥¼ ìƒì„±í•˜ëŠ” ê²ƒì€ ì•„ë‹ˆë‹¤. ê·¸ë ‡ê¸° ë•Œë¬¸ì— ì½ì„ ìˆ˜ë§Œ ìžˆê³  ì“¸ ìˆ˜ëŠ” ì—†ë‹¤.
 
-// getter, setter ¸Þ¼Òµå
+// getter, setter ë©”ì†Œë“œ
 // https://velog.io/@mollog/getter-setter%EB%9E%80
