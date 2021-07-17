@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.0;
 
-// Ã©ÅÍ 4: require
+// ì±•í„° 4: require
 
-// ·¹½¼ 1¿¡¼­ À¯Àú°¡ createRandomZombie¸¦ È£ÃâÇÏ¿© Á»ºñ ÀÌ¸§À» ÀÔ·ÂÇÏ¸é »õ·Î¿î Á»ºñ¸¦ »ı¼ºÇÒ ¼ö ÀÖµµ·Ï Çß³×. 
-// ÇÏÁö¸¸, ¸¸ÀÏ À¯Àú°¡ ÀÌ ÇÔ¼ö¸¦ °è¼Ó È£ÃâÇØ¼­ ¹«Á¦ÇÑÀ¸·Î Á»ºñ¸¦ »ı¼ºÇÑ´Ù¸é °ÔÀÓÀÌ ¸Å¿ì Àç¹ÌÀÖÁö´Â ¾ÊÀ» °É¼¼.
-// °¢ ÇÃ·¹ÀÌ¾î°¡ ÀÌ ÇÔ¼ö¸¦ ÇÑ ¹ø¸¸ È£ÃâÇÒ ¼ö ÀÖµµ·Ï ¸¸µé¾î º¸¼¼. ÀÌ·Î½á »õ·Î¿î ÇÃ·¹ÀÌ¾îµéÀÌ °ÔÀÓÀ» Ã³À½ ½ÃÀÛÇÒ ¶§ Á»ºñ ±º´ë¸¦ ±¸¼ºÇÒ Ã¹ Á»ºñ¸¦ »ı¼ºÇÏ±â À§ÇØ createRandomZombieÇÔ¼ö¸¦ È£ÃâÇÏ°Ô µÉ °ÍÀÌ³×.
-// ¾î¶»°Ô ÇÏ¸é ÀÌ ÇÔ¼ö°¡ °¢ ÇÃ·¹ÀÌ¾î¸¶´Ù ÇÑ ¹ø¾¿¸¸ È£ÃâµÇµµ·Ï ÇÒ ¼ö ÀÖÀ»±î?
-// ÀÌ¸¦ À§ÇØ require¸¦ È°¿ëÇÒ °ÍÀÌ³×. require¸¦ È°¿ëÇÏ¸é Æ¯Á¤ Á¶°ÇÀÌ ÂüÀÌ ¾Æ´Ò ¶§ ÇÔ¼ö°¡ ¿¡·¯ ¸Ş½ÃÁö¸¦ ¹ß»ıÇÏ°í ½ÇÇàÀ» ¸ØÃß°Ô µÇÁö
+// ë ˆìŠ¨ 1ì—ì„œ ìœ ì €ê°€ createRandomZombieë¥¼ í˜¸ì¶œí•˜ì—¬ ì¢€ë¹„ ì´ë¦„ì„ ì…ë ¥í•˜ë©´ ìƒˆë¡œìš´ ì¢€ë¹„ë¥¼ ìƒì„±í•  ìˆ˜ ìˆë„ë¡ í–ˆë„¤. 
+// í•˜ì§€ë§Œ, ë§Œì¼ ìœ ì €ê°€ ì´ í•¨ìˆ˜ë¥¼ ê³„ì† í˜¸ì¶œí•´ì„œ ë¬´ì œí•œìœ¼ë¡œ ì¢€ë¹„ë¥¼ ìƒì„±í•œë‹¤ë©´ ê²Œì„ì´ ë§¤ìš° ì¬ë¯¸ìˆì§€ëŠ” ì•Šì„ ê±¸ì„¸.
+// ê° í”Œë ˆì´ì–´ê°€ ì´ í•¨ìˆ˜ë¥¼ í•œ ë²ˆë§Œ í˜¸ì¶œí•  ìˆ˜ ìˆë„ë¡ ë§Œë“¤ì–´ ë³´ì„¸. ì´ë¡œì¨ ìƒˆë¡œìš´ í”Œë ˆì´ì–´ë“¤ì´ ê²Œì„ì„ ì²˜ìŒ ì‹œì‘í•  ë•Œ ì¢€ë¹„ êµ°ëŒ€ë¥¼ êµ¬ì„±í•  ì²« ì¢€ë¹„ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•´ createRandomZombieí•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ê²Œ ë  ê²ƒì´ë„¤.
+// ì–´ë–»ê²Œ í•˜ë©´ ì´ í•¨ìˆ˜ê°€ ê° í”Œë ˆì´ì–´ë§ˆë‹¤ í•œ ë²ˆì”©ë§Œ í˜¸ì¶œë˜ë„ë¡ í•  ìˆ˜ ìˆì„ê¹Œ?
+// ì´ë¥¼ ìœ„í•´ requireë¥¼ í™œìš©í•  ê²ƒì´ë„¤. requireë¥¼ í™œìš©í•˜ë©´ íŠ¹ì • ì¡°ê±´ì´ ì°¸ì´ ì•„ë‹ ë•Œ í•¨ìˆ˜ê°€ ì—ëŸ¬ ë©”ì‹œì§€ë¥¼ ë°œìƒí•˜ê³  ì‹¤í–‰ì„ ë©ˆì¶”ê²Œ ë˜ì§€
 
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
@@ -20,19 +20,19 @@ contract ZombieFactory {
     }
 
     Zombie[] public zombies;
-    // ¿©±â¼­ ¸ÅÇÎ ¼±¾ğ
+    // ì—¬ê¸°ì„œ ë§¤í•‘ ì„ ì–¸
     mapping (uint => address) public zombieToOwner;
     mapping (address => uint) ownerZombieCount;
 
     function _createZombie(string memory _name, uint _dna) private {
-        // »õ·Ó°Ô Zombie ±¸Á¶Ã¼¿¡ Ãß°¡¸¦ ÇÑ Á»ºñÀÇ ÀÎµ¦½º¸¦ id·Î »ç¿ëÇÑ´Ù.
-        // ÇØ°á. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
-        // ¹öÀü 0.6ºÎÅÍ push°¡ length¸¦ ¹İÈ¯ÇÏÁö ¾Ê°í ´õÇÏ±â ±â´É¸¸ ¼öÇàÇÔ. 
+        // ìƒˆë¡­ê²Œ Zombie êµ¬ì¡°ì²´ì— ì¶”ê°€ë¥¼ í•œ ì¢€ë¹„ì˜ ì¸ë±ìŠ¤ë¥¼ idë¡œ ì‚¬ìš©í•œë‹¤.
+        // í•´ê²°. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
+        // ë²„ì „ 0.6ë¶€í„° pushê°€ lengthë¥¼ ë°˜í™˜í•˜ì§€ ì•Šê³  ë”í•˜ê¸° ê¸°ëŠ¥ë§Œ ìˆ˜í–‰í•¨. 
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.length - 1;
-        // msg.sender ´ëÀÔ
+        // msg.sender ëŒ€ì…
         zombieToOwner[id] = msg.sender;
-        // ÀÚ¹Ù½ºÅ©¸³Æ®¿Í ¸¶Âù°¡Áö·Î ¼Ö¸®µğÆ¼¿¡¼­µµ uint¸¦ ++·Î Áõ°¡½ÃÅ³ ¼ö ÀÖ´Ù.
+        // ìë°”ìŠ¤í¬ë¦½íŠ¸ì™€ ë§ˆì°¬ê°€ì§€ë¡œ ì†”ë¦¬ë””í‹°ì—ì„œë„ uintë¥¼ ++ë¡œ ì¦ê°€ì‹œí‚¬ ìˆ˜ ìˆë‹¤.
         ownerZombieCount[msg.sender] ++;
         emit NewZombie(id, _name, _dna);
     }
@@ -43,7 +43,7 @@ contract ZombieFactory {
     }
 
     function createRandomZombie(string memory _name) public {
-        // ¿©±â¼­ ½ÃÀÛ
+        // ì—¬ê¸°ì„œ ì‹œì‘
         require(ownerZombieCount[msg.sender] == 0);
         uint randDna = _generateRandomDna(_name);
         _createZombie(_name, randDna);
@@ -52,12 +52,12 @@ contract ZombieFactory {
 }
 
 
-// require ¿¹½Ã
+// require ì˜ˆì‹œ
 
 function sayHiToVitalik(string _name) public returns (string) {
-  // _nameÀÌ "Vitalik"ÀÎÁö ºñ±³ÇÑ´Ù. ÂüÀÌ ¾Æ´Ò °æ¿ì ¿¡·¯ ¸Ş½ÃÁö¸¦ ¹ß»ıÇÏ°í ÇÔ¼ö¸¦ ¹ş¾î³­´Ù
-  // (Âü°í: ¼Ö¸®µğÆ¼´Â °íÀ¯ÀÇ ½ºÆ®¸µ ºñ±³ ±â´ÉÀ» °¡Áö°í ÀÖÁö ¾Ê±â ¶§¹®¿¡ ½ºÆ®¸µÀÇ keccak256 ÇØ½Ã°ªÀ» ºñ±³ÇÏ¿© ½ºÆ®¸µ °ªÀÌ °°ÀºÁö ÆÇ´ÜÇÑ´Ù)
+  // _nameì´ "Vitalik"ì¸ì§€ ë¹„êµí•œë‹¤. ì°¸ì´ ì•„ë‹ ê²½ìš° ì—ëŸ¬ ë©”ì‹œì§€ë¥¼ ë°œìƒí•˜ê³  í•¨ìˆ˜ë¥¼ ë²—ì–´ë‚œë‹¤
+  // (ì°¸ê³ : ì†”ë¦¬ë””í‹°ëŠ” ê³ ìœ ì˜ ìŠ¤íŠ¸ë§ ë¹„êµ ê¸°ëŠ¥ì„ ê°€ì§€ê³  ìˆì§€ ì•Šê¸° ë•Œë¬¸ì— ìŠ¤íŠ¸ë§ì˜ keccak256 í•´ì‹œê°’ì„ ë¹„êµí•˜ì—¬ ìŠ¤íŠ¸ë§ ê°’ì´ ê°™ì€ì§€ íŒë‹¨í•œë‹¤)
   require(keccak256(_name) == keccak256("Vitalik"));
-  // ÂüÀÌ¸é ÇÔ¼ö ½ÇÇàÀ» ÁøÇàÇÑ´Ù:
+  // ì°¸ì´ë©´ í•¨ìˆ˜ ì‹¤í–‰ì„ ì§„í–‰í•œë‹¤:
   return "Hi!";
 }
