@@ -29,8 +29,11 @@ https://solidity-kr.readthedocs.io/ko/latest/index.html
 
 블록체인이란(원리, 활용, 전망) http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
 
-블록체인 구조 설명
+블록체인 구조 설명  
 https://brownbears.tistory.com/371?category=281929
+
+작업증명  
+https://brownbears.tistory.com/373?category=281929
 
 nonce 설명
 http://wiki.hash.kr/index.php/%EB%85%BC%EC%8A%A4_(%EC%9E%84%EC%8B%9C%EA%B0%92)
