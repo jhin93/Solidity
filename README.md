@@ -34,7 +34,10 @@ http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.
 https://brownbears.tistory.com/371?category=281929
 
 작업증명  
-https://brownbears.tistory.com/373?category=281929
+https://brownbears.tistory.com/373?category=281929  
+
+지분증명  
+http://wiki.hash.kr/index.php/%EC%A7%80%EB%B6%84%EC%A6%9D%EB%AA%85#cite_note-2. 
 
 nonce 설명  
 http://wiki.hash.kr/index.php/%EB%85%BC%EC%8A%A4_(%EC%9E%84%EC%8B%9C%EA%B0%92)
