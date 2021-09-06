@@ -196,6 +196,9 @@ http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9
 https://kbench.com/?q=node/2635  
 오버플로우 발생 예시  
 https://steemit.com/kr-dev/@modolee/the-go-programming-language-3-3-1  
+  
+자주 쓰이는 패턴  
+https://solidity-kr.readthedocs.io/ko/latest/common-patterns.html  
 
 라이브러리(library)  
 https://cryptozombies.io/ko/lesson/5/chapter/9  
