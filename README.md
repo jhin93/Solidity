@@ -38,6 +38,7 @@ https://brownbears.tistory.com/373?category=281929
 
 지분증명  
 http://wiki.hash.kr/index.php/%EC%A7%80%EB%B6%84%EC%A6%9D%EB%AA%85#cite_note-2  
+https://www.youtube.com/watch?v=psKDXvXdr7k&t=64s  
 
 우로보로스 지분증명  
 http://wiki.hash.kr/index.php/%EC%9A%B0%EB%A1%9C%EB%B3%B4%EB%A1%9C%EC%8A%A4_%EC%A7%80%EB%B6%84%EC%A6%9D%EB%AA%85  
