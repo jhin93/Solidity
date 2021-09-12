@@ -1,31 +1,29 @@
 # Solidity
 
-이곳은 Solidity를 위한 공간입니다.
-블록체인 개발자를 향하여.
+이곳은 Solidity를 위한 공간입니다.  
 
 
 
-[ Solidity 학습 순서 ]
-완료된 과정은 우측에 완료된 날짜와 함께 완료라고 작성.(ex 프로그래머스 4/17 완료)
+[ Solidity 학습 순서 ]  
+완료된 과정은 우측에 완료된 날짜와 함께 완료라고 작성.(ex 프로그래머스 4/17 완료). 
 
-1.  크립토좀비
-https://cryptozombies.io/ko/course
-
-
-2. 인프런
-https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-dapp#curriculum
-
-3. dapp university.
-https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
+1.  크립토좀비  
+https://cryptozombies.io/ko/course  
 
 
-- 공식문서.
-https://solidity-kr.readthedocs.io/ko/latest/index.html
+2. 인프런  
+https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-dapp#curriculum  
+
+3. dapp university  
+https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s  
+
+
+- 공식문서  
+https://solidity-kr.readthedocs.io/ko/latest/index.html  
 
 
 
-[Warm-up reference]
-시작하기 전에 읽고 시작하자.
+[Warm-up reference]  
 
 블록체인이란(원리, 활용, 전망)  
 http://wiki.hash.kr/index.php/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8#.EC.9E.91.EB.8F.99_.EC.9B.90.EB.A6.AC
