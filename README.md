@@ -1,8 +1,4 @@
-# Solidity
-
-이곳은 Solidity를 위한 공간입니다.  
-
-
+# Solidity  
 
 [ Solidity 학습 순서 ]  
 완료된 과정은 우측에 완료된 날짜와 함께 완료라고 작성.(ex 프로그래머스 4/17 완료). 
