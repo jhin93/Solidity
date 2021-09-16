@@ -63,7 +63,11 @@ https://geth.ethereum.org/docs/interface/command-line-options
 
 [솔리디티 관련 자료 모음]
 
-- 문법
+- 문법  
+
+코딩 스타일가이드  
+https://solidity-kr.readthedocs.io/ko/latest/style-guide.html#index-0  
+
 
 솔리디티 코드 레이아웃(스타일가이드)  
 https://docs.soliditylang.org/en/v0.5.2/style-guide.html#code-layout  
