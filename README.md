@@ -107,7 +107,10 @@ msg.sender 는 외부에서 지금 함수를 호출한 주소를 나타냅니다
 https://solidity-kr.readthedocs.io/ko/latest/introduction-to-smart-contracts.html?highlight=msg#subcurrency 에서 '유용한 전역 변수' 검색.  
 
 msg 멤버 값.  
-https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html#index-2  
+https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html#index-2
+
+bytes(동적 크기 바이트 배열)  
+https://solidity-kr.readthedocs.io/ko/latest/types.html#id7  
 
 
 자료형 (강철의 블록체인 유튜브 채널 운영자의 블로그)  
@@ -194,6 +197,7 @@ https://solidity-kr.readthedocs.io/ko/latest/contracts.html#index-11
 
 데이터 단위(비트, 바이트..) 8bit == 2^8 - 1 == (2^7) + (2^6) + ... + (2^0)  
 https://kbench.com/?q=node/2635  
+
 오버플로우 발생 예시  
 https://steemit.com/kr-dev/@modolee/the-go-programming-language-3-3-1  
   
