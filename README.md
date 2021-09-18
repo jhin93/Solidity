@@ -86,6 +86,8 @@ https://codemath.github.io/Solidity-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B8%
 여긴 스마트 컨트랙트 구조, 변수, 데이터 위치 등 전반적으로 다룬다.  
 https://d2fault.github.io/2018/03/19/20180319-about-solidity-1/  
 
+import  
+https://solidity-kr.readthedocs.io/ko/latest/layout-of-source-files.html#index-3  
 
 storage와 memory  
 https://www.geeksforgeeks.org/storage-vs-memory-in-solidity/  
