@@ -170,7 +170,7 @@ https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-r
 
 ERC-20(대체 가능)  
 http://wiki.hash.kr/index.php/ERC-20  
-- 사용규칙 : http://wiki.hash.kr/index.php/ERC-20#.EA.B7.9C.EC.B9.99  
+사용규칙 : http://wiki.hash.kr/index.php/ERC-20#.EA.B7.9C.EC.B9.99  
 
 ERC-721(대체 불가능)  
 http://wiki.hash.kr/index.php/ERC-721#OpenZeppelin  
