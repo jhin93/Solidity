@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.3;
 
 import "./zombiefeeding.sol";
 
@@ -17,7 +17,7 @@ contract ZombieHelper is ZombieFeeding {
   }
 
   function withdraw() external onlyOwner {
-    address(uint160(owner)).transfer(address(this).balance);
+    address payable(uint160(owner)).transfer(address(this).balance);
   }
 
   function setLevelUpFee(uint _fee) external onlyOwner {

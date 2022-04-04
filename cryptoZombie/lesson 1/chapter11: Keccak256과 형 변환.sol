@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.3;
 
 // 우리가 _generateRandomDna 함수의 반환값이 (반) 랜덤인 uint가 되기를 원하면, 어떻게 하면 되겠는가?
 

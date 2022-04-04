@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.3;
 
 
 // 지난 예시의 Person 구조체를 기억하나?

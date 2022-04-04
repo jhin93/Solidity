@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.3;
 // 오류 발생 : 
 // 1. Contract "ERC721" should be marked as abstract 
 // 2. Functions in interfaces must be declared external.

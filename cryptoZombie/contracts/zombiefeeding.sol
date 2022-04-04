@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.3;
 // 함수 제어자 종류.
 // 접근 제어자(visibility modifier) : public, private, internal, external
 // 상태 제어자(state modifier) : view, pure
