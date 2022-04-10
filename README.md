@@ -79,7 +79,6 @@ https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC
 https://potensj.tistory.com/18?category=671470  
 
 접근 제어자(Visibility)에 대해서만 다룬 글  
-https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030  
 https://caileb.tistory.com/140  
 
 상태 제어자 설명 잘해놓은 글  
