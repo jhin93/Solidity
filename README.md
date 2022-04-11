@@ -13,7 +13,6 @@ https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-
 3. dapp university  
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s  
 
-
 - 공식문서  
 https://solidity-kr.readthedocs.io/ko/latest/index.html  
 
