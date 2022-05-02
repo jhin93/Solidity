@@ -186,7 +186,6 @@ https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56  
 
 인터페이스  
-https://solidity-kr.readthedocs.io/ko/latest/contracts.html#interfaces  
 https://cryptozombies.io/ko/lesson/2/chapter/10  
 https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/  
 
