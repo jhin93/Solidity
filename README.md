@@ -13,7 +13,6 @@ https://www.inflearn.com/course/blockchain-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-
 3. dapp university  
 https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s  
 
-
 - 공식문서  
 https://solidity-kr.readthedocs.io/ko/latest/index.html  
 
@@ -39,6 +38,13 @@ http://wiki.hash.kr/index.php/%EC%9A%B0%EB%A1%9C%EB%B3%B4%EB%A1%9C%EC%8A%A4_%EC%
 
 nonce 설명  
 http://wiki.hash.kr/index.php/%EB%85%BC%EC%8A%A4_(%EC%9E%84%EC%8B%9C%EA%B0%92)
+
+블록체인은 다수의 거래내역을 모아 하나의 블록을 구성하고, 그 블록을 대표하는 해시값을 생성하여 다른 블록과 체인처럼 연결된다. 이 때, 블록을 대표하는 해시값인 블록해시를 생성하려면, 일정한 조건을 만족해야 한다. 그 일정한 조건이란, 블록 난이도에 따라 자동으로 설정된 '목표값'보다 더 작은 블록해시값을 찾아야 한다는 제약조건이다. 해시는 랜덤하게 생성되기 때문에, 수없이 많은 연산을 반복해서 미리 정해진 목표값 이하의 해시값이 나오도록 해야 한다. 이때 랜덤한 해시값을 생성할 수 있도록 매번 임시값을 사용해야 하는데, 그 임시값이 바로 논스이다.
+
+일반적으로 블록의 해시값은 해당 블록의 생성일시, 버전, 비츠(bits), 루트해시, 이전 블록의 해시, 그리고 논스(nonce)라고 불리는 임시값 등을 조합한 후 해시로 변환하여 생성한다. 해당 블록의 생성일시, 버전, 난이도, 루트해시와 이전 블록의 해시값은 이미 확정되어 정해진 값을 가지고 있지만, 논스라는 임시값이 달라짐에 따라 해시 연산 결과로 생성되는 블록 해시값도 다양하게 나올 수 있다. 예를 들어 논스가 1인 경우의 해시값과 2인 경우의 해시값은 전혀 다르다. 이 논스 값을 수없이 바꿔가면서 하나씩 대입하다가 새로 생성된 해시값이 일정한 목표값보다 더 작을 경우에 새로운 블록이 성공적으로 생성된다.
+
+머클루트  
+http://wiki.hash.kr/index.php/%EB%A8%B8%ED%81%B4%EB%A3%A8%ED%8A%B8  
 
 bits 설명(+블록체인 작동 방식 설명)  
 https://homoefficio.github.io/2016/01/23/BlockChain-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%85%90/  
@@ -79,7 +85,6 @@ https://medium.com/returnvalues/%EC%86%94%EB%A6%AC%EB%94%94%ED%8B%B0-v-0-5-2-%EC
 https://potensj.tistory.com/18?category=671470  
 
 접근 제어자(Visibility)에 대해서만 다룬 글  
-https://noooop.tistory.com/entry/Solidity-%EA%B3%B5%EB%B6%80-Visibility-%EA%B0%80%EC%8B%9C%EC%84%B1?category=1031030  
 https://caileb.tistory.com/140  
 
 상태 제어자 설명 잘해놓은 글  
