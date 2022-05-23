@@ -24,6 +24,27 @@ contract ZombieFactory {
         // 해결. https://ethereum.stackexchange.com/questions/89792/typeerror-different-number-of-components-either-side-of-equation
         // 버전 0.6부터 push가 length를 반환하지 않고 더하기 기능만 수행함. 
 
+        // 이벤트는 컨트랙트 내부에서 일어난 일을 클라이언트 쪽에 전달하기 위해 사용한다.
+        /*
+            // 이벤트 선언.
+            event IntegersAdded(uint x, uint y, uint result);
+
+            function add(uint _x, uint _y) public {
+                uint result = _x + _y;
+                // 이벤트를 실행하여 앱에게 add 함수가 실행되었음을 알린다:
+                IntegersAdded(_x, _y, result);
+                return result;
+            }
+
+            // 클라이언트
+            YourContract.IntegersAdded(function(error, result) {
+                // 결과와 관련된 행동을 취한다
+            })
+
+            선언한 IntegersAdded는 자신을 사용하는 함수(add)의 실행 여부를 클라이언트에 전달한다.
+            컨트랙트 내부에서 함수 'add'가 실행되면 포함된 이벤트가 실행되고, 이를 클라이언트도 감지한다.
+        */
+
         // 여기서 이벤트 실행
         emit NewZombie(id, _name, _dna);
         // 오류발생. Event invocations have to be prefixed by "emit".
