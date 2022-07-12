@@ -265,3 +265,6 @@ https://docs.soliditylang.org/en/latest/contracts.html#events
 web3js에서 메소드, 이벤트를 다루는 법  
 ex - CryptoZombies.methods.createRandomZombie(name)  
 ex - cryptoZombies.events.NewZombie()...  
+
+Libraries. 
+https://solidity-kr.readthedocs.io/ko/latest/contracts.html?highlight=using#libraries  
