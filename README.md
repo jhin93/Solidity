@@ -268,3 +268,6 @@ ex - cryptoZombies.events.NewZombie()...
 
 Libraries.  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html?highlight=using#libraries  
+
+overflow, underflow  
+https://gjwjdgnsrnlg.tistory.com/201  
