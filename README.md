@@ -304,7 +304,7 @@ contract add{
     fallback() external payable  {
      emit JustFallback("JustFallback is called");
     }
-    receive() external payable {
+    receive() external payable { // ehter를 받는 receive() 함수
      emit JustReceive("JustReceive is called");
     }
 }
