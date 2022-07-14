@@ -271,3 +271,6 @@ https://solidity-kr.readthedocs.io/ko/latest/contracts.html?highlight=using#libr
 
 overflow, underflow  
 https://gjwjdgnsrnlg.tistory.com/201  
+
+Call method  
+https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/  
