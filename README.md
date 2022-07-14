@@ -279,11 +279,12 @@ https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-so
 https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/  
 https://medium.com/coinmonks/solidity-transfer-vs-send-vs-call-function-64c92cfc878a  
 
-```
+```c
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity >=0.7.0 < 0.9.0;
-/*
+/* 
+https://github.com/D-One0914/BreakingSolidityBasic/blob/main/lec36.sol
 call :로우레벨 함수 
 1. 송금하기
 2. 외부 스마트 컨트랙 함수 부르기 
