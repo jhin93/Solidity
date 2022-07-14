@@ -273,6 +273,12 @@ overflow, underflow
 https://gjwjdgnsrnlg.tistory.com/201  
 
 Call method  
+1. 송금하기
+2. 외부 스마트 컨트랙트 함수 호출가능
+3. 가변적인 gas 소비(send, transfer는 2300 gas 소모)
+4. 이스탄불 하드포크, 2019년 12월 이후 gas 가격 상승 -> call 사용권장
+5. re-entrancy(재진입) 공격 가능성 -> Checks_Effects_interactions_pattern 
+
 https://www.youtube.com/watch?v=ax5lHvxL9dE  
 https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-solidity  
 https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/  
