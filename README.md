@@ -275,6 +275,7 @@ https://gjwjdgnsrnlg.tistory.com/201
  ** Call method  
 
 https://www.youtube.com/watch?v=ax5lHvxL9dE  
+https://solidity-by-example.org/call/  
 https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-solidity  
 https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/  
 https://medium.com/coinmonks/solidity-transfer-vs-send-vs-call-function-64c92cfc878a  
