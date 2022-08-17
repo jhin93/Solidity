@@ -301,7 +301,10 @@ library Set {
 contract C {
     using Set for Set.Data; // this is the crucial change
     Set.Data knownValues;
-
+    // Here, all variables of type Set.Data have
+    // corresponding member functions.
+    // The following function call is identical to
+    // `Set.insert(knownValues, value)`
     function register(uint value) public {
         require(knownValues.insert(value));
     }
