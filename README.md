@@ -217,9 +217,96 @@ https://solidity-kr.readthedocs.io/ko/latest/common-patterns.html
 라이브러리(library)  
 https://www.youtube.com/watch?v=CkQDssQ7EJM  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries  
+```java
+pragma solidity >=0.4.22 <0.6.0;
+
+library Set {
+  struct Data { mapping(uint => bool) flags; }
+  function insert(Data storage self, uint value)
+      public
+      returns (bool)
+  {
+      if (self.flags[value])
+          return false; // already there
+      self.flags[value] = true;
+      return true;
+  }
+
+  function remove(Data storage self, uint value)
+      public
+      returns (bool)
+  {
+      if (!self.flags[value])
+          return false; // not there
+      self.flags[value] = false;
+      return true;
+  }
+
+  function contains(Data storage self, uint value)
+      public
+      view
+      returns (bool)
+  {
+      return self.flags[value];
+  }
+}
+
+contract C {
+    Set.Data knownValues;
+
+    function register(uint value) public {
+        require(Set.insert(knownValues, value));
+    }
+}
+```
 
 Using For  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#using-for  
+```java
+pragma solidity >=0.4.16 <0.6.0;
+
+// This is the same code as before, just without comments
+library Set {
+  struct Data { mapping(uint => bool) flags; }
+
+  function insert(Data storage self, uint value)
+      public
+      returns (bool)
+  {
+      if (self.flags[value])
+        return false; // already there
+      self.flags[value] = true;
+      return true;
+  }
+
+  function remove(Data storage self, uint value)
+      public
+      returns (bool)
+  {
+      if (!self.flags[value])
+          return false; // not there
+      self.flags[value] = false;
+      return true;
+  }
+
+  function contains(Data storage self, uint value)
+      public
+      view
+      returns (bool)
+  {
+      return self.flags[value];
+  }
+}
+
+contract C {
+    using Set for Set.Data; // this is the crucial change
+    Set.Data knownValues;
+
+    function register(uint value) public {
+        require(knownValues.insert(value));
+    }
+}
+```
 
 assert : 조건이 충족되지 않으면 예외를 발생시킵니다 - 내부 에러에 사용됩니다.  
 require : 조건이 충족되지 않으면 예외를 발생시킵니다 - 입력 또는 외부 요소의 에러에 사용됩니다.  
