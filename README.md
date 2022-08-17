@@ -195,7 +195,6 @@ https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract
 인터페이스  
 https://www.youtube.com/watch?v=7H9eb_6QRAk
 https://cryptozombies.io/ko/lesson/2/chapter/10  
-https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/  
 
 오버라이딩  
 https://docs.soliditylang.org/en/v0.6.0/contracts.html#function-overriding  
