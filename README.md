@@ -194,6 +194,7 @@ https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract
 
 인터페이스  
 https://www.youtube.com/watch?v=7H9eb_6QRAk  
+*인터페이스를 사용하는 상황에서, 인터페이스 내 함수를 사용(정의)할때는 override 키워드를 명시해야 한다.
 https://cryptozombies.io/ko/lesson/2/chapter/10  
 
 오버라이딩  
