@@ -193,7 +193,7 @@ https://goodgid.github.io/Ethereum-Basic-Solidity-(8)/
 https://medium.com/upstate-interactive/solidity-how-to-know-when-to-use-abstract-contracts-vs-interfaces-874cab860c56  
 
 인터페이스  
-https://www.youtube.com/watch?v=7H9eb_6QRAk
+https://www.youtube.com/watch?v=7H9eb_6QRAk  
 https://cryptozombies.io/ko/lesson/2/chapter/10  
 
 오버라이딩  
