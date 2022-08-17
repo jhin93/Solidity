@@ -215,7 +215,7 @@ https://steemit.com/kr-dev/@modolee/the-go-programming-language-3-3-1
 https://solidity-kr.readthedocs.io/ko/latest/common-patterns.html  
 
 라이브러리(library)  
-https://cryptozombies.io/ko/lesson/5/chapter/9  
+https://www.youtube.com/watch?v=CkQDssQ7EJM  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries  
 
 assert : 조건이 충족되지 않으면 예외를 발생시킵니다 - 내부 에러에 사용됩니다.  
