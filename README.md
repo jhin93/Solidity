@@ -17,7 +17,6 @@ https://www.youtube.com/watch?v=CgXQC4dbGUE&t=783s
 https://solidity-kr.readthedocs.io/ko/latest/index.html  
 
 
-
 [Warm-up reference]  
 
 블록체인이란(원리, 활용, 전망)  
