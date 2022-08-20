@@ -2,7 +2,6 @@
 
 [ Solidity 학습 순서 ]  
 
-
 1.  크립토좀비  
 https://cryptozombies.io/ko/course  
 
