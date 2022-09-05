@@ -309,7 +309,6 @@ contract C {
     }
 }
 ```
-
 assert : 조건이 충족되지 않으면 예외를 발생시킵니다 - 내부 에러에 사용됩니다.  
 require : 조건이 충족되지 않으면 예외를 발생시킵니다 - 입력 또는 외부 요소의 에러에 사용됩니다.  
 https://solidity-kr.readthedocs.io/ko/latest/units-and-global-variables.html?highlight=assert#index-3. 
