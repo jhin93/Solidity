@@ -298,7 +298,7 @@ library Set {
 
 contract C {
     using Set for Set.Data; // this is the crucial change
-    // Set을 Set.Data라는 타입을 가진 변수가 사용할 수 있도록 해준다. 그래서 Set.Data 타입의 변수가 라이브러리 Set 안에 있는 insert 함수를 사용할 수 있다.
+    // Set을 Set.Data라는 타입을 가진 변수(Set.Data knownValues;)가 사용할 수 있도록 해준다. 그래서 Set.Data 타입의 변수가 라이브러리 Set 안에 있는 insert 함수를 사용할 수 있다.
     Set.Data knownValues;
     // Here, all variables of type Set.Data have
     // corresponding member functions.
