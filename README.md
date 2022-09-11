@@ -104,6 +104,9 @@ https://docs.soliditylang.org/en/v0.5.3/types.html
 
 - 개념
 
+modifier  
+https://intrepidgeeks.com/tutorial/understanding-the-basics-of-entities-2  
+
 pragma란?  
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F  
 
