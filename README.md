@@ -218,6 +218,10 @@ https://solidity-kr.readthedocs.io/ko/latest/common-patterns.html
 라이브러리(library)  
 https://www.youtube.com/watch?v=CkQDssQ7EJM  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries  
+
+super. 
+https://solidity-kr.readthedocs.io/ko/latest/miscellaneous.html#index-4  
+
 ```java
 pragma solidity >=0.4.22 <0.6.0;
 
