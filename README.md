@@ -219,7 +219,7 @@ https://solidity-kr.readthedocs.io/ko/latest/common-patterns.html
 https://www.youtube.com/watch?v=CkQDssQ7EJM  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries  
 
-super. 
+super.  
 https://solidity-kr.readthedocs.io/ko/latest/miscellaneous.html#index-4  
 
 ```java
