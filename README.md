@@ -382,3 +382,5 @@ https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-so
 https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/  
 https://medium.com/coinmonks/solidity-transfer-vs-send-vs-call-function-64c92cfc878a  
 
+
+
