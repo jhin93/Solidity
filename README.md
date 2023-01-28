@@ -200,8 +200,10 @@ https://cryptozombies.io/ko/lesson/2/chapter/10
 
 오버라이딩  
 https://docs.soliditylang.org/en/v0.6.0/contracts.html#function-overriding  
+* 함수 overriding 시, 다중 상속(혹은 연속 상속)이 일어난 경우 overriding 하려는 함수의 contract를 명시해줘야 한다.
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9  
 https://medium.com/upstate-interactive/solidity-override-vs-virtual-functions-c0a5dfb83aaf  
+
 
 오버로딩  
 http://wiki.hash.kr/index.php/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9  
