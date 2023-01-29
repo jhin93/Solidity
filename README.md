@@ -395,6 +395,7 @@ DAO에서는 어떤 제안이 들어올지를 미리 알고 해당 제안에 덤
 http://wiki.hash.kr/index.php/%EC%8A%A4%EB%83%85%EC%83%B7  
 
 openzeppelin docs - Contract Wizard  
+erc20, erc721, erc1155 등 프로토콜에 원하는 기능(mint, burn...)등을 UI로 넣어서 스마트 컨트랙트를 짤 수 있게 해준다.
 https://docs.openzeppelin.com/contracts/4.x/wizard  
 
 
