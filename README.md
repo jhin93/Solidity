@@ -394,6 +394,7 @@ DAO에서는 어떤 제안이 들어올지를 미리 알고 해당 제안에 덤
 스냅샷 일정이 14일이고 에어드랍이 20일이라고 가정한다면 14일 기준으로 A코인을 가지고 있어야 B코인을 20일에 무료로 받을 수 있게 된다. 이때 스냅샷 날짜인 14일부터 해당 코인의 거래는 중단되고 에어드랍 실시일 20일이 되서야 기존 코인과 추가 코인이 시장에서 활성화된다.
 http://wiki.hash.kr/index.php/%EC%8A%A4%EB%83%85%EC%83%B7  
 
-
+openzeppelin docs - Contract Wizard  
+https://docs.openzeppelin.com/contracts/4.x/wizard  
 
 
