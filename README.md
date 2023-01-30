@@ -399,3 +399,9 @@ erc20, erc721, erc1155 등 프로토콜에 원하는 기능(mint, burn...)등을
 https://docs.openzeppelin.com/contracts/4.x/wizard  
 
 
+Hardhat  
+Hardhat comes built-in with Hardhat Network, a local Ethereum network node designed for development.  
+It allows you to deploy your contracts, run your tests and debug your code, all within the confines of your local machine.  
+요약 : 하드햇은 자체 로컬 네트워크를 내장한 라이브러리라서 바로바로 마이닝되고 배포된다. 노드 1개짜리 네트워크라고 보면 될듯
+https://hardhat.org/hardhat-network/docs/overview  
+
