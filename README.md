@@ -105,7 +105,8 @@ https://docs.soliditylang.org/en/v0.5.3/types.html
 - 개념
 
 modifier  
-https://intrepidgeeks.com/tutorial/understanding-the-basics-of-entities-2  
+https://intrepidgeeks.com/tutorial/understanding-the-basics-of-entities-2 
+https://codemath.github.io/Solidity-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80-%EA%B8%B0%EB%B0%98-Dapp-%EA%B0%9C%EB%B0%9C%EA%B8%B0(2)-Solidity-%EC%96%B8%EC%96%B4-%EC%A0%95%EB%A6%AC/  
 
 pragma란?  
 https://m.blog.naver.com/PostView.nhn?blogId=wnsdnjsjay&logNo=150178059882&proxyReferer=https:%2F%2Fwww.google.com%2F  
