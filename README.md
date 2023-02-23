@@ -407,8 +407,8 @@ It allows you to deploy your contracts, run your tests and debug your code, all 
 요약 : 하드햇은 자체 로컬 네트워크를 내장한 라이브러리라서 바로바로 마이닝되고 배포된다. 노드 1개짜리 네트워크라고 보면 될듯
 https://hardhat.org/hardhat-network/docs/overview  
 
-
-
+UTXO 개념  
+https://steemit.com/kr/@brownbears/utxo  
 
 
 
