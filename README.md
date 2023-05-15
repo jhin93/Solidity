@@ -410,8 +410,8 @@ https://hardhat.org/hardhat-network/docs/overview
 UTXO 개념  
 https://steemit.com/kr/@brownbears/utxo  
 
-
-
+상속 키워드 'is'  
+https://merrily-code.tistory.com/103  
 
 
 
