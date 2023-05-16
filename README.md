@@ -272,7 +272,8 @@ contract C {
 
 Using For  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#using-for  
-```
+```java
+// example 1
 library Math {
     function add(uint a, uint b) internal pure returns (uint) {
         return a + b;
@@ -295,6 +296,7 @@ function addTwoNumbers(uint a, uint b) public view returns (uint) {
 ```java
 pragma solidity >=0.4.16 <0.6.0;
 
+// example 2
 // This is the same code as before, just without comments
 library Set {
   struct Data { mapping(uint => bool) flags; }
