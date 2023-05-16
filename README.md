@@ -272,6 +272,26 @@ contract C {
 
 Using For  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#using-for  
+```
+library Math {
+    function add(uint a, uint b) internal pure returns (uint) {
+        return a + b;
+    }
+}
+
+struct Number {
+    uint value;
+}
+
+using Math for Number;
+
+function addTwoNumbers(uint a, uint b) public view returns (uint) {
+    Number memory num = Number(a);
+    return num.add(b);  // Math 라이브러리의 add 함수를 호출
+}
+
+```
+
 ```java
 pragma solidity >=0.4.16 <0.6.0;
 
