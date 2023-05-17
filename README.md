@@ -204,6 +204,15 @@ contract Derived is Base {
         return a + 10;
     }
 }
+
+<!-- 잘못된 예시(b라는 다른 매개변수 이름을 사용하고, 반환값 타입을 number로 변경했습니다. 이는 올바른 오버라이딩이 아니기 때문에 컴파일러가 오류를 발생시킵니다) -->
+contract Derived is Base {
+    function foo(uint b) public override returns (number) {
+        // 상위 클래스의 함수를 재정의
+        // 추가적인 동작 수행
+        return b + 10;
+    }
+}
 ```
 
 
