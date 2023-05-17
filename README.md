@@ -155,6 +155,34 @@ https://m.blog.naver.com/PostView.nhn?blogId=blokorea&logNo=221311000461&proxyRe
 구조체 배열 사용예시  
 https://hatpub.tistory.com/56  
 
+virtual  
+
+Solidity에서 'virtual' 키워드는 상속 관계에 있는 컨트랙트 간에 함수를 오버라이딩(재정의)하는 목적으로 사용됩니다. 'virtual' 키워드를 사용하여 함수를 선언하면 해당 함수는 파생 클래스에서 재정의될 수 있습니다.
+'virtual' 키워드를 사용하여 선언된 함수는 기본 구현을 가지며, 파생 클래스에서 필요에 따라 해당 함수를 재정의할 수 있습니다. 이는 Solidity에서의 다형성과 유연성을 제공합니다.
+다음은 'virtual' 키워드를 사용하여 함수를 선언하는 예시입니다:
+```
+contract Base {
+    function foo() public virtual returns (uint) {
+        // 기본 구현
+        return 42;
+    }
+}
+
+contract Derived is Base {
+    function foo() public virtual override returns (uint) {
+        // 기본 구현을 재정의
+        return 10;
+    }
+}
+```
+위의 예시에서 Base 컨트랙트의 foo 함수는 virtual로 선언되었습니다. Derived 컨트랙트는 Base 컨트랙트를 상속받고, foo 함수를 override 키워드를 사용하여 재정의하였습니다.
+이제 Derived 컨트랙트의 인스턴스에서 foo 함수를 호출하면 Derived 컨트랙트에서 재정의된 구현이 실행됩니다.
+```
+Derived instance = new Derived();
+uint result = instance.foo();  // 10을 반환
+```
+이와 같이 'virtual' 키워드를 사용하여 선언된 함수는 상속 관계에서 오버라이딩될 수 있으며, 파생 클래스에서 해당 함수의 동작을 재정의할 수 있습니다. 이는 Solidity에서 다형성과 상속을 활용하여 유연하고 모듈화된 스마트 컨트랙트를 구현하는 데 도움을 줍니다.
+
 생성자(constructor)  
 https://caileb.tistory.com/137  
 https://docs.soliditylang.org/en/v0.7.5/contracts.html?highlight=constructor#constructors  
