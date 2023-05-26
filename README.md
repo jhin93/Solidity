@@ -287,49 +287,50 @@ https://solidity-kr.readthedocs.io/ko/latest/contracts.html#libraries
 
 super.  
 https://solidity-kr.readthedocs.io/ko/latest/miscellaneous.html#index-4  
-
+super 키워드는 주로 두 가지 상황에서 사용됩니다  
+1. 함수 오버라이딩 (Function Overriding):
+만약 자식 컨트랙트가 부모 컨트랙트로부터 함수를 상속받아 동일한 이름의 함수를 정의하고자 할 때, super를 사용하여 부모 컨트랙트의 함수를 호출할 수 있습니다. 이는 자식 컨트랙트에서 부모 컨트랙트의 동작을 유지하면서 추가적인 동작을 수행하고자 할 때 유용합니다. 예를 들어
 ```java
-pragma solidity >=0.4.22 <0.6.0;
-
-library Set {
-  struct Data { mapping(uint => bool) flags; }
-  function insert(Data storage self, uint value)
-      public
-      returns (bool)
-  {
-      if (self.flags[value])
-          return false; // already there
-      self.flags[value] = true;
-      return true;
-  }
-
-  function remove(Data storage self, uint value)
-      public
-      returns (bool)
-  {
-      if (!self.flags[value])
-          return false; // not there
-      self.flags[value] = false;
-      return true;
-  }
-
-  function contains(Data storage self, uint value)
-      public
-      view
-      returns (bool)
-  {
-      return self.flags[value];
-  }
+contract Parent {
+    function foo() public virtual {
+        // 부모 컨트랙트의 동작
+    }
 }
 
-contract C {
-    Set.Data knownValues;
-
-    function register(uint value) public {
-        require(Set.insert(knownValues, value));
+contract Child is Parent {
+    function foo() public override {
+        // 부모 컨트랙트의 동작 유지하고 추가적인 동작 수행
+        super.foo();
+        // 추가 동작
     }
 }
 ```
+자식 컨트랙트에서 super.foo()를 호출함으로써 부모 컨트랙트의 foo() 함수를 실행할 수 있습니다.  
+2. 변수 및 modifier 접근  
+super를 사용하여 부모 컨트랙트의 변수와 modifier에 접근할 수 있습니다. 자식 컨트랙트에서 super를 사용하여 부모 컨트랙트의 변수 값을 가져올 수 있으며, modifier를 상속받은 경우 super를 사용하여 부모 modifier를 실행할 수 있습니다.  
+```java
+contract Parent {
+    uint public x;
+    modifier onlyOwner {
+        require(msg.sender == owner);
+        _;
+    }
+}
+
+contract Child is Parent {
+    function setX(uint _x) public onlyOwner {
+        // 부모 컨트랙트의 변수에 접근
+        super.x = _x
+        // 부모 컨트랙트의 modifier 실행
+        super.onlyOwner();
+        // 추가 동작
+    }
+}
+
+```
+자식 컨트랙트에서 super.x를 통해 부모 컨트랙트의 변수에 접근하거나, super.onlyOwner()를 호출하여 부모 컨트랙트의 modifier를 실행할 수 있습니다.
+
+
 
 Using For  
 https://solidity-kr.readthedocs.io/ko/latest/contracts.html#using-for  
