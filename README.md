@@ -510,8 +510,11 @@ ERC-20 토큰 주소
 ChatGPT에게 한 질문 : safeTransferERC20 함수의 인자 address _currency 가 뭐야?  
 ```
 safeTransferERC20 함수의 인자 address _currency는 토큰의 주소를 나타냅니다. 이 주소는 ERC-20 토큰 컨트랙트의 주소를 가리킵니다.  
+
 ERC-20은 Ethereum 기반의 토큰 표준으로, 다양한 토큰들이 이 표준을 따라 개발되고 배포됩니다. 각각의 ERC-20 토큰은 고유한 주소를 갖고 있으며, 이 주소는 토큰 컨트랙트를 식별합니다.  
+
 safeTransferERC20 함수에서 _currency 인자는 전달받은 토큰의 주소를 의미합니다. 이 주소는 _from 주소에서 _to 주소로 해당 토큰을 전송할 때 사용됩니다. _currency 주소에 해당하는 토큰 컨트랙트의 함수를 호출하여 토큰을 전송하게 됩니다.  
+
 따라서 address _currency는 safeTransferERC20 함수의 매개변수로 전달된 ERC-20 토큰의 주소를 나타내며, 해당 주소의 토큰을 전송하는 데 사용됩니다.  
 ```
 
