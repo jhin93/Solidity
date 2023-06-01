@@ -533,9 +533,10 @@ ERC-20 토큰의 고유한 주소 예시를 2개
 ```
 
 
+solidity import error(@openzeppelin 빨간 줄)  
+https://github.com/juanfranblanco/vscode-solidity/issues/70  
 
-
-
+settings.json  -> "solidity.packageDefaultDependenciesDirectory": "node_modules" 입력
 
 
 
